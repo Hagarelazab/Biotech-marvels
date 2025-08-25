@@ -13,10 +13,13 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet"/>
 
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
     :root { color-scheme: dark light; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    body { font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif; }
   </style>
 </head>
 <body class="bg-white text-black min-h-screen flex flex-col">
@@ -34,53 +37,54 @@
     </div>
   </header>
 
-  <!-- Hero + Free Course -->
+  <!-- Hero with image -->
   <main class="bg-black text-pink-500">
-    <div class="container mx-auto px-6 py-16 sm:py-20">
-      <div class="text-center max-w-3xl mx-auto">
-        <p class="text-pink-200/90 text-sm sm:text-base mb-2">Biotechnology and Bioinformatics</p>
-        <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight">
-          Empowering Your Future in Biotechnology &amp; Bioinformatics
-        </h2>
-        <p class="text-pink-100/90 text-lg sm:text-xl mt-4">
-          Explore cutting-edge courses designed to advance your knowledge in
-          bioinformatics, cancer research, and drug discovery.
-        </p>
-        <a href="#courses"
-           class="inline-block mt-6 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-lg hover:brightness-110 transition">
-          View Courses
-        </a>
+    <div class="container mx-auto px-6 py-16 sm:py-20 grid md:grid-cols-2 gap-10 items-center">
+
+      <!-- Left: Text + Free Course card -->
+      <div>
+        <div class="text-center md:text-left max-w-3xl mx-auto md:mx-0">
+          <p class="text-pink-200/90 text-sm sm:text-base mb-2">Biotechnology and Bioinformatics</p>
+          <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight">
+            Empowering Your Future in Biotechnology &amp; Bioinformatics
+          </h2>
+          <p class="text-pink-100/90 text-lg sm:text-xl mt-4">
+            Explore cutting-edge courses designed to advance your knowledge in
+            bioinformatics, cancer research, and drug discovery.
+          </p>
+          <a href="#courses"
+             class="inline-block mt-6 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-lg hover:brightness-110 transition">
+            View Courses
+          </a>
+        </div>
+
+        <!-- Free course card -->
+        <section class="mt-8 rounded-2xl border border-pink-500/40 bg-zinc-900/60 shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center md:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-pink-500/40 text-[11px] sm:text-xs font-bold tracking-wide mb-4">
+            <span>🎓</span><span>FREE COURSE</span>
+          </div>
+
+          <h3 id="free-course-title" class="text-2xl sm:text-3xl font-extrabold">Limited seats — 25 students only</h3>
+
+          <div class="mt-4 flex items-center justify-center md:justify-start gap-3 flex-wrap">
+            <span class="text-sm text-pink-200/90">⏳ Registration closes in</span>
+            <div id="countdown" class="font-mono text-white text-lg sm:text-xl px-3 py-1.5 rounded-md border border-pink-500/40">00d : 00h : 00m : 00s</div>
+          </div>
+
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header"
+             target="_blank" rel="noopener"
+             class="inline-block mt-6 sm:mt-7 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-xl hover:brightness-110 transition">
+            Click here to fill the form
+          </a>
+        </section>
       </div>
 
-      <!-- Free course card -->
-      <section
-        class="mt-10 max-w-2xl mx-auto rounded-2xl border border-pink-500/40 bg-zinc-900/60 shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center"
-        aria-labelledby="free-course-title"
-      >
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-pink-500/40 text-[11px] sm:text-xs font-bold tracking-wide mb-4">
-          <span>🎓</span><span>FREE COURSE</span>
-        </div>
-
-        <h3 id="free-course-title" class="text-2xl sm:text-3xl font-extrabold">
-          Limited seats — 25 students only
-        </h3>
-
-        <div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
-          <span class="text-sm text-pink-200/90">⏳ Registration closes in</span>
-          <div id="countdown"
-               class="font-mono text-white text-lg sm:text-xl px-3 py-1.5 rounded-md border border-pink-500/40">
-            00d : 00h : 00m : 00s
-          </div>
-        </div>
-
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header"
-          target="_blank" rel="noopener"
-          class="inline-block mt-6 sm:mt-7 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-xl hover:brightness-110 transition"
-        >
-          Click here to fill the form
-        </a>
-      </section>
+      <!-- Right: Hero Image -->
+      <div class="order-first md:order-none">
+        <img src="hero.jpg" alt="Biotech Marvels group"
+             class="w-full h-auto rounded-2xl shadow-lg object-cover"
+             loading="eager" decoding="async" />
+      </div>
     </div>
   </main>
 
@@ -148,29 +152,17 @@
     <div class="container mx-auto text-center">
       <h3 class="text-2xl sm:text-3xl font-extrabold text-pink-500 mb-6">Connect With Us</h3>
       <div class="flex items-center justify-center gap-6 flex-wrap">
-        <!-- TikTok -->
-        <a href="https://www.tiktok.com/@biotechmarvels?_t=ZS-8zBDKBQSCrh&_r=1"
-           target="_blank" rel="noopener"
-           class="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current"><path d="M448,209.9c-19.2..."/></svg>
+        <a href="https://www.tiktok.com/@biotechmarvels?_t=ZS-8zBDKBQSCrh&_r=1" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition">
+          <i class="fab fa-tiktok"></i>
         </a>
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/share/17DRNdrVzr/?mibextid=wwXIfr"
-           target="_blank" rel="noopener"
-           class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:scale-110 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-5 h-5 fill-current"><path d="M279.14..."/></svg>
+        <a href="https://www.facebook.com/share/17DRNdrVzr/?mibextid=wwXIfr" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:scale-110 transition">
+          <i class="fab fa-facebook-f"></i>
         </a>
-        <!-- WhatsApp -->
-        <a href="https://chat.whatsapp.com/IErTxH5U2tgDXdeFKWtN2t?mode=ems_copy_t"
-           target="_blank" rel="noopener"
-           class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500 text-white hover:scale-110 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current"><path d="M380.9..."/></svg>
+        <a href="https://chat.whatsapp.com/IErTxH5U2tgDXdeFKWtN2t?mode=ems_copy_t" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500 text-white hover:scale-110 transition">
+          <i class="fab fa-whatsapp"></i>
         </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/biotechmarvels?igsh=MW15a3k2Zzd0bGJrNg=="
-           target="_blank" rel="noopener"
-           class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:scale-110 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current"><path d="M224.1..."/></svg>
+        <a href="https://www.instagram.com/biotechmarvels?igsh=MW15a3k2Zzd0bGJrNg==" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:scale-110 transition">
+          <i class="fab fa-instagram"></i>
         </a>
       </div>
     </div>
