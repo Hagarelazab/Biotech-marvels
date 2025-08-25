@@ -7,7 +7,7 @@
   <meta name="keywords" content="Biotechnology, Bioinformatics, Education, Courses" />
   <title>Biotech & Bioinformatics Education • Biotech Marvels</title>
 
-  <!-- Tailwind (CDN) -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Fonts -->
@@ -29,11 +29,12 @@
         <a href="#courses" class="hover:underline">Courses</a>
         <a href="#about" class="hover:underline">About</a>
         <a href="#contact" class="hover:underline">Contact</a>
+        <a href="#socials" class="hover:underline">Socials</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero + Free Course (centered) -->
+  <!-- Hero + Free Course -->
   <main class="bg-black text-pink-500">
     <div class="container mx-auto px-6 py-16 sm:py-20">
       <div class="text-center max-w-3xl mx-auto">
@@ -64,7 +65,6 @@
           Limited seats — 25 students only
         </h3>
 
-        <!-- countdown -->
         <div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
           <span class="text-sm text-pink-200/90">⏳ Registration closes in</span>
           <div id="countdown"
@@ -88,35 +88,20 @@
   <section id="courses" class="container mx-auto px-6 py-16">
     <h3 class="text-3xl font-extrabold text-pink-500 mb-10 text-center">Our Courses</h3>
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Course 1 -->
       <article class="border border-pink-500/50 rounded-xl p-6 hover:shadow-lg transition bg-white">
         <h4 class="text-2xl font-bold mb-3">Bioinformatics 101</h4>
-        <p class="text-gray-800 mb-4">
-          Introduction to bioinformatics concepts, tools, and databases to analyze biological data.
-        </p>
-        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">
-          Learn More
-        </button>
+        <p class="text-gray-800 mb-4">Introduction to bioinformatics concepts, tools, and databases.</p>
+        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">Learn More</button>
       </article>
-      <!-- Course 2 -->
       <article class="border border-pink-500/50 rounded-xl p-6 hover:shadow-lg transition bg-white">
         <h4 class="text-2xl font-bold mb-3">Breast Cancer</h4>
-        <p class="text-gray-800 mb-4">
-          Study the biology, diagnosis, and treatment strategies of breast cancer with latest research insights.
-        </p>
-        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">
-          Learn More
-        </button>
+        <p class="text-gray-800 mb-4">Biology, diagnosis, and treatment strategies with latest research.</p>
+        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">Learn More</button>
       </article>
-      <!-- Course 3 -->
       <article class="border border-pink-500/50 rounded-xl p-6 hover:shadow-lg transition bg-white">
         <h4 class="text-2xl font-bold mb-3">Drug Discovery</h4>
-        <p class="text-gray-800 mb-4">
-          Explore the drug discovery pipeline, from target identification to clinical trials.
-        </p>
-        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">
-          Learn More
-        </button>
+        <p class="text-gray-800 mb-4">Explore the pipeline from target identification to clinical trials.</p>
+        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">Learn More</button>
       </article>
     </div>
   </section>
@@ -127,8 +112,7 @@
       <h3 class="text-3xl font-extrabold text-pink-500 mb-6">About Us</h3>
       <p class="text-black text-lg leading-relaxed">
         Biotech Marvels is dedicated to providing high-quality education in biotechnology and bioinformatics.
-        Our courses are designed by experts to help you gain practical knowledge and skills to excel in this
-        rapidly evolving field.
+        Our courses are designed by experts to help you gain practical knowledge and skills to excel in this field.
       </p>
     </div>
   </section>
@@ -159,34 +143,57 @@
     </form>
   </section>
 
+  <!-- Social Media -->
+  <section id="socials" class="bg-pink-50 py-12 px-6">
+    <div class="container mx-auto text-center">
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-pink-500 mb-6">Connect With Us</h3>
+      <div class="flex items-center justify-center gap-6 flex-wrap">
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@biotechmarvels?_t=ZS-8zBDKBQSCrh&_r=1"
+           target="_blank" rel="noopener"
+           class="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current"><path d="M448,209.9c-19.2..."/></svg>
+        </a>
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/share/17DRNdrVzr/?mibextid=wwXIfr"
+           target="_blank" rel="noopener"
+           class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:scale-110 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-5 h-5 fill-current"><path d="M279.14..."/></svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://chat.whatsapp.com/IErTxH5U2tgDXdeFKWtN2t?mode=ems_copy_t"
+           target="_blank" rel="noopener"
+           class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500 text-white hover:scale-110 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current"><path d="M380.9..."/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/biotechmarvels?igsh=MW15a3k2Zzd0bGJrNg=="
+           target="_blank" rel="noopener"
+           class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:scale-110 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current"><path d="M224.1..."/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-black text-pink-500 text-center py-6">
     <p class="text-sm">&copy; 2024 Biotech Marvels. All rights reserved.</p>
   </footer>
 
-  <!-- Countdown Timer -->
+  <!-- Countdown Script -->
   <script>
-    // Set your enrollment deadline (YYYY-MM-DDTHH:MM:SS)
     const countDownDate = new Date("2025-09-01T00:00:00").getTime();
     const el = document.getElementById("countdown");
-
     function pad(n){ return String(n).padStart(2,'0'); }
-
     const timer = setInterval(function () {
       const now = Date.now();
       const distance = countDownDate - now;
-
-      if (distance <= 0) {
-        clearInterval(timer);
-        el.textContent = "⏰ Registration Closed!";
-        return;
-      }
-
+      if (distance <= 0) { clearInterval(timer); el.textContent = "⏰ Registration Closed!"; return; }
       const d = Math.floor(distance / (1000 * 60 * 60 * 24));
       const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const s = Math.floor((distance % (1000 * 60)) / 1000);
-
       el.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
     }, 1000);
   </script>
