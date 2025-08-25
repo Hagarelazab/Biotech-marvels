@@ -118,3 +118,38 @@
   </footer>
 </body>
 </html>
+<!-- Free Course Section -->
+<section class="bg-black py-12 px-6 text-center">
+  <h3 class="text-2xl sm:text-3xl font-bold text-pink-500 mb-4">
+    🎓 Free course – limited seats (25 students only)
+  </h3>
+  <p id="countdown" class="text-lg text-white font-semibold mb-6"></p>
+  
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header" target="_blank">
+    <button class="bg-pink-500 text-black font-bold px-6 py-3 rounded hover:bg-pink-600 transition">
+      Click here to fill the form
+    </button>
+  </a>
+</section>
+
+<!-- Countdown Timer Script -->
+<script>
+  // Set the date & time for registration closing (Sept 1, 2025, midnight)
+  const countDownDate = new Date("2025-09-01T00:00:00").getTime();
+
+  // Update the countdown every second
+  const timer = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = countDownDate - now;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").innerHTML = "⏰ Registration Closed!";
+    } else {
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `⏳ Registration closes in ${days}d ${hours}h ${minutes}m
