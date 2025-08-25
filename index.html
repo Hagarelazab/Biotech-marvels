@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,16 +7,10 @@
   <meta name="keywords" content="Biotechnology, Bioinformatics, Education, Courses" />
   <title>Biotech & Bioinformatics Education</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <style> body{font-family:'Roboto',sans-serif;} </style>
 </head>
+
 <body class="bg-white text-black min-h-screen flex flex-col">
   <!-- Header -->
   <header class="bg-pink-500 text-white p-6 shadow-md">
@@ -31,7 +26,10 @@
 
   <!-- Hero Section -->
   <main class="flex-grow bg-black text-pink-500 flex flex-col items-center justify-center px-6 py-20 text-center">
-    <img src="WhatsApp%20Image%202025-08-21%20at%2010.57.42%20AM.jpeg" alt="Biotechnology and Bioinformatics" class="mb-6 w-1/2 rounded-lg shadow-lg" />
+    <!-- بدّل هذا المسار لصورة موجودة فعلاً في الريبو (مثلاً img/hero.jpg) -->
+    <img src="WhatsApp%20Image%202025-08-21%20at%2010.57.42%20AM.jpeg"
+         alt="Biotechnology and Bioinformatics"
+         class="mb-6 w-1/2 rounded-lg shadow-lg" />
     <h2 class="text-4xl sm:text-5xl font-bold mb-4 max-w-3xl">
       Empowering Your Future in Biotechnology & Bioinformatics
     </h2>
@@ -43,39 +41,40 @@
     </a>
   </main>
 
+  <!-- ✅ Free Course Section (داخل الـ <body>) -->
+  <section class="bg-black py-12 px-6 text-center">
+    <h3 class="text-2xl sm:text-3xl font-bold text-pink-500 mb-4">
+      🎓 Free course – limited seats (25 students only)
+    </h3>
+
+    <p id="countdown" class="text-lg text-white font-semibold mb-6">Loading…</p>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header"
+       target="_blank" rel="noopener">
+      <button class="bg-pink-500 text-black font-bold px-6 py-3 rounded hover:bg-pink-600 transition">
+        Click here to fill the form
+      </button>
+    </a>
+  </section>
+
   <!-- Courses Section -->
   <section id="courses" class="container mx-auto px-6 py-16">
     <h3 class="text-3xl font-extrabold text-pink-500 mb-10 text-center">Our Courses</h3>
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Course 1 -->
       <div class="border border-pink-500 rounded-lg p-6 hover:shadow-lg transition">
         <h4 class="text-2xl font-bold mb-3">Bioinformatics 101</h4>
-        <p class="text-gray-800 mb-4">
-          Introduction to bioinformatics concepts, tools, and databases to analyze biological data.
-        </p>
-        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">
-          Learn More
-        </button>
+        <p class="text-gray-800 mb-4">Introduction to bioinformatics concepts, tools, and databases to analyze biological data.</p>
+        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">Learn More</button>
       </div>
-      <!-- Course 2 -->
       <div class="border border-pink-500 rounded-lg p-6 hover:shadow-lg transition">
         <h4 class="text-2xl font-bold mb-3">Breast Cancer</h4>
-        <p class="text-gray-800 mb-4">
-          Study the biology, diagnosis, and treatment strategies of breast cancer with latest research insights.
-        </p>
-        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">
-          Learn More
-        </button>
+        <p class="text-gray-800 mb-4">Study the biology, diagnosis, and treatment strategies of breast cancer with latest research insights.</p>
+        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">Learn More</button>
       </div>
-      <!-- Course 3 -->
       <div class="border border-pink-500 rounded-lg p-6 hover:shadow-lg transition">
         <h4 class="text-2xl font-bold mb-3">Drug Discovery</h4>
-        <p class="text-gray-800 mb-4">
-          Explore the drug discovery pipeline, from target identification to clinical trials.
-        </p>
-        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">
-          Learn More
-        </button>
+        <p class="text-gray-800 mb-4">Explore the drug discovery pipeline, from target identification to clinical trials.</p>
+        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">Learn More</button>
       </div>
     </div>
   </section>
@@ -96,11 +95,11 @@
     <form class="max-w-lg mx-auto space-y-6">
       <div>
         <label for="name" class="block text-black font-semibold mb-2">Name</label>
-        <input type="text" id="name" name="name" required class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+        <input type="text" id="name" name="name" required class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"/>
       </div>
       <div>
         <label for="email" class="block text-black font-semibold mb-2">Email</label>
-        <input type="email" id="email" name="email" required class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+        <input type="email" id="email" name="email" required class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"/>
       </div>
       <div>
         <label for="message" class="block text-black font-semibold mb-2">Message</label>
@@ -116,40 +115,32 @@
   <footer class="bg-black text-pink-500 text-center py-6">
     <p class="text-sm">&copy; 2024 Biotech Marvels. All rights reserved.</p>
   </footer>
+
+  <!-- ✅ Countdown Timer Script (مُغلق ومكتمل) -->
+  <script>
+    // حدّد تاريخ إغلاق التسجيل
+    const countDownDate = new Date("2025-09-01T00:00:00").getTime();
+    const el = document.getElementById("countdown");
+
+    function pad(n){return String(n).padStart(2,'0');}
+
+    const timer = setInterval(function () {
+      const now = Date.now();
+      const distance = countDownDate - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        el.textContent = "⏰ Registration Closed!";
+        return;
+      }
+
+      const days    = Math.floor(distance / (1000*60*60*24));
+      const hours   = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+      el.textContent = `⏳ Registration closes in ${pad(days)}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
+    }, 1000);
+  </script>
 </body>
 </html>
-<!-- Free Course Section -->
-<section class="bg-black py-12 px-6 text-center">
-  <h3 class="text-2xl sm:text-3xl font-bold text-pink-500 mb-4">
-    🎓 Free course – limited seats (25 students only)
-  </h3>
-  <p id="countdown" class="text-lg text-white font-semibold mb-6"></p>
-  
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header" target="_blank">
-    <button class="bg-pink-500 text-black font-bold px-6 py-3 rounded hover:bg-pink-600 transition">
-      Click here to fill the form
-    </button>
-  </a>
-</section>
-
-<!-- Countdown Timer Script -->
-<script>
-  // Set the date & time for registration closing (Sept 1, 2025, midnight)
-  const countDownDate = new Date("2025-09-01T00:00:00").getTime();
-
-  // Update the countdown every second
-  const timer = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = countDownDate - now;
-
-    if (distance < 0) {
-      clearInterval(timer);
-      document.getElementById("countdown").innerHTML = "⏰ Registration Closed!";
-    } else {
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML =
-        `⏳ Registration closes in ${days}d ${hours}h ${minutes}m
