@@ -5,25 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Biotech Marvels offers cutting-edge courses in biotechnology and bioinformatics." />
   <meta name="keywords" content="Biotechnology, Bioinformatics, Education, Courses" />
-  <title>Biotech & Bioinformatics Education</title>
+  <title>Biotech & Bioinformatics Education • Biotech Marvels</title>
 
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet"/>
 
   <style>
-    body { font-family: 'Roboto', sans-serif; }
+    :root { color-scheme: dark light; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
   </style>
 </head>
 <body class="bg-white text-black min-h-screen flex flex-col">
 
   <!-- Header -->
-  <header class="bg-pink-500 text-white p-6 shadow-md">
-    <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
-      <h1 class="text-3xl font-extrabold tracking-wide">Biotech Marvels</h1>
-      <nav class="mt-4 sm:mt-0 space-x-6 text-lg font-semibold">
+  <header class="bg-pink-500 text-white">
+    <div class="container mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between">
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wide">Biotech Marvels</h1>
+      <nav class="mt-3 sm:mt-0 flex gap-6 text-base sm:text-lg font-semibold">
         <a href="#courses" class="hover:underline">Courses</a>
         <a href="#about" class="hover:underline">About</a>
         <a href="#contact" class="hover:underline">Contact</a>
@@ -32,32 +34,54 @@
   </header>
 
   <!-- Hero + Free Course (centered) -->
-  <main class="flex-grow bg-black text-pink-500 flex flex-col items-center justify-center px-6 py-20 text-center">
-    <h2 class="text-4xl sm:text-5xl font-bold mb-4 max-w-3xl">
-      Empowering Your Future in Biotechnology & Bioinformatics
-    </h2>
-    <p class="text-lg sm:text-xl max-w-2xl mb-10">
-      Explore cutting-edge courses designed to advance your knowledge in bioinformatics, cancer research, and drug discovery.
-    </p>
+  <main class="bg-black text-pink-500">
+    <div class="container mx-auto px-6 py-16 sm:py-20">
+      <div class="text-center max-w-3xl mx-auto">
+        <p class="text-pink-200/90 text-sm sm:text-base mb-2">Biotechnology and Bioinformatics</p>
+        <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight">
+          Empowering Your Future in Biotechnology &amp; Bioinformatics
+        </h2>
+        <p class="text-pink-100/90 text-lg sm:text-xl mt-4">
+          Explore cutting-edge courses designed to advance your knowledge in
+          bioinformatics, cancer research, and drug discovery.
+        </p>
+        <a href="#courses"
+           class="inline-block mt-6 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-lg hover:brightness-110 transition">
+          View Courses
+        </a>
+      </div>
 
-    <!-- Free Course block -->
-    <section aria-labelledby="free-course-title" class="w-full max-w-3xl bg-zinc-900/70 border border-pink-500 rounded-xl px-6 py-8">
-      <h3 id="free-course-title" class="text-2xl sm:text-3xl font-bold text-pink-500 mb-4">
-        🎓 Free course – limited seats (25 students only)
-      </h3>
-      <p id="countdown" class="text-lg text-white font-semibold mb-6">Loading…</p>
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header"
-        target="_blank" rel="noopener"
-        class="inline-block bg-pink-500 text-black font-bold px-6 py-3 rounded hover:bg-pink-600 transition"
+      <!-- Free course card -->
+      <section
+        class="mt-10 max-w-2xl mx-auto rounded-2xl border border-pink-500/40 bg-zinc-900/60 shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center"
+        aria-labelledby="free-course-title"
       >
-        Click here to fill the form
-      </a>
-    </section>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-pink-500/40 text-[11px] sm:text-xs font-bold tracking-wide mb-4">
+          <span>🎓</span><span>FREE COURSE</span>
+        </div>
 
-    <a href="#courses" class="mt-10 bg-pink-500 text-black font-bold px-8 py-3 rounded-md hover:bg-pink-600 transition">
-      View Courses
-    </a>
+        <h3 id="free-course-title" class="text-2xl sm:text-3xl font-extrabold">
+          Limited seats — 25 students only
+        </h3>
+
+        <!-- countdown -->
+        <div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
+          <span class="text-sm text-pink-200/90">⏳ Registration closes in</span>
+          <div id="countdown"
+               class="font-mono text-white text-lg sm:text-xl px-3 py-1.5 rounded-md border border-pink-500/40">
+            00d : 00h : 00m : 00s
+          </div>
+        </div>
+
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header"
+          target="_blank" rel="noopener"
+          class="inline-block mt-6 sm:mt-7 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-xl hover:brightness-110 transition"
+        >
+          Click here to fill the form
+        </a>
+      </section>
+    </div>
   </main>
 
   <!-- Courses -->
@@ -65,7 +89,7 @@
     <h3 class="text-3xl font-extrabold text-pink-500 mb-10 text-center">Our Courses</h3>
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
       <!-- Course 1 -->
-      <div class="border border-pink-500 rounded-lg p-6 hover:shadow-lg transition">
+      <article class="border border-pink-500/50 rounded-xl p-6 hover:shadow-lg transition bg-white">
         <h4 class="text-2xl font-bold mb-3">Bioinformatics 101</h4>
         <p class="text-gray-800 mb-4">
           Introduction to bioinformatics concepts, tools, and databases to analyze biological data.
@@ -73,9 +97,9 @@
         <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">
           Learn More
         </button>
-      </div>
+      </article>
       <!-- Course 2 -->
-      <div class="border border-pink-500 rounded-lg p-6 hover:shadow-lg transition">
+      <article class="border border-pink-500/50 rounded-xl p-6 hover:shadow-lg transition bg-white">
         <h4 class="text-2xl font-bold mb-3">Breast Cancer</h4>
         <p class="text-gray-800 mb-4">
           Study the biology, diagnosis, and treatment strategies of breast cancer with latest research insights.
@@ -83,9 +107,9 @@
         <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">
           Learn More
         </button>
-      </div>
+      </article>
       <!-- Course 3 -->
-      <div class="border border-pink-500 rounded-lg p-6 hover:shadow-lg transition">
+      <article class="border border-pink-500/50 rounded-xl p-6 hover:shadow-lg transition bg-white">
         <h4 class="text-2xl font-bold mb-3">Drug Discovery</h4>
         <p class="text-gray-800 mb-4">
           Explore the drug discovery pipeline, from target identification to clinical trials.
@@ -93,7 +117,7 @@
         <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">
           Learn More
         </button>
-      </div>
+      </article>
     </div>
   </section>
 
@@ -102,7 +126,9 @@
     <div class="container mx-auto max-w-4xl text-center">
       <h3 class="text-3xl font-extrabold text-pink-500 mb-6">About Us</h3>
       <p class="text-black text-lg leading-relaxed">
-        Biotech Marvels is dedicated to providing high-quality education in biotechnology and bioinformatics. Our courses are designed by experts to help you gain practical knowledge and skills to excel in this rapidly evolving field.
+        Biotech Marvels is dedicated to providing high-quality education in biotechnology and bioinformatics.
+        Our courses are designed by experts to help you gain practical knowledge and skills to excel in this
+        rapidly evolving field.
       </p>
     </div>
   </section>
@@ -113,17 +139,21 @@
     <form class="max-w-lg mx-auto space-y-6">
       <div>
         <label for="name" class="block text-black font-semibold mb-2">Name</label>
-        <input type="text" id="name" name="name" required class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+        <input type="text" id="name" name="name" required
+               class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
       </div>
       <div>
         <label for="email" class="block text-black font-semibold mb-2">Email</label>
-        <input type="email" id="email" name="email" required class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+        <input type="email" id="email" name="email" required
+               class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
       </div>
       <div>
         <label for="message" class="block text-black font-semibold mb-2">Message</label>
-        <textarea id="message" name="message" rows="4" required class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+        <textarea id="message" name="message" rows="4" required
+                  class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
       </div>
-      <button type="submit" class="bg-pink-500 text-black font-bold px-6 py-3 rounded hover:bg-pink-600 transition w-full">
+      <button type="submit"
+              class="bg-pink-500 text-black font-bold px-6 py-3 rounded hover:bg-pink-600 transition w-full">
         Send Message
       </button>
     </form>
@@ -136,7 +166,7 @@
 
   <!-- Countdown Timer -->
   <script>
-    // Set your enrollment deadline
+    // Set your enrollment deadline (YYYY-MM-DDTHH:MM:SS)
     const countDownDate = new Date("2025-09-01T00:00:00").getTime();
     const el = document.getElementById("countdown");
 
@@ -157,7 +187,7 @@
       const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-      el.textContent = `⏳ Registration closes in ${pad(d)}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
+      el.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
     }, 1000);
   </script>
 </body>
