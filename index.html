@@ -35,60 +35,58 @@
   </header>
 
   <main class="bg-black text-pink-500">
-  <div class="container mx-auto px-6 py-16 sm:py-20">
-    <div class="text-center max-w-3xl mx-auto">
+    <div class="container mx-auto px-6 py-16 sm:py-20">
+      <div class="text-center max-w-3xl mx-auto">
 
-      <!-- Hero Image -->
-      <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
-           alt="Biotech Hero Image"
-           class="mx-auto mb-8 rounded-lg shadow-lg">
+        <!-- Hero Image -->
+        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
+             alt="Biotech Hero Image"
+             class="mx-auto mb-8 rounded-lg shadow-lg">
 
-      <p class="text-pink-200/90 text-sm sm:text-base mb-2">Biotechnology and Bioinformatics</p>
-      <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight">
-        Empowering Your Future in Biotechnology &amp; Bioinformatics
-      </h2>
-      <p class="text-pink-100/90 text-lg sm:text-xl mt-4">
-        Explore cutting-edge courses designed to advance your knowledge in
-        bioinformatics, cancer research, and drug discovery.
-      </p>
-      <a href="#courses"
-         class="inline-block mt-6 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-lg hover:brightness-110 transition">
-        View Courses
-      </a>
-    </div>
-  </div>
-</main>
-
-      <!-- Free course card -->
-      <section
-        class="mt-10 max-w-2xl mx-auto rounded-2xl border border-pink-500/40 bg-zinc-900/60 shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center"
-        aria-labelledby="free-course-title"
-      >
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-pink-500/40 text-[11px] sm:text-xs font-bold tracking-wide mb-4">
-          <span>🎓</span><span>FREE COURSE</span>
-        </div>
-
-        <h3 id="free-course-title" class="text-2xl sm:text-3xl font-extrabold">
-          Limited seats — 25 students only
-        </h3>
-
-        <div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
-          <span class="text-sm text-pink-200/90">⏳ Registration closes in</span>
-          <div id="countdown"
-               class="font-mono text-white text-lg sm:text-xl px-3 py-1.5 rounded-md border border-pink-500/40">
-            00d : 00h : 00m : 00s
-          </div>
-        </div>
-
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header"
-          target="_blank" rel="noopener"
-          class="inline-block mt-6 sm:mt-7 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-xl hover:brightness-110 transition"
-        >
-          Click here to fill the form
+        <p class="text-pink-200/90 text-sm sm:text-base mb-2">Biotechnology and Bioinformatics</p>
+        <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight">
+          Empowering Your Future in Biotechnology &amp; Bioinformatics
+        </h2>
+        <p class="text-pink-100/90 text-lg sm:text-xl mt-4">
+          Explore cutting-edge courses designed to advance your knowledge in
+          bioinformatics, cancer research, and drug discovery.
+        </p>
+        <a href="#courses"
+           class="inline-block mt-6 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-lg hover:brightness-110 transition">
+          View Courses
         </a>
-      </section>
+      </div>
     </div>
+
+    <!-- Free course card -->
+    <section
+      class="mt-10 max-w-2xl mx-auto rounded-2xl border border-pink-500/40 bg-zinc-900/60 shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center"
+      aria-labelledby="free-course-title"
+    >
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-pink-500/40 text-[11px] sm:text-xs font-bold tracking-wide mb-4">
+        <span>🎓</span><span>FREE COURSE</span>
+      </div>
+
+      <h3 id="free-course-title" class="text-2xl sm:text-3xl font-extrabold">
+        Limited seats — 25 students only
+      </h3>
+
+      <div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
+        <span class="text-sm text-pink-200/90">⏳ Registration closes in</span>
+        <div id="countdown"
+             class="font-mono text-white text-lg sm:text-xl px-3 py-1.5 rounded-md border border-pink-500/40">
+          00d : 00h : 00m : 00s
+        </div>
+      </div>
+
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header"
+        target="_blank" rel="noopener"
+        class="inline-block mt-6 sm:mt-7 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-xl hover:brightness-110 transition"
+      >
+        Click here to fill the form
+      </a>
+    </section>
   </main>
 
   <!-- Courses -->
@@ -188,9 +186,9 @@
     <p class="text-sm">&copy; 2024 Biotech Marvels. All rights reserved.</p>
   </footer>
 
-  <!-- Countdown Script -->
+  <!-- Countdown Script with updated date -->
   <script>
-    const countDownDate = new Date("2025-09-01T00:00:00").getTime();
+    const countDownDate = new Date("2025-09-04T00:00:00").getTime();
     const el = document.getElementById("countdown");
     function pad(n){ return String(n).padStart(2,'0'); }
     const timer = setInterval(function () {
