@@ -1,237 +1,194 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Biotech Marvels — Minimal Monochrome Launch</title>
-  <meta name="color-scheme" content="light" />
+  <meta name="description" content="Biotech Marvels offers cutting-edge courses in biotechnology and bioinformatics." />
+  <meta name="keywords" content="Biotechnology, Bioinformatics, Education, Courses" />
+  <title>Biotech & Bioinformatics Education • Biotech Marvels</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #0a0a0a;
-      --muted: #6c6c6c;
-      --border: #e8e8e8;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    .wrap {
-      min-height: 100svh;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-    }
-
-    /* Header */
-    header {
-      padding: 18px clamp(16px, 4vw, 48px);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px;
-    }
-    .brand {
-      display: flex; align-items: center; gap: 12px;
-      font-weight: 700; letter-spacing: 0.2px;
-    }
-    .brand-mark-img {
-      height: 36px; width: auto; border-radius: 6px; object-fit: contain;
-      background: #fff;
-    }
-    .brand small { color: var(--muted); font-weight: 500; margin-left: 8px; }
-
-    /* Main hero card */
-    .hero { display: grid; place-items: center; padding: clamp(28px, 6vw, 96px); }
-    .card {
-      width: min(960px, 92vw);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: clamp(20px, 5vw, 56px);
-      background: #fff;
-    }
-    .kicker {
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font-size: .78rem;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-    h1 {
-      margin: 0 0 6px;
-      font-size: clamp(28px, 5vw, 56px);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-    .sub {
-      font-size: clamp(14px, 2.2vw, 18px);
-      color: var(--muted);
-      margin: 0 0 24px;
-    }
-
-    /* Countdown */
-    .countdown {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(80px, 1fr));
-      gap: clamp(8px, 2vw, 16px);
-      margin: 18px 0 14px;
-    }
-    .tile {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      text-align: center;
-      padding: clamp(12px, 2.2vw, 18px);
-      background: #fff;
-    }
-    .num {
-      font-variant-numeric: tabular-nums;
-      font-size: clamp(26px, 5vw, 44px);
-      font-weight: 800;
-      line-height: 1.1;
-    }
-    .lbl {
-      font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em;
-    }
-
-    /* Actions */
-    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
-    .btn {
-      appearance: none; border: 1px solid var(--fg); background: #fff; color: var(--fg);
-      padding: 12px 18px; border-radius: 999px; font-weight: 600; text-decoration: none;
-      transition: transform .06s ease, background .15s ease, color .15s ease;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn.primary { background: var(--fg); color: #fff; border-color: var(--fg); }
-
-    .divider { height: 1px; background: var(--border); margin: 22px 0; }
-    .note { color: var(--muted); font-size: .92rem; }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 18px clamp(16px, 4vw, 48px);
-      color: var(--muted); font-size: 0.92rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 520px) {
-      .countdown { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      .btn { transition: none; }
-    }
+    :root { color-scheme: dark light; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif; }
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <!-- 🔁 UPDATE LOGO_SRC BELOW in the script to your actual GitHub raw URL -->
-        <img id="brandLogo" class="brand-mark-img" alt="Biotech Marvels Logo" src="" />
-        <span>Biotech&nbsp;Marvels <small>— Professional Launch</small></span>
+<body class="bg-white text-black min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-pink-500 text-white">
+    <div class="container mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between">
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wide">Biotech Marvels</h1>
+      <nav class="mt-3 sm:mt-0 flex gap-6 text-base sm:text-lg font-semibold">
+        <a href="#courses" class="hover:underline">Courses</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+        <a href="#socials" class="hover:underline">Socials</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero with image -->
+  <main class="bg-black text-pink-500">
+    <div class="container mx-auto px-6 py-16 sm:py-20 grid md:grid-cols-2 gap-10 items-center">
+
+      <!-- Left: Text + Free Course card -->
+      <div>
+        <div class="text-center md:text-left max-w-3xl mx-auto md:mx-0">
+          <p class="text-pink-200/90 text-sm sm:text-base mb-2">Biotechnology and Bioinformatics</p>
+          <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight">
+            Empowering Your Future in Biotechnology &amp; Bioinformatics
+          </h2>
+          <p class="text-pink-100/90 text-lg sm:text-xl mt-4">
+            Explore cutting-edge courses designed to advance your knowledge in
+            bioinformatics, cancer research, and drug discovery.
+          </p>
+          <a href="#courses"
+             class="inline-block mt-6 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-lg hover:brightness-110 transition">
+            View Courses
+          </a>
+        </div>
+
+        <!-- Free course card -->
+        <section class="mt-8 rounded-2xl border border-pink-500/40 bg-zinc-900/60 shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center md:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-pink-500/40 text-[11px] sm:text-xs font-bold tracking-wide mb-4">
+            <span>🎓</span><span>FREE COURSE</span>
+          </div>
+
+          <h3 id="free-course-title" class="text-2xl sm:text-3xl font-extrabold">Limited seats — 25 students only</h3>
+
+          <div class="mt-4 flex items-center justify-center md:justify-start gap-3 flex-wrap">
+            <span class="text-sm text-pink-200/90">⏳ Registration closes in</span>
+            <div id="countdown" class="font-mono text-white text-lg sm:text-xl px-3 py-1.5 rounded-md border border-pink-500/40">00d : 00h : 00m : 00s</div>
+          </div>
+
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header"
+             target="_blank" rel="noopener"
+             class="inline-block mt-6 sm:mt-7 bg-pink-500 text-black font-extrabold px-6 py-3 rounded-xl hover:brightness-110 transition">
+            Click here to fill the form
+          </a>
+        </section>
       </div>
-    </header>
 
-    <main class="hero">
-      <section class="card" aria-labelledby="title">
-        <div class="kicker">Website Launch</div>
-        <h1 id="title">Minimal Monochrome Announcement</h1>
-        <p class="sub">Clean, academic, trustworthy. Launching in strict black &amp; white.</p>
+      <!-- Right: Hero Image -->
+      <div class="order-first md:order-none">
+        <img src="hero.jpg" alt="Biotech Marvels group"
+             class="w-full h-auto rounded-2xl shadow-lg object-cover"
+             loading="eager" decoding="async" />
+      </div>
+    </div>
+  </main>
 
-        <!-- Countdown -->
-        <div id="status" class="kicker" style="margin-top:6px;">Starts in</div>
-        <div class="countdown" role="timer" aria-live="polite">
-          <div class="tile"><div id="d" class="num">–</div><div class="lbl">Days</div></div>
-          <div class="tile"><div id="h" class="num">–</div><div class="lbl">Hours</div></div>
-          <div class="tile"><div id="m" class="num">–</div><div class="lbl">Minutes</div></div>
-          <div class="tile"><div id="s" class="num">–</div><div class="lbl">Seconds</div></div>
-        </div>
+  <!-- Courses -->
+  <section id="courses" class="container mx-auto px-6 py-16">
+    <h3 class="text-3xl font-extrabold text-pink-500 mb-10 text-center">Our Courses</h3>
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="border border-pink-500/50 rounded-xl p-6 hover:shadow-lg transition bg-white">
+        <h4 class="text-2xl font-bold mb-3">Bioinformatics 101</h4>
+        <p class="text-gray-800 mb-4">Introduction to bioinformatics concepts, tools, and databases.</p>
+        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">Learn More</button>
+      </article>
+      <article class="border border-pink-500/50 rounded-xl p-6 hover:shadow-lg transition bg-white">
+        <h4 class="text-2xl font-bold mb-3">Breast Cancer</h4>
+        <p class="text-gray-800 mb-4">Biology, diagnosis, and treatment strategies with latest research.</p>
+        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">Learn More</button>
+      </article>
+      <article class="border border-pink-500/50 rounded-xl p-6 hover:shadow-lg transition bg-white">
+        <h4 class="text-2xl font-bold mb-3">Drug Discovery</h4>
+        <p class="text-gray-800 mb-4">Explore the pipeline from target identification to clinical trials.</p>
+        <button class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition">Learn More</button>
+      </article>
+    </div>
+  </section>
 
-        <div class="actions">
-          <!-- your signup form link (from earlier) -->
-          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header" target="_blank" rel="noopener">Pre-Register</a>
-          <a class="btn" href="#about">About the Launch</a>
-        </div>
+  <!-- About -->
+  <section id="about" class="bg-pink-50 py-16 px-6">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h3 class="text-3xl font-extrabold text-pink-500 mb-6">About Us</h3>
+      <p class="text-black text-lg leading-relaxed">
+        Biotech Marvels is dedicated to providing high-quality education in biotechnology and bioinformatics.
+        Our courses are designed by experts to help you gain practical knowledge and skills to excel in this field.
+      </p>
+    </div>
+  </section>
 
-        <div class="divider"></div>
-        <p id="when" class="note"></p>
+  <!-- Contact -->
+  <section id="contact" class="container mx-auto px-6 py-16">
+    <h3 class="text-3xl font-extrabold text-pink-500 mb-10 text-center">Contact Us</h3>
+    <form class="max-w-lg mx-auto space-y-6">
+      <div>
+        <label for="name" class="block text-black font-semibold mb-2">Name</label>
+        <input type="text" id="name" name="name" required
+               class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+      </div>
+      <div>
+        <label for="email" class="block text-black font-semibold mb-2">Email</label>
+        <input type="email" id="email" name="email" required
+               class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+      </div>
+      <div>
+        <label for="message" class="block text-black font-semibold mb-2">Message</label>
+        <textarea id="message" name="message" rows="4" required
+                  class="w-full border border-pink-500 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+      </div>
+      <button type="submit"
+              class="bg-pink-500 text-black font-bold px-6 py-3 rounded hover:bg-pink-600 transition w-full">
+        Send Message
+      </button>
+    </form>
+  </section>
 
-        <div id="about" class="note" style="margin-top:10px;">
-          AI prompt used for the logo style:<br />
-          “A clean minimal biotech logo in sharp black and white, on a pure white background. Professional corporate branding style, elegant lines, simple geometry, like Microsoft or Harvard conference design. No clutter, flat modern design, trustworthy and academic.”
-        </div>
-      </section>
-    </main>
+  <!-- Social Media -->
+  <section id="socials" class="bg-pink-50 py-12 px-6">
+    <div class="container mx-auto text-center">
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-pink-500 mb-6">Connect With Us</h3>
+      <div class="flex items-center justify-center gap-6 flex-wrap">
+        <a href="https://www.tiktok.com/@biotechmarvels?_t=ZS-8zBDKBQSCrh&_r=1" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://www.facebook.com/share/17DRNdrVzr/?mibextid=wwXIfr" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:scale-110 transition">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://chat.whatsapp.com/IErTxH5U2tgDXdeFKWtN2t?mode=ems_copy_t" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500 text-white hover:scale-110 transition">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/biotechmarvels?igsh=MW15a3k2Zzd0bGJrNg==" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:scale-110 transition">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-      © <span id="year"></span> Biotech Marvels. All rights reserved.
-    </footer>
-  </div>
+  <!-- Footer -->
+  <footer class="bg-black text-pink-500 text-center py-6">
+    <p class="text-sm">&copy; 2024 Biotech Marvels. All rights reserved.</p>
+  </footer>
 
+  <!-- Countdown Script -->
   <script>
-    // ====== SETTINGS ======
-    // 1) Countdown target — begins on September 4, 2025 at 09:00 local time
-    const LAUNCH_DATE = new Date('September 4, 2025 09:00:00');
-
-    // 2) GitHub logo (RAW) URL — replace with your real repo path.
-    //    Tip: open the image on GitHub ➜ click "View raw" ➜ copy that URL.
-    //    Spaces must be URL-encoded as %20 (already done in the example).
-    const LOGO_SRC = 'https://raw.githubusercontent.com/<YOUR-USERNAME>/<YOUR-REPO>/main/WhatsApp%20Image%202025-08-17%20at%204.37.38%20PM.jpeg';
-
-    // ====== INIT ======
-    const logoEl = document.getElementById('brandLogo');
-    logoEl.src = LOGO_SRC;
-    logoEl.onerror = () => { logoEl.replaceWith(Object.assign(document.createElement('div'), { textContent: 'BM', style: 'font-weight:800;font-size:18px;' })); };
-
-    const dEl = document.getElementById('d');
-    const hEl = document.getElementById('h');
-    const mEl = document.getElementById('m');
-    const sEl = document.getElementById('s');
-    const statusEl = document.getElementById('status');
-    const whenEl = document.getElementById('when');
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Human-readable date line
-    whenEl.textContent = `Launch scheduled for ${LAUNCH_DATE.toLocaleString([], { dateStyle: 'full', timeStyle: 'short' })}.`;
-
-    function pad(n){ return String(n).padStart(2, '0'); }
-
-    function tick(){
-      const now = new Date();
-      const ms = LAUNCH_DATE - now;
-
-      if (ms <= 0){
-        dEl.textContent = '00';
-        hEl.textContent = '00';
-        mEl.textContent = '00';
-        sEl.textContent = '00';
-        statusEl.textContent = 'We’re live';
-        return;
-      }
-
-      const totalSec = Math.floor(ms / 1000);
-      const days = Math.floor(totalSec / 86400);
-      const hours = Math.floor((totalSec % 86400) / 3600);
-      const mins = Math.floor((totalSec % 3600) / 60);
-      const secs = totalSec % 60;
-
-      dEl.textContent = pad(days);
-      hEl.textContent = pad(hours);
-      mEl.textContent = pad(mins);
-      sEl.textContent = pad(secs);
-
-      // keep updates aligned to the next second
-      setTimeout(tick, 1000 - (Date.now() % 1000));
-    }
-    tick();
+    const countDownDate = new Date("2025-09-01T00:00:00").getTime();
+    const el = document.getElementById("countdown");
+    function pad(n){ return String(n).padStart(2,'0'); }
+    const timer = setInterval(function () {
+      const now = Date.now();
+      const distance = countDownDate - now;
+      if (distance <= 0) { clearInterval(timer); el.textContent = "⏰ Registration Closed!"; return; }
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
+      el.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
+    }, 1000);
   </script>
 </body>
-</html>
+</html>.   
+   
