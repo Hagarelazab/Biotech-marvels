@@ -8,7 +8,6 @@
   <title>Biotech & Bioinformatics Education • Biotech Marvels</title>
 
   <!-- Tailwind (CDN) -->
-  
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Font: Inter -->
@@ -16,59 +15,31 @@
 
   <!-- === Brand tokens & helpers === -->
   <style>
-    
-
     /* === Scroll Reveal Animation === */
-.reveal { 
-  opacity:0; 
-  transform: translateY(18px); 
-  transition: opacity .6s ease, transform .6s ease; 
-}
-.reveal.show { 
-  opacity:1; 
-  transform: translateY(0); 
-}
-.reveal-delay-1 { transition-delay:.1s; }
-.reveal-delay-2 { transition-delay:.2s; }
-.reveal-delay-3 { transition-delay:.3s; }
+    .reveal{ opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.show{ opacity:1; transform: translateY(0); }
+    .reveal-delay-1{ transition-delay:.1s; }
+    .reveal-delay-2{ transition-delay:.2s; }
+    .reveal-delay-3{ transition-delay:.3s; }
 
-    /* collapse animation inside the card */
-.collapse {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height .35s ease, opacity .25s ease;
-}
-.collapse.open {
-  opacity: 1;
-}
+    /* Collapse (inside card) */
+    .collapse{ overflow:hidden; max-height:0; opacity:0; transition:max-height .35s ease, opacity .25s ease; }
+    .collapse.open{ opacity:1; }
 
+    /* Nav underline */
+    .link-underline{ position:relative; }
+    .link-underline::after{
+      content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0%;
+      background: linear-gradient(90deg,#ffa8cd,#e86aa0,#d35696); transition: width .25s ease; border-radius:2px;
+    }
+    .link-underline:hover::after{ width:100%; }
 
-/* === Nav Underline Animation === */
-.link-underline {
-  position: relative;
-}
-.link-underline::after{
-  content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0%;
-  background: linear-gradient(90deg,#ffa8cd,#e86aa0,#d35696);
-  transition: width .25s ease;
-  border-radius:2px;
-}
-.link-underline:hover::after{ width:100%; }
-
-/* === Floating Pink DNA Blob === */
-.blob {
-  position:absolute; filter: blur(28px); opacity:.25; pointer-events:none;
-  background: radial-gradient(closest-side, #ffb4d5 0%, #e86aa0 55%, transparent 70%);
-  width: 340px; height: 340px; border-radius: 50%;
-  animation: blobFloat 12s ease-in-out infinite;
-}
-.blob.b2{ width:260px; height:260px; left:auto; right:10%; top:0; animation-delay: -5s; opacity:.22; }
-@keyframes blobFloat{
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(20px, -24px) scale(1.06); }
-  100% { transform: translate(0, 0) scale(1); }
-}
+    /* Floating pink blob behind hero */
+    .blob{ position:absolute; filter: blur(28px); opacity:.25; pointer-events:none;
+      background: radial-gradient(closest-side, #ffb4d5 0%, #e86aa0 55%, transparent 70%);
+      width:340px; height:340px; border-radius:50%; animation: blobFloat 12s ease-in-out infinite; }
+    .blob.b2{ width:260px; height:260px; left:auto; right:10%; top:0; animation-delay:-5s; opacity:.22; }
+    @keyframes blobFloat{ 0%{transform:translate(0,0) scale(1);} 50%{transform:translate(20px,-24px) scale(1.06);} 100%{transform:translate(0,0) scale(1);} }
 
     :root{
       --bm-pink:#E86AA0;         /* logo pink */
@@ -104,7 +75,7 @@
       background:var(--bm-pink); transform:skewX(-12deg); border-radius:2px;
     }
 
-    /* DNA dotted divider (optional decorative) */
+    /* DNA dotted divider */
     .bm-dna-divider{
       background-image:
         radial-gradient(circle at 0 50%, rgba(232,106,160,.35) 2px, transparent 2px),
@@ -112,62 +83,25 @@
       background-size:24px 8px; background-repeat:repeat-x; height:8px; opacity:.5;
     }
 
-    /* === Animated DNA overlay (inside hero only) ===
-       Tweak visibility quickly:
-       - Change .dna-layer opacity (.18–.30)
-       - Change dot size (width/height 10–14px)
-       - Change animation duration (4s faster, 6s slower)
-    */
+    /* Animated DNA overlay */
     .dna-layer{ position:absolute; inset:0; pointer-events:none; opacity:.22; }
-    .dna-dot{
-      position:absolute; width:12px; height:12px; border-radius:999px;
-      background:var(--bm-pink);
-      box-shadow:0 0 15px rgba(232,106,160,.8);
-      animation: helix 4.5s ease-in-out infinite;
-    }
-    /* second wave moving opposite direction */
+    .dna-dot{ position:absolute; width:12px; height:12px; border-radius:999px; background:var(--bm-pink);
+      box-shadow:0 0 15px rgba(232,106,160,.8); animation: helix 4.5s ease-in-out infinite; }
     .dna-dot.rev{ animation-name:helixRev; }
     @keyframes helix{
-      0%   { transform: translateY(-60px) translateX(-20px) scale(.85); opacity:.85; }
-      50%  { transform: translateY(60px)  translateX(20px)  scale(1.1);  opacity:1; }
-      100% { transform: translateY(-60px) translateX(-20px) scale(.85); opacity:.85; }
+      0%{ transform: translateY(-60px) translateX(-20px) scale(.85); opacity:.85; }
+      50%{ transform: translateY(60px) translateX(20px) scale(1.1); opacity:1; }
+      100%{ transform: translateY(-60px) translateX(-20px) scale(.85); opacity:.85; }
     }
     @keyframes helixRev{
-      0%   { transform: translateY(60px) translateX(20px)  scale(.85); opacity:.85; }
-      50%  { transform: translateY(-60px) translateX(-20px) scale(1.1);  opacity:1; }
-      100% { transform: translateY(60px) translateX(20px)  scale(.85); opacity:.85; }
+      0%{ transform: translateY(60px) translateX(20px) scale(.85); opacity:.85; }
+      50%{ transform: translateY(-60px) translateX(-20px) scale(1.1); opacity:1; }
+      100%{ transform: translateY(60px) translateX(20px) scale(.85); opacity:.85; }
     }
   </style>
 </head>
 
 <body class="bg-white min-h-screen flex flex-col">
-<script>
-  // Generic collapse toggle (works for any button with [data-collapse])
-  document.addEventListener('click', function (e) {
-    const btn = e.target.closest('[data-collapse]');
-    if (!btn) return;
-
-    const selector = btn.getAttribute('data-target');
-    const panel = document.querySelector(selector);
-    if (!panel) return;
-
-    const willOpen = !panel.classList.contains('open');
-    panel.classList.toggle('open', willOpen);
-    panel.style.maxHeight = willOpen ? panel.scrollHeight + 'px' : '0px';
-
-    // accessibility + button label
-    btn.setAttribute('aria-expanded', String(willOpen));
-    const labelEl = btn.querySelector('.label');
-    if (labelEl) labelEl.textContent = willOpen ? 'Hide Content' : 'Learn More';
-  });
-
-  // ensure correct height on load if panel is preset open (optional)
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.collapse.open').forEach(p => {
-      p.style.maxHeight = p.scrollHeight + 'px';
-    });
-  });
-</script>
 
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md">
@@ -184,7 +118,6 @@
   </header>
 
   <main>
-
     <!-- ========== HERO ========== -->
     <section class="relative overflow-hidden">
       <!-- animated DNA overlay -->
@@ -201,7 +134,7 @@
         <span class="dna-dot" style="left:74%; top:22%; animation-delay:1.6s"></span>
         <span class="dna-dot" style="left:82%; top:52%; animation-delay:1.8s"></span>
         <span class="dna-dot" style="left:90%; top:27%; animation-delay:2.0s"></span>
-        <!-- right→left mirrored wave -->
+        <!-- right→left wave -->
         <span class="dna-dot rev" style="left:14%; top:62%; animation-delay:.6s"></span>
         <span class="dna-dot rev" style="left:22%; top:24%; animation-delay:.8s"></span>
         <span class="dna-dot rev" style="left:30%; top:54%; animation-delay:1.0s"></span>
@@ -215,7 +148,6 @@
       </div>
 
       <div class="container mx-auto px-6 pt-10 pb-6 text-center relative">
-        <!-- Hero Image (controlled size) -->
         <img
           src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
           alt="Biotech Marvels students receiving certificates"
@@ -256,8 +188,7 @@
 
       <div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
         <span class="text-sm text-pink-200/90">⏳ Registration closes in</span>
-        <div id="countdown"
-          class="font-mono text-white text-lg sm:text-xl px-3 py-1.5 rounded-md border border-pink-500/30">
+        <div id="countdown" class="font-mono text-white text-lg sm:text-xl px-3 py-1.5 rounded-md border border-pink-500/30">
           00d : 00h : 00m : 00s
         </div>
       </div>
@@ -274,119 +205,79 @@
     <!-- ========== COURSES ========== -->
     <section id="courses" class="container mx-auto px-6 py-16">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-10 text-center">Our Courses</h3>
+
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Card 1 -->
         <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
           <h4 class="text-2xl font-bold mb-3 text-gray-900">Bioinformatics 101</h4>
           <p class="text-gray-700 mb-4">Introduction to bioinformatics concepts, tools, and databases.</p>
           <button class="btn-bm">Learn More</button>
         </article>
+
+        <!-- Card 2 -->
         <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
           <h4 class="text-2xl font-bold mb-3 text-gray-900">Breast Cancer</h4>
           <p class="text-gray-700 mb-4">Biology, diagnosis, and treatment strategies with latest research.</p>
           <button class="btn-bm">Learn More</button>
         </article>
 
-        <!-- Drug Discovery card WITH inline content -->
-<article class="border border-pink-500/30 rounded-xl p-6 bg-white hover:shadow-lg transition">
-  <h4 class="text-2xl font-bold mb-3 text-gray-900">Drug Discovery</h4>
-  <p class="text-gray-700 mb-4">
-    Explore the pipeline from target identification to clinical trials.
-  </p>
+        <!-- Card 3 (Drug Discovery WITH inline expandable content) -->
+        <article class="border border-pink-500/30 rounded-xl p-6 bg-white hover:shadow-lg transition">
+          <h4 class="text-2xl font-bold mb-3 text-gray-900">Drug Discovery</h4>
+          <p class="text-gray-700 mb-4">
+            Explore the pipeline from target identification to clinical trials.
+          </p>
 
-  <!-- Toggle button -->
-  <button
-    class="btn-bm w-full"
-    data-collapse
-    data-target="#drug-panel"
-    aria-expanded="false"
-    aria-controls="drug-panel">
-    <span class="label">Learn More</span>
-  </button>
+          <!-- Toggle button -->
+          <button
+            class="btn-bm w-full"
+            data-collapse
+            data-target="#drug-panel"
+            aria-expanded="false"
+            aria-controls="drug-panel">
+            <span class="label">Learn More</span>
+          </button>
 
-  <!-- Hidden content (INSIDE the same card) -->
-  <div id="drug-panel" class="collapse mt-4 text-left text-gray-700 space-y-4">
-    <div>
-      <h5 class="font-bold text-pink-600 mb-1">📌 Recorded Sessions</h5>
-      <ul class="list-disc list-inside space-y-1">
-        <li><b>Drug Discovery and Development</b> – Process from initial idea to approved medicine.</li>
-        <li><b>Drug Research</b> – Methods and strategies used to identify promising drug candidates.</li>
-        <li><b>Drug Targets and Pathways</b> – How drugs interact with proteins, enzymes, and signaling pathways.</li>
-        <li><b>In Vitro Pharmacology</b> – Lab-based methods for testing drugs outside living organisms.</li>
-        <li><b>Biomarkers</b> – Biological indicators used in drug development, disease detection, and personalized medicine.</li>
-      </ul>
-    </div>
+          <!-- Hidden content inside the same card -->
+          <div id="drug-panel" class="collapse mt-4 text-left text-gray-700 space-y-4">
+            <div>
+              <h5 class="font-bold text-pink-600 mb-1">📌 Recorded Sessions</h5>
+              <ul class="list-disc list-inside space-y-1">
+                <li><b>Drug Discovery and Development</b> – Process from initial idea to approved medicine.</li>
+                <li><b>Drug Research</b> – Methods and strategies used to identify promising drug candidates.</li>
+                <li><b>Drug Targets and Pathways</b> – How drugs interact with proteins, enzymes, and signaling pathways.</li>
+                <li><b>In Vitro Pharmacology</b> – Lab-based methods for testing drugs outside living organisms.</li>
+                <li><b>Biomarkers</b> – Biological indicators used in drug development, disease detection, and personalized medicine.</li>
+              </ul>
+            </div>
 
-    <div>
-      <h5 class="font-bold text-pink-600 mb-1">📌 Live Sessions</h5>
-      <ul class="list-disc list-inside space-y-1">
-        <li><b>What is Malaria Disease?</b> – Overview of malaria, causes, life cycle of Plasmodium, and treatment strategies.</li>
-        <li><b>Experiments on Frogs</b> – Classic pharmacology experiments to study drug effects on organ systems.</li>
-        <li><b>Introduction to Gut Microbiome</b> – Role of gut microbes in health, disease, and drug metabolism.</li>
-        <li><b>Plants as Drugs</b> – Examples of natural products (aspirin, quinine, morphine) and their modern use.</li>
-        <li><b>How to Discover a New Drug</b> – Step-by-step discussion on identifying drug leads, preclinical studies, and clinical trials.</li>
-      </ul>
-    </div>
+            <div>
+              <h5 class="font-bold text-pink-600 mb-1">📌 Live Sessions</h5>
+              <ul class="list-disc list-inside space-y-1">
+                <li><b>What is Malaria Disease?</b> – Overview of malaria, causes, life cycle of Plasmodium, and treatment strategies.</li>
+                <li><b>Experiments on Frogs</b> – Classic pharmacology experiments to study drug effects on organ systems.</li>
+                <li><b>Introduction to Gut Microbiome</b> – Role of gut microbes in health, disease, and drug metabolism.</li>
+                <li><b>Plants as Drugs</b> – Examples of natural products (aspirin, quinine, morphine) and their modern use.</li>
+                <li><b>How to Discover a New Drug</b> – Step-by-step discussion on identifying drug leads, preclinical studies, and clinical trials.</li>
+              </ul>
+            </div>
 
-    <div>
-      <h5 class="font-bold text-pink-600 mb-1">🎯 Learning Outcomes</h5>
-      <ul class="list-disc list-inside space-y-1">
-        <li>Understand the drug discovery pipeline.</li>
-        <li>Identify key drug targets and pathways.</li>
-        <li>Explain the role of biomarkers in research.</li>
-        <li>Apply knowledge to real-world diseases and experiments.</li>
-        <li>Appreciate the importance of natural products and the microbiome in drug discovery.</li>
-      </ul>
-    </div>
-  </div>
-</article>
+            <div>
+              <h5 class="font-bold text-pink-600 mb-1">🎯 Learning Outcomes</h5>
+              <ul class="list-disc list-inside space-y-1">
+                <li>Understand the drug discovery pipeline.</li>
+                <li>Identify key drug targets and pathways.</li>
+                <li>Explain the role of biomarkers in research.</li>
+                <li>Apply knowledge to real-world diseases and experiments.</li>
+                <li>Appreciate the importance of natural products and the microbiome in drug discovery.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  <!-- Toggle button -->
-  <button 
-    class="bg-pink-500 text-black font-semibold px-4 py-2 rounded hover:bg-pink-600 transition w-full"
-    onclick="document.getElementById('drug-content').classList.toggle('hidden')">
-    Learn More
-  </button>
-
-  <!-- Hidden content -->
-  <div id="drug-content" class="hidden mt-4 text-left text-gray-700 space-y-4">
-    
-    <div>
-      <h5 class="font-bold text-pink-600 mb-1">📌 Recorded Sessions</h5>
-      <ul class="list-disc list-inside space-y-1">
-        <li><b>Drug Discovery and Development</b> – Process from initial idea to approved medicine.</li>
-        <li><b>Drug Research</b> – Methods and strategies used to identify promising drug candidates.</li>
-        <li><b>Drug Targets and Pathways</b> – How drugs interact with proteins, enzymes, and signaling pathways.</li>
-        <li><b>In Vitro Pharmacology</b> – Lab-based methods for testing drugs outside living organisms.</li>
-        <li><b>Biomarkers</b> – Biological indicators used in drug development, disease detection, and personalized medicine.</li>
-      </ul>
-    </div>
-
-    <div>
-      <h5 class="font-bold text-pink-600 mb-1">📌 Live Sessions</h5>
-      <ul class="list-disc list-inside space-y-1">
-        <li><b>What is Malaria Disease?</b> – Overview of malaria, causes, life cycle of Plasmodium, and treatment strategies.</li>
-        <li><b>Experiments on Frogs</b> – Classic pharmacology experiments to study drug effects on organ systems.</li>
-        <li><b>Introduction to Gut Microbiome</b> – Role of gut microbes in health, disease, and drug metabolism.</li>
-        <li><b>Plants as Drugs</b> – Examples of natural products (aspirin, quinine, morphine) and their modern use.</li>
-        <li><b>How to Discover a New Drug</b> – Step-by-step discussion on identifying drug leads, preclinical studies, and clinical trials.</li>
-      </ul>
-    </div>
-
-    <div>
-      <h5 class="font-bold text-pink-600 mb-1">🎯 Learning Outcomes</h5>
-      <ul class="list-disc list-inside space-y-1">
-        <li>Understand the drug discovery pipeline.</li>
-        <li>Identify key drug targets and pathways.</li>
-        <li>Explain the role of biomarkers in research.</li>
-        <li>Apply knowledge to real-world diseases and experiments.</li>
-        <li>Appreciate the importance of natural products and the microbiome in drug discovery.</li>
-      </ul>
-    </div>
-  </div>
-</article>
-
-
-    <!-- ========== WHO WE ARE (with your GitHub image) ========== -->
+    <!-- ========== WHO WE ARE ========== -->
     <section id="who" class="container mx-auto px-6 py-16 text-center">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-6">Who We Are</h3>
       <img
@@ -476,16 +367,16 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- Footer -->
   <footer class="bg-black text-[var(--bm-pink)] text-center py-6">
-    <p class="text-sm">&copy; 2024 Biotech Marvels. All rights reserved.</p>
+    <p class="text-sm">&copy; 2023 Biotech Marvels. All rights reserved.</p>
   </footer>
 
-  <!-- Countdown Script -->
+  <!-- Scripts -->
   <script>
+    // Countdown
     const countDownDate = new Date("2025-09-04T00:00:00").getTime();
     const el = document.getElementById("countdown");
     function pad(n){ return String(n).padStart(2,'0'); }
@@ -499,6 +390,32 @@
       const s = Math.floor((distance % (1000 * 60)) / 1000);
       el.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
     }, 1000);
+
+    // Collapse toggler (for any button with data-collapse)
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('[data-collapse]');
+      if (!btn) return;
+
+      const selector = btn.getAttribute('data-target');
+      const panel = document.querySelector(selector);
+      if (!panel) return;
+
+      const willOpen = !panel.classList.contains('open');
+      panel.classList.toggle('open', willOpen);
+      panel.style.maxHeight = willOpen ? panel.scrollHeight + 'px' : '0px';
+
+      // update label + a11y
+      btn.setAttribute('aria-expanded', String(willOpen));
+      const labelEl = btn.querySelector('.label');
+      if (labelEl) labelEl.textContent = willOpen ? 'Hide Content' : 'Learn More';
+    });
+
+    // If any panel is preset open
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.collapse.open').forEach(p => {
+        p.style.maxHeight = p.scrollHeight + 'px';
+      });
+    });
   </script>
 </body>
 </html>
