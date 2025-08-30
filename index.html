@@ -15,6 +15,47 @@
 
   <!-- === Brand tokens & helpers === -->
   <style>
+
+    /* === Scroll Reveal Animation === */
+.reveal { 
+  opacity:0; 
+  transform: translateY(18px); 
+  transition: opacity .6s ease, transform .6s ease; 
+}
+.reveal.show { 
+  opacity:1; 
+  transform: translateY(0); 
+}
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+
+/* === Nav Underline Animation === */
+.link-underline {
+  position: relative;
+}
+.link-underline::after{
+  content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0%;
+  background: linear-gradient(90deg,#ffa8cd,#e86aa0,#d35696);
+  transition: width .25s ease;
+  border-radius:2px;
+}
+.link-underline:hover::after{ width:100%; }
+
+/* === Floating Pink DNA Blob === */
+.blob {
+  position:absolute; filter: blur(28px); opacity:.25; pointer-events:none;
+  background: radial-gradient(closest-side, #ffb4d5 0%, #e86aa0 55%, transparent 70%);
+  width: 340px; height: 340px; border-radius: 50%;
+  animation: blobFloat 12s ease-in-out infinite;
+}
+.blob.b2{ width:260px; height:260px; left:auto; right:10%; top:0; animation-delay: -5s; opacity:.22; }
+@keyframes blobFloat{
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(20px, -24px) scale(1.06); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
     :root{
       --bm-pink:#E86AA0;         /* logo pink */
       --bm-pink-dark:#C94E86;    /* hover shade */
