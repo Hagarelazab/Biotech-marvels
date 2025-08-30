@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Biotech Marvels offers cutting-edge courses in biotechnology and bioinformatics." />
   <meta name="keywords" content="Biotechnology, Bioinformatics, Education, Courses" />
   <title>Biotech & Bioinformatics Education • Biotech Marvels</title>
 
-  <!-- Tailwind -->
+  <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
-  
-  
 
-  <!-- Brand tokens + small helpers -->
+  <!-- === Brand tokens & helpers === -->
   <style>
     :root{
       --bm-pink:#E86AA0;         /* logo pink */
       --bm-pink-dark:#C94E86;    /* hover shade */
-      --bm-ink:#111111;          /* heading ink */
+      --bm-ink:#111111;          /* headings ink */
       --bm-ink-70:#3a3a3a;       /* body text */
       --bm-rose:#F9ECF3;         /* soft section bg */
       --bm-glass:rgba(232,106,160,.08);
@@ -30,57 +26,74 @@
     html{ scroll-behavior:smooth; }
     body{ font-family:'Inter',system-ui,-apple-system,Segoe UI,Arial,sans-serif; color:var(--bm-ink); }
 
-    /* glassy */
+    /* Glass surface */
     .bm-glass{
       backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
       background:linear-gradient(180deg,var(--bm-glass),transparent);
       border:1px solid rgba(255,255,255,.25);
     }
 
-    /* primary button */
+    /* Primary button */
     .btn-bm{
-      background:var(--bm-pink); color:white; border-radius:14px;
+      background:var(--bm-pink); color:#fff; border-radius:14px;
       padding:.75rem 1.25rem; font-weight:700; display:inline-block;
       box-shadow:0 8px 22px rgba(232,106,160,.25);
       transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
     }
     .btn-bm:hover{ background:var(--bm-pink-dark); transform:translateY(-1.5px); box-shadow:0 10px 26px rgba(232,106,160,.35); }
 
-    /* underline accent */
+    /* Underline accent */
     .bm-underline{ position:relative; display:inline-block; }
     .bm-underline:after{
       content:""; position:absolute; left:8px; right:8px; bottom:-6px; height:3px;
       background:var(--bm-pink); transform:skewX(-12deg); border-radius:2px;
     }
 
-    /* --- animated DNA dots (hero overlay) --- */
-    .dna-layer{ 
-  position:absolute; inset:0; pointer-events:none; 
-  opacity:.25; /* was .10 → now more visible */
-}
+    /* DNA dotted divider (optional decorative) */
+    .bm-dna-divider{
+      background-image:
+        radial-gradient(circle at 0 50%, rgba(232,106,160,.35) 2px, transparent 2px),
+        radial-gradient(circle at 12px 50%, rgba(232,106,160,.2) 2px, transparent 2px);
+      background-size:24px 8px; background-repeat:repeat-x; height:8px; opacity:.5;
+    }
 
-.dna-dot{
-  position:absolute; 
-  width:12px; height:12px; /* was 6px → bigger dots */
-  border-radius:999px;
-  background:var(--bm-pink);
-  box-shadow:0 0 15px rgba(232,106,160,.8); /* brighter glow */
-  animation: helix 4s ease-in-out infinite; /* faster motion */
-}
+    /* === Animated DNA overlay (inside hero only) ===
+       Tweak visibility quickly:
+       - Change .dna-layer opacity (.18–.30)
+       - Change dot size (width/height 10–14px)
+       - Change animation duration (4s faster, 6s slower)
+    */
+    .dna-layer{ position:absolute; inset:0; pointer-events:none; opacity:.22; }
+    .dna-dot{
+      position:absolute; width:12px; height:12px; border-radius:999px;
+      background:var(--bm-pink);
+      box-shadow:0 0 15px rgba(232,106,160,.8);
+      animation: helix 4.5s ease-in-out infinite;
+    }
+    /* second wave moving opposite direction */
+    .dna-dot.rev{ animation-name:helixRev; }
+    @keyframes helix{
+      0%   { transform: translateY(-60px) translateX(-20px) scale(.85); opacity:.85; }
+      50%  { transform: translateY(60px)  translateX(20px)  scale(1.1);  opacity:1; }
+      100% { transform: translateY(-60px) translateX(-20px) scale(.85); opacity:.85; }
+    }
+    @keyframes helixRev{
+      0%   { transform: translateY(60px) translateX(20px)  scale(.85); opacity:.85; }
+      50%  { transform: translateY(-60px) translateX(-20px) scale(1.1);  opacity:1; }
+      100% { transform: translateY(60px) translateX(20px)  scale(.85); opacity:.85; }
+    }
+  </style>
+</head>
 
-@keyframes helix{
-  0%   { transform: translateY(-60px) translateX(-20px) scale(.8); opacity:.8; }
-  50%  { transform: translateY(60px)  translateX(20px)  scale(1.1); opacity:1; }
-  100% { transform: translateY(-60px) translateX(-20px) scale(.8); opacity:.8; }
-}
+<body class="bg-white min-h-screen flex flex-col">
 
-
-  <!-- Header: darker glassy pink (old version) -->
+  <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md">
     <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between">
       <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wide">Biotech Marvels</h1>
       <nav class="mt-3 sm:mt-0 flex gap-6 text-base sm:text-lg font-semibold">
         <a href="#courses" class="hover:text-pink-200 transition">Courses</a>
+        <a href="#who"     class="hover:text-pink-200 transition">Who We Are</a>
         <a href="#about"   class="hover:text-pink-200 transition">About</a>
         <a href="#contact" class="hover:text-pink-200 transition">Contact</a>
         <a href="#socials" class="hover:text-pink-200 transition">Socials</a>
@@ -88,30 +101,39 @@
     </div>
   </header>
 
-  <!-- Main -->
   <main>
 
-    <!-- Hero -->
+    <!-- ========== HERO ========== -->
     <section class="relative overflow-hidden">
-      <!-- animated DNA overlay (very subtle) -->
-      <div class="dna-layer">
-        <!-- 12 dots with staggered positions/delays -->
-        <span class="dna-dot" style="left:10%; top:20%; animation-delay:0s"></span>
-        <span class="dna-dot" style="left:18%; top:50%; animation-delay:.4s"></span>
-        <span class="dna-dot" style="left:26%; top:30%; animation-delay:.8s"></span>
-        <span class="dna-dot" style="left:34%; top:60%; animation-delay:1.2s"></span>
-        <span class="dna-dot" style="left:42%; top:25%; animation-delay:1.6s"></span>
-        <span class="dna-dot" style="left:50%; top:55%; animation-delay:2.0s"></span>
-        <span class="dna-dot" style="left:58%; top:28%; animation-delay:2.4s"></span>
-        <span class="dna-dot" style="left:66%; top:58%; animation-delay:2.8s"></span>
-        <span class="dna-dot" style="left:74%; top:22%; animation-delay:3.2s"></span>
-        <span class="dna-dot" style="left:82%; top:52%; animation-delay:3.6s"></span>
-        <span class="dna-dot" style="left:90%; top:27%; animation-delay:4.0s"></span>
-        <span class="dna-dot" style="left:6%;  top:65%; animation-delay:4.4s"></span>
+      <!-- animated DNA overlay -->
+      <div class="dna-layer" aria-hidden="true">
+        <!-- left→right wave -->
+        <span class="dna-dot" style="left:10%; top:20%; animation-delay:.0s"></span>
+        <span class="dna-dot" style="left:18%; top:50%; animation-delay:.2s"></span>
+        <span class="dna-dot" style="left:26%; top:30%; animation-delay:.4s"></span>
+        <span class="dna-dot" style="left:34%; top:60%; animation-delay:.6s"></span>
+        <span class="dna-dot" style="left:42%; top:25%; animation-delay:.8s"></span>
+        <span class="dna-dot" style="left:50%; top:55%; animation-delay:1.0s"></span>
+        <span class="dna-dot" style="left:58%; top:28%; animation-delay:1.2s"></span>
+        <span class="dna-dot" style="left:66%; top:58%; animation-delay:1.4s"></span>
+        <span class="dna-dot" style="left:74%; top:22%; animation-delay:1.6s"></span>
+        <span class="dna-dot" style="left:82%; top:52%; animation-delay:1.8s"></span>
+        <span class="dna-dot" style="left:90%; top:27%; animation-delay:2.0s"></span>
+        <!-- right→left mirrored wave -->
+        <span class="dna-dot rev" style="left:14%; top:62%; animation-delay:.6s"></span>
+        <span class="dna-dot rev" style="left:22%; top:24%; animation-delay:.8s"></span>
+        <span class="dna-dot rev" style="left:30%; top:54%; animation-delay:1.0s"></span>
+        <span class="dna-dot rev" style="left:38%; top:26%; animation-delay:1.2s"></span>
+        <span class="dna-dot rev" style="left:46%; top:56%; animation-delay:1.4s"></span>
+        <span class="dna-dot rev" style="left:54%; top:22%; animation-delay:1.6s"></span>
+        <span class="dna-dot rev" style="left:62%; top:52%; animation-delay:1.8s"></span>
+        <span class="dna-dot rev" style="left:70%; top:24%; animation-delay:2.0s"></span>
+        <span class="dna-dot rev" style="left:78%; top:50%; animation-delay:2.2s"></span>
+        <span class="dna-dot rev" style="left:86%; top:26%; animation-delay:2.4s"></span>
       </div>
 
-      <section class="container mx-auto px-6 pt-10 pb-6 text-center relative">
-        <!-- Controlled-size hero image -->
+      <div class="container mx-auto px-6 pt-10 pb-6 text-center relative">
+        <!-- Hero Image (controlled size) -->
         <img
           src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
           alt="Biotech Marvels students receiving certificates"
@@ -126,29 +148,18 @@
         <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight text-gray-900">
           Empowering Your Future in <span class="text-[var(--bm-pink)] bm-underline">Biotechnology &amp; Bioinformatics</span>
         </h2>
+
         <p class="text-[var(--bm-ink-70)] text-lg sm:text-xl mt-4 max-w-3xl mx-auto">
           Explore cutting-edge courses designed to advance your knowledge in
           bioinformatics, cancer research, and drug discovery.
         </p>
+
         <a href="#courses" class="btn-bm mt-6">View Courses</a>
-      </section>
+        <div class="bm-dna-divider mt-10 mb-2 mx-auto max-w-3xl"></div>
+      </div>
     </section>
 
-    <!-- Who We Are -->
-<section id="who" class="container mx-auto px-6 py-16 text-center">
-  <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-5">Who We Are</h3>
-  <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/WhatsApp%20Image%202025-08-31%20at%2012.02.19%20AM.jpeg"
-       alt="Biotech Marvels team group photo"
-       class="mx-auto mb-6 rounded-xl shadow-lg object-cover w-full max-w-3xl md:max-w-4xl aspect-[16/9] max-h-[420px] md:max-h-[520px]"
-       loading="lazy" width="1200" height="675" />
-  <p class="text-lg text-[var(--bm-ink-70)] max-w-3xl mx-auto">
-    Biotech Marvels is more than just courses – we’re a community of passionate learners and future innovators.
-    Together, we celebrate science, collaboration, and growth.
-  </p>
-</section>
- 
-
-    <!-- Free course card -->
+    <!-- ========== FREE COURSE CARD ========== -->
     <section
       class="mt-6 max-w-2xl mx-auto rounded-2xl border border-pink-500/30 bg-zinc-900/60 text-white shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center"
       aria-labelledby="free-course-title"
@@ -178,7 +189,7 @@
       </a>
     </section>
 
-    <!-- Courses -->
+    <!-- ========== COURSES ========== -->
     <section id="courses" class="container mx-auto px-6 py-16">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-10 text-center">Our Courses</h3>
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -200,7 +211,23 @@
       </div>
     </section>
 
-    <!-- About -->
+    <!-- ========== WHO WE ARE (with your GitHub image) ========== -->
+    <section id="who" class="container mx-auto px-6 py-16 text-center">
+      <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-6">Who We Are</h3>
+      <img
+        src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/WhatsApp%20Image%202025-08-31%20at%2012.02.19%20AM.jpeg"
+        alt="Biotech Marvels team group photo"
+        class="mx-auto mb-6 rounded-xl shadow-lg object-cover w-full max-w-3xl md:max-w-4xl aspect-[16/9] max-h-[420px] md:max-h-[520px]"
+        loading="lazy" width="1200" height="675"
+      />
+      <p class="text-lg text-[var(--bm-ink-70)] max-w-3xl mx-auto">
+        Biotech Marvels is more than just courses – we’re a community of passionate learners and future innovators.
+        Together, we celebrate science, collaboration, and growth.
+      </p>
+      <div class="bm-dna-divider mt-10 mb-2 mx-auto max-w-3xl"></div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
     <section id="about" class="bg-[var(--bm-rose)] py-16 px-6">
       <div class="container mx-auto max-w-4xl text-center">
         <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-6">About Us</h3>
@@ -211,35 +238,35 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- ========== CONTACT ========== -->
     <section id="contact" class="container mx-auto px-6 py-16">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-10 text-center">Contact Us</h3>
       <form class="max-w-lg mx-auto space-y-6">
         <div>
           <label for="name" class="block text-black font-semibold mb-2">Name</label>
           <input type="text" id="name" name="name" required
-            class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--bm-pink)]" />
+                 class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--bm-pink)]" />
         </div>
         <div>
           <label for="email" class="block text-black font-semibold mb-2">Email</label>
           <input type="email" id="email" name="email" required
-            class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--bm-pink)]" />
+                 class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--bm-pink)]" />
         </div>
         <div>
           <label for="message" class="block text-black font-semibold mb-2">Message</label>
           <textarea id="message" name="message" rows="4" required
-            class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--bm-pink)]"></textarea>
+                    class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--bm-pink)]"></textarea>
         </div>
         <button type="submit" class="btn-bm w-full">Send Message</button>
       </form>
     </section>
 
-    <!-- Social Media -->
+    <!-- ========== SOCIALS ========== -->
     <section id="socials" class="bg-[var(--bm-rose)] py-12 px-6">
       <div class="container mx-auto text-center">
         <h3 class="text-2xl sm:text-3xl font-extrabold text-[var(--bm-pink)] mb-6">Connect With Us</h3>
         <div class="flex items-center justify-center gap-6 flex-wrap">
-          <!-- TikTok (SVG) -->
+          <!-- TikTok -->
           <a href="https://www.tiktok.com/@biotechmarvels?_t=ZS-8zBDKBQSCrh&_r=1"
              aria-label="TikTok" target="_blank" rel="noopener"
              class="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition">
