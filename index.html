@@ -13,18 +13,13 @@
   <!-- Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
 
-  <!-- === Brand tokens & helpers === -->
   <style>
-    /* === Scroll Reveal Animation === */
+    /* Scroll reveal (kept for future) */
     .reveal{ opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.show{ opacity:1; transform: translateY(0); }
     .reveal-delay-1{ transition-delay:.1s; }
     .reveal-delay-2{ transition-delay:.2s; }
     .reveal-delay-3{ transition-delay:.3s; }
-
-    /* Collapse (inside card) */
-    .collapse{ overflow:hidden; max-height:0; opacity:0; transition:max-height .35s ease, opacity .25s ease; }
-    .collapse.open{ opacity:1; }
 
     /* Nav underline */
     .link-underline{ position:relative; }
@@ -42,11 +37,11 @@
     @keyframes blobFloat{ 0%{transform:translate(0,0) scale(1);} 50%{transform:translate(20px,-24px) scale(1.06);} 100%{transform:translate(0,0) scale(1);} }
 
     :root{
-      --bm-pink:#E86AA0;         /* logo pink */
-      --bm-pink-dark:#C94E86;    /* hover shade */
-      --bm-ink:#111111;          /* headings ink */
-      --bm-ink-70:#3a3a3a;       /* body text */
-      --bm-rose:#F9ECF3;         /* soft section bg */
+      --bm-pink:#E86AA0;
+      --bm-pink-dark:#C94E86;
+      --bm-ink:#111111;
+      --bm-ink-70:#3a3a3a;
+      --bm-rose:#F9ECF3;
       --bm-glass:rgba(232,106,160,.08);
     }
     html{ scroll-behavior:smooth; }
@@ -118,11 +113,9 @@
   </header>
 
   <main>
-    <!-- ========== HERO ========== -->
+    <!-- HERO -->
     <section class="relative overflow-hidden">
-      <!-- animated DNA overlay -->
       <div class="dna-layer" aria-hidden="true">
-        <!-- left→right wave -->
         <span class="dna-dot" style="left:10%; top:20%; animation-delay:.0s"></span>
         <span class="dna-dot" style="left:18%; top:50%; animation-delay:.2s"></span>
         <span class="dna-dot" style="left:26%; top:30%; animation-delay:.4s"></span>
@@ -134,7 +127,6 @@
         <span class="dna-dot" style="left:74%; top:22%; animation-delay:1.6s"></span>
         <span class="dna-dot" style="left:82%; top:52%; animation-delay:1.8s"></span>
         <span class="dna-dot" style="left:90%; top:27%; animation-delay:2.0s"></span>
-        <!-- right→left wave -->
         <span class="dna-dot rev" style="left:14%; top:62%; animation-delay:.6s"></span>
         <span class="dna-dot rev" style="left:22%; top:24%; animation-delay:.8s"></span>
         <span class="dna-dot rev" style="left:30%; top:54%; animation-delay:1.0s"></span>
@@ -173,7 +165,7 @@
       </div>
     </section>
 
-    <!-- ========== FREE COURSE CARD ========== -->
+    <!-- Free course card -->
     <section
       class="mt-6 max-w-2xl mx-auto rounded-2xl border border-pink-500/30 bg-zinc-900/60 text-white shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center"
       aria-labelledby="free-course-title"
@@ -202,44 +194,42 @@
       </a>
     </section>
 
-    <!-- ========== COURSES ========== -->
+    <!-- Courses -->
     <section id="courses" class="container mx-auto px-6 py-16">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-10 text-center">Our Courses</h3>
 
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Card 1 -->
+        <!-- Bioinformatics -->
         <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
           <h4 class="text-2xl font-bold mb-3 text-gray-900">Bioinformatics 101</h4>
           <p class="text-gray-700 mb-4">Introduction to bioinformatics concepts, tools, and databases.</p>
           <button class="btn-bm">Learn More</button>
         </article>
 
-        <!-- Card 2 -->
+        <!-- Breast Cancer -->
         <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
           <h4 class="text-2xl font-bold mb-3 text-gray-900">Breast Cancer</h4>
           <p class="text-gray-700 mb-4">Biology, diagnosis, and treatment strategies with latest research.</p>
           <button class="btn-bm">Learn More</button>
         </article>
 
-        <!-- Card 3 (Drug Discovery WITH inline expandable content) -->
+        <!-- Drug Discovery with inline expandable content -->
         <article class="border border-pink-500/30 rounded-xl p-6 bg-white hover:shadow-lg transition">
           <h4 class="text-2xl font-bold mb-3 text-gray-900">Drug Discovery</h4>
-          <p class="text-gray-700 mb-4">
-            Explore the pipeline from target identification to clinical trials.
-          </p>
+          <p class="text-gray-700 mb-4">Explore the pipeline from target identification to clinical trials.</p>
 
-          <!-- Toggle button -->
+          <!-- Toggle -->
           <button
             class="btn-bm w-full"
-            data-collapse
+            data-toggle
             data-target="#drug-panel"
             aria-expanded="false"
             aria-controls="drug-panel">
             <span class="label">Learn More</span>
           </button>
 
-          <!-- Hidden content inside the same card -->
-          <div id="drug-panel" class="collapse mt-4 text-left text-gray-700 space-y-4">
+          <!-- Content -->
+          <div id="drug-panel" class="hidden mt-4 text-left text-gray-700 space-y-4">
             <div>
               <h5 class="font-bold text-pink-600 mb-1">📌 Recorded Sessions</h5>
               <ul class="list-disc list-inside space-y-1">
@@ -277,7 +267,7 @@
       </div>
     </section>
 
-    <!-- ========== WHO WE ARE ========== -->
+    <!-- Who we are -->
     <section id="who" class="container mx-auto px-6 py-16 text-center">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-6">Who We Are</h3>
       <img
@@ -293,7 +283,7 @@
       <div class="bm-dna-divider mt-10 mb-2 mx-auto max-w-3xl"></div>
     </section>
 
-    <!-- ========== ABOUT ========== -->
+    <!-- About -->
     <section id="about" class="bg-[var(--bm-rose)] py-16 px-6">
       <div class="container mx-auto max-w-4xl text-center">
         <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-6">About Us</h3>
@@ -304,7 +294,7 @@
       </div>
     </section>
 
-    <!-- ========== CONTACT ========== -->
+    <!-- Contact -->
     <section id="contact" class="container mx-auto px-6 py-16">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-10 text-center">Contact Us</h3>
       <form class="max-w-lg mx-auto space-y-6">
@@ -327,40 +317,49 @@
       </form>
     </section>
 
-    <!-- ========== SOCIALS ========== -->
+    <!-- Socials -->
     <section id="socials" class="bg-[var(--bm-rose)] py-12 px-6">
       <div class="container mx-auto text-center">
         <h3 class="text-2xl sm:text-3xl font-extrabold text-[var(--bm-pink)] mb-6">Connect With Us</h3>
         <div class="flex items-center justify-center gap-6 flex-wrap">
-          <!-- TikTok -->
+          <!-- TikTok (fixed SVG) -->
           <a href="https://www.tiktok.com/@biotechmarvels?_t=ZS-8zBDKBQSCrh&_r=1"
              aria-label="TikTok" target="_blank" rel="noopener"
              class="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
-              <path d="M448 209.9c-19.2 8.5-39.8 14.2-61.4 16.5 22-13.2 38.8-34.1 46.7-59.1-20.5 12.1-43.2 20.9-67.3 25.6-19.4-20.6-47.1-33.5-77.7-33.5-58.8 0-106.5 47.7-106.5 106.5 0 8.3.9 16.4 2.7 24.1C118.6 285.1 63 253.3 25.7 204.2c-9.1 15.6-14.3 33.7-14.3 53.1 0 36.6 18.6 68.9 46.8 87.8-17.3-.5-33.6-5.3-47.9-13.2v1.3c0 51.1 36.4 93.7 84.6 103.4-8.9 2.4-18.3 3.7-28 3.7-6.8 0-13.4-.7-19.9-1.9 13.4 41.9 52.3 72.3 98.4 73.2-36.1 28.3-81.6 45.2-131 45.2-8.5 0-16.9-.5-25.1-1.5 46.7 29.9 102.1 47.3 161.6 47.3 193.8 0 299.7-160.5 299.7-299.7l-.4-13.7c22.4-16.2 38.2-35 49.7-56.4z"/>
+            <!-- Font Awesome TikTok path -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current" aria-hidden="true">
+              <path d="M448,209.9c-19.2,8.5-39.8,14.2-61.4,16.5c22-13.2,38.8-34.1,46.7-59.1c-20.5,12.1-43.2,20.9-67.3,25.6
+              c-19.4-20.6-47.1-33.5-77.7-33.5c-58.8,0-106.5,47.7-106.5,106.5c0,8.3,0.9,16.4,2.7,24.1C118.6,285.1,63,253.3,25.7,204.2
+              c-9.1,15.6-14.3,33.7-14.3,53.1c0,36.6,18.6,68.9,46.8,87.8c-17.3-0.5-33.6-5.3-47.9-13.2v1.3c0,51.1,36.4,93.7,84.6,103.4
+              c-8.9,2.4-18.3,3.7-28,3.7c-6.8,0-13.4-0.7-19.9-1.9c13.4,41.9,52.3,72.3,98.4,73.2c-36.1,28.3-81.6,45.2-131,45.2
+              c-8.5,0-16.9-0.5-25.1-1.5c46.7,29.9,102.1,47.3,161.6,47.3c193.8,0,299.7-160.5,299.7-299.7l-0.4-13.7
+              C420.7,250.1,436.5,231.3,448,209.9z"/>
             </svg>
           </a>
+
           <!-- Facebook -->
           <a href="https://www.facebook.com/share/17DRNdrVzr/?mibextid=wwXIfr"
              aria-label="Facebook" target="_blank" rel="noopener"
              class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:scale-110 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-4 h-4 fill-current">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-4 h-4 fill-current" aria-hidden="true">
               <path d="M279.14 288l14.22-92.66h-88.91V127.91c0-25.35 12.42-50.06 52.24-50.06H296V6.26S259.91 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.2V288z"/>
             </svg>
           </a>
+
           <!-- WhatsApp -->
           <a href="https://chat.whatsapp.com/IErTxH5U2tgDXdeFKWtN2t?mode=ems_copy_t"
              aria-label="WhatsApp" target="_blank" rel="noopener"
              class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500 text-white hover:scale-110 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current" aria-hidden="true">
               <path d="M380.9 97.1C339 55.2 283.2 32 224.5 32 105.1 32 7.1 130 7.1 249.4c0 38.6 10.1 76.3 29.3 109.4L0 480l124.6-36.6c31.9 17.5 67.9 26.7 104.9 26.7h.1c119.4 0 217.4-98 217.4-217.4 0-58.7-23.2-114.5-65.1-156.6zM224.5 438.6h-.1c-32.2 0-63.8-8.6-91.4-24.9l-6.5-3.9-73.9 21.7 21.8-72.1-4.2-6.8c-18.4-29.7-28.1-64.1-28.1-99 0-103.1 83.9-187 187.1-187 49.9 0 96.8 19.4 132.1 54.7 35.2 35.2 54.6 82.1 54.6 132.1 0 103.2-83.9 187-187.1 187zM313 301.7c-5.5-2.7-32.2-15.9-37.2-17.7-5-1.8-8.6-2.7-12.3 2.7-3.6 5.5-14.1 17.7-17.2 21.3-3.2 3.6-6.3 4.1-11.8 1.4-32.2-15.9-53.2-28.5-74.5-64.4-5.6-9.7 5.6-9 16.1-30 1.8-3.6.9-6.6-.5-9.3-1.4-2.7-12.3-29.7-16.8-40.7-4.4-10.6-8.9-9.1-12.3-9.3-3.2-.2-6.8-.2-10.4-.2s-9.3 1.4-14.1 6.6c-4.8 5.5-18.6 18.2-18.6 44.5s19 51.6 21.6 55.2c2.7 3.6 37.5 57.2 90.8 80.2 12.7 5.5 22.6 8.8 30.4 11.3 12.8 4.1 24.5 3.5 33.7 2.1 10.3-1.5 32.2-13.1 36.7-25.7 4.6-12.6 4.6-23.4 3.2-25.7-1.3-2.4-5-3.9-10.5-6.6z"/>
             </svg>
           </a>
+
           <!-- Instagram -->
           <a href="https://www.instagram.com/biotechmarvels?igsh=MW15a3k2Zzd0bGJrNg=="
              aria-label="Instagram" target="_blank" rel="noopener"
              class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:scale-110 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current" aria-hidden="true">
               <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-94C383.9 42.1 352.1 33.9 316.8 32.2 281 30.4 166.9 30.4 131.2 32.2 95.5 33.9 64.1 42.1 37.8 68.4 11.5 95.6 3.3 127.4 1.6 163.3c-1.8 35.9-1.8 143.7 0 179.6 1.7 35.9 9.9 67.7 36.2 94 26.3 26.3 57.1 34.5 93.1 36.2 35.9 1.8 150.3 1.8 186.2 0 35.9-1.7 67.7-9.9 94-36.2 26.3-26.3 34.5-58.1 36.2-94 1.8-35.9 1.8-143.6 0-179.5z"/>
             </svg>
           </a>
@@ -371,10 +370,10 @@
 
   <!-- Footer -->
   <footer class="bg-black text-[var(--bm-pink)] text-center py-6">
-    <p class="text-sm">&copy; 2023 Biotech Marvels. All rights reserved.</p>
+    <p class="text-sm">&copy; 2024 Biotech Marvels. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- JS -->
   <script>
     // Countdown
     const countDownDate = new Date("2025-09-04T00:00:00").getTime();
@@ -391,30 +390,19 @@
       el.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
     }, 1000);
 
-    // Collapse toggler (for any button with data-collapse)
-    document.addEventListener('click', function (e) {
-      const btn = e.target.closest('[data-collapse]');
+    // Simple, reliable toggle (no animations): show/hide panel + change button label
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-toggle]');
       if (!btn) return;
-
-      const selector = btn.getAttribute('data-target');
-      const panel = document.querySelector(selector);
+      const targetSel = btn.getAttribute('data-target');
+      const panel = document.querySelector(targetSel);
       if (!panel) return;
 
-      const willOpen = !panel.classList.contains('open');
-      panel.classList.toggle('open', willOpen);
-      panel.style.maxHeight = willOpen ? panel.scrollHeight + 'px' : '0px';
-
-      // update label + a11y
-      btn.setAttribute('aria-expanded', String(willOpen));
-      const labelEl = btn.querySelector('.label');
-      if (labelEl) labelEl.textContent = willOpen ? 'Hide Content' : 'Learn More';
-    });
-
-    // If any panel is preset open
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.collapse.open').forEach(p => {
-        p.style.maxHeight = p.scrollHeight + 'px';
-      });
+      const willShow = panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', !willShow);
+      btn.setAttribute('aria-expanded', String(willShow));
+      const label = btn.querySelector('.label');
+      if (label) label.textContent = willShow ? 'Hide Content' : 'Learn More';
     });
   </script>
 </body>
