@@ -20,23 +20,24 @@
 </head>
 <body class="bg-white text-black min-h-screen flex flex-col">
 
-  <!-- Header: glassy pink -->
-  <header class="sticky top-0 z-50 backdrop-blur-xl bg-pink-500/25 supports-[backdrop-filter]:bg-pink-500/20 border-b border-white/20 text-white shadow-md">
+  <!-- Header: darker glassy pink -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md">
     <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between">
       <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wide">Biotech Marvels</h1>
       <nav class="mt-3 sm:mt-0 flex gap-6 text-base sm:text-lg font-semibold">
-        <a href="#courses" class="hover:underline">Courses</a>
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#contact" class="hover:underline">Contact</a>
-        <a href="#socials" class="hover:underline">Socials</a>
+        <a href="#courses" class="hover:text-pink-200 transition">Courses</a>
+        <a href="#about"   class="hover:text-pink-200 transition">About</a>
+        <a href="#contact" class="hover:text-pink-200 transition">Contact</a>
+        <a href="#socials" class="hover:text-pink-200 transition">Socials</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Main -->
   <main>
+
+    <!-- Hero -->
     <section class="container mx-auto px-6 pt-10 pb-6 text-center">
-      <!-- Hero Image (controlled size) -->
       <img
         src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
         alt="Biotech Marvels students receiving certificates"
@@ -53,7 +54,7 @@
         bioinformatics, cancer research, and drug discovery.
       </p>
       <a href="#courses"
-        class="inline-block mt-6 bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-pink-700 transition">
+         class="inline-block mt-6 bg-pink-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-pink-700 transition">
         View Courses
       </a>
     </section>
@@ -87,100 +88,107 @@
         Click here to fill the form
       </a>
     </section>
+
+    <!-- Courses -->
+    <section id="courses" class="container mx-auto px-6 py-16">
+      <h3 class="text-3xl font-extrabold text-pink-600 mb-10 text-center">Our Courses</h3>
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
+          <h4 class="text-2xl font-bold mb-3 text-gray-900">Bioinformatics 101</h4>
+          <p class="text-gray-700 mb-4">Introduction to bioinformatics concepts, tools, and databases.</p>
+          <button class="bg-pink-600 text-white font-semibold px-4 py-2 rounded hover:bg-pink-700 transition">Learn More</button>
+        </article>
+        <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
+          <h4 class="text-2xl font-bold mb-3 text-gray-900">Breast Cancer</h4>
+          <p class="text-gray-700 mb-4">Biology, diagnosis, and treatment strategies with latest research.</p>
+          <button class="bg-pink-600 text-white font-semibold px-4 py-2 rounded hover:bg-pink-700 transition">Learn More</button>
+        </article>
+        <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
+          <h4 class="text-2xl font-bold mb-3 text-gray-900">Drug Discovery</h4>
+          <p class="text-gray-700 mb-4">Explore the pipeline from target identification to clinical trials.</p>
+          <button class="bg-pink-600 text-white font-semibold px-4 py-2 rounded hover:bg-pink-700 transition">Learn More</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="bg-pink-50 py-16 px-6">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h3 class="text-3xl font-extrabold text-pink-600 mb-6">About Us</h3>
+        <p class="text-black/80 text-lg leading-relaxed">
+          Biotech Marvels is dedicated to providing high-quality education in biotechnology and bioinformatics.
+          Our courses are designed by experts to help you gain practical knowledge and skills to excel in this field.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container mx-auto px-6 py-16">
+      <h3 class="text-3xl font-extrabold text-pink-600 mb-10 text-center">Contact Us</h3>
+      <form class="max-w-lg mx-auto space-y-6">
+        <div>
+          <label for="name" class="block text-black font-semibold mb-2">Name</label>
+          <input type="text" id="name" name="name" required
+            class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+        </div>
+        <div>
+          <label for="email" class="block text-black font-semibold mb-2">Email</label>
+          <input type="email" id="email" name="email" required
+            class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
+        </div>
+        <div>
+          <label for="message" class="block text-black font-semibold mb-2">Message</label>
+          <textarea id="message" name="message" rows="4" required
+            class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+        </div>
+        <button type="submit" class="bg-pink-600 text-white font-bold px-6 py-3 rounded hover:bg-pink-700 transition w-full">
+          Send Message
+        </button>
+      </form>
+    </section>
+
+    <!-- Social Media -->
+    <section id="socials" class="bg-pink-50 py-12 px-6">
+      <div class="container mx-auto text-center">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-pink-600 mb-6">Connect With Us</h3>
+        <div class="flex items-center justify-center gap-6 flex-wrap">
+          <!-- TikTok (SVG fixed) -->
+          <a href="https://www.tiktok.com/@biotechmarvels?_t=ZS-8zBDKBQSCrh&_r=1"
+             aria-label="TikTok" target="_blank" rel="noopener"
+             class="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
+              <path d="M448 209.9c-19.2 8.5-39.8 14.2-61.4 16.5 22-13.2 38.8-34.1 46.7-59.1-20.5 12.1-43.2 20.9-67.3 25.6-19.4-20.6-47.1-33.5-77.7-33.5-58.8 0-106.5 47.7-106.5 106.5 0 8.3.9 16.4 2.7 24.1C118.6 285.1 63 253.3 25.7 204.2c-9.1 15.6-14.3 33.7-14.3 53.1 0 36.6 18.6 68.9 46.8 87.8-17.3-.5-33.6-5.3-47.9-13.2v1.3c0 51.1 36.4 93.7 84.6 103.4-8.9 2.4-18.3 3.7-28 3.7-6.8 0-13.4-.7-19.9-1.9 13.4 41.9 52.3 72.3 98.4 73.2-36.1 28.3-81.6 45.2-131 45.2-8.5 0-16.9-.5-25.1-1.5 46.7 29.9 102.1 47.3 161.6 47.3 193.8 0 299.7-160.5 299.7-299.7l-.4-13.7c22.4-16.2 38.2-35 49.7-56.4z"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/share/17DRNdrVzr/?mibextid=wwXIfr"
+             aria-label="Facebook" target="_blank" rel="noopener"
+             class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-4 h-4 fill-current">
+              <path d="M279.14 288l14.22-92.66h-88.91V127.91c0-25.35 12.42-50.06 52.24-50.06H296V6.26S259.91 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.2V288z"/>
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="https://chat.whatsapp.com/IErTxH5U2tgDXdeFKWtN2t?mode=ems_copy_t"
+             aria-label="WhatsApp" target="_blank" rel="noopener"
+             class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500 text-white hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
+              <path d="M380.9 97.1C339 55.2 283.2 32 224.5 32 105.1 32 7.1 130 7.1 249.4c0 38.6 10.1 76.3 29.3 109.4L0 480l124.6-36.6c31.9 17.5 67.9 26.7 104.9 26.7h.1c119.4 0 217.4-98 217.4-217.4 0-58.7-23.2-114.5-65.1-156.6zM224.5 438.6h-.1c-32.2 0-63.8-8.6-91.4-24.9l-6.5-3.9-73.9 21.7 21.8-72.1-4.2-6.8c-18.4-29.7-28.1-64.1-28.1-99 0-103.1 83.9-187 187.1-187 49.9 0 96.8 19.4 132.1 54.7 35.2 35.2 54.6 82.1 54.6 132.1 0 103.2-83.9 187-187.1 187zM313 301.7c-5.5-2.7-32.2-15.9-37.2-17.7-5-1.8-8.6-2.7-12.3 2.7-3.6 5.5-14.1 17.7-17.2 21.3-3.2 3.6-6.3 4.1-11.8 1.4-32.2-15.9-53.2-28.5-74.5-64.4-5.6-9.7 5.6-9 16.1-30 1.8-3.6.9-6.6-.5-9.3-1.4-2.7-12.3-29.7-16.8-40.7-4.4-10.6-8.9-9.1-12.3-9.3-3.2-.2-6.8-.2-10.4-.2s-9.3 1.4-14.1 6.6c-4.8 5.5-18.6 18.2-18.6 44.5s19 51.6 21.6 55.2c2.7 3.6 37.5 57.2 90.8 80.2 12.7 5.5 22.6 8.8 30.4 11.3 12.8 4.1 24.5 3.5 33.7 2.1 10.3-1.5 32.2-13.1 36.7-25.7 4.6-12.6 4.6-23.4 3.2-25.7-1.3-2.4-5-3.9-10.5-6.6z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/biotechmarvels?igsh=MW15a3k2Zzd0bGJrNg=="
+             aria-label="Instagram" target="_blank" rel="noopener"
+             class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
+              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-94C383.9 42.1 352.1 33.9 316.8 32.2 281 30.4 166.9 30.4 131.2 32.2 95.5 33.9 64.1 42.1 37.8 68.4 11.5 95.6 3.3 127.4 1.6 163.3c-1.8 35.9-1.8 143.7 0 179.6 1.7 35.9 9.9 67.7 36.2 94 26.3 26.3 57.1 34.5 93.1 36.2 35.9 1.8 150.3 1.8 186.2 0 35.9-1.7 67.7-9.9 94-36.2 26.3-26.3 34.5-58.1 36.2-94 1.8-35.9 1.8-143.6 0-179.5z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
-
-  <!-- Courses -->
-  <section id="courses" class="container mx-auto px-6 py-16">
-    <h3 class="text-3xl font-extrabold text-pink-600 mb-10 text-center">Our Courses</h3>
-    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-      <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
-        <h4 class="text-2xl font-bold mb-3 text-gray-900">Bioinformatics 101</h4>
-        <p class="text-gray-700 mb-4">Introduction to bioinformatics concepts, tools, and databases.</p>
-        <button class="bg-pink-600 text-white font-semibold px-4 py-2 rounded hover:bg-pink-700 transition">Learn More</button>
-      </article>
-      <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
-        <h4 class="text-2xl font-bold mb-3 text-gray-900">Breast Cancer</h4>
-        <p class="text-gray-700 mb-4">Biology, diagnosis, and treatment strategies with latest research.</p>
-        <button class="bg-pink-600 text-white font-semibold px-4 py-2 rounded hover:bg-pink-700 transition">Learn More</button>
-      </article>
-      <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
-        <h4 class="text-2xl font-bold mb-3 text-gray-900">Drug Discovery</h4>
-        <p class="text-gray-700 mb-4">Explore the pipeline from target identification to clinical trials.</p>
-        <button class="bg-pink-600 text-white font-semibold px-4 py-2 rounded hover:bg-pink-700 transition">Learn More</button>
-      </article>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="bg-pink-50 py-16 px-6">
-    <div class="container mx-auto max-w-4xl text-center">
-      <h3 class="text-3xl font-extrabold text-pink-600 mb-6">About Us</h3>
-      <p class="text-black/80 text-lg leading-relaxed">
-        Biotech Marvels is dedicated to providing high-quality education in biotechnology and bioinformatics.
-        Our courses are designed by experts to help you gain practical knowledge and skills to excel in this field.
-      </p>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="container mx-auto px-6 py-16">
-    <h3 class="text-3xl font-extrabold text-pink-600 mb-10 text-center">Contact Us</h3>
-    <form class="max-w-lg mx-auto space-y-6">
-      <div>
-        <label for="name" class="block text-black font-semibold mb-2">Name</label>
-        <input type="text" id="name" name="name" required
-          class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
-      </div>
-      <div>
-        <label for="email" class="block text-black font-semibold mb-2">Email</label>
-        <input type="email" id="email" name="email" required
-          class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500" />
-      </div>
-      <div>
-        <label for="message" class="block text-black font-semibold mb-2">Message</label>
-        <textarea id="message" name="message" rows="4" required
-          class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
-      </div>
-      <button type="submit"
-        class="bg-pink-600 text-white font-bold px-6 py-3 rounded hover:bg-pink-700 transition w-full">
-        Send Message
-      </button>
-    </form>
-  </section>
-
-  <!-- Social Media -->
-  <section id="socials" class="bg-pink-50 py-12 px-6">
-    <div class="container mx-auto text-center">
-      <h3 class="text-2xl sm:text-3xl font-extrabold text-pink-600 mb-6">Connect With Us</h3>
-      <div class="flex items-center justify-center gap-6 flex-wrap">
-        <!-- TikTok -->
-        <a href="https://www.tiktok.com/@biotechmarvels?_t=ZS-8zBDKBQSCrh&_r=1"
-          aria-label="TikTok" target="_blank" rel="noopener"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition">
-          <!-- (Use your full TikTok SVG here) -->
-          <span class="sr-only">TikTok</span>♫
-        </a>
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/share/17DRNdrVzr/?mibextid=wwXIfr"
-          aria-label="Facebook" target="_blank" rel="noopener"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:scale-110 transition">
-          <span class="sr-only">Facebook</span>f
-        </a>
-        <!-- WhatsApp -->
-        <a href="https://chat.whatsapp.com/IErTxH5U2tgDXdeFKWtN2t?mode=ems_copy_t"
-          aria-label="WhatsApp" target="_blank" rel="noopener"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500 text-white hover:scale-110 transition">
-          <span class="sr-only">WhatsApp</span>✆
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/biotechmarvels?igsh=MW15a3k2Zzd0bGJrNg=="
-          aria-label="Instagram" target="_blank" rel="noopener"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:scale-110 transition">
-          <span class="sr-only">Instagram</span>◎
-        </a>
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="bg-black text-pink-500 text-center py-6">
