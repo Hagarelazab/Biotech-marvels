@@ -50,21 +50,26 @@
     }
 
     /* --- animated DNA dots (hero overlay) --- */
-    .dna-layer{ position:absolute; inset:0; pointer-events:none; opacity:.10; }
-    .dna-dot{
-      position:absolute; width:6px; height:6px; border-radius:999px;
-      background:var(--bm-pink);
-      box-shadow:0 0 10px rgba(232,106,160,.65);
-      animation: helix 6.5s ease-in-out infinite;
-    }
-    @keyframes helix{
-      0%   { transform: translateY(-40px) translateX(-16px) scale(.8); opacity:.7; }
-      50%  { transform: translateY(40px)  translateX(16px)  scale(1);   opacity:1; }
-      100% { transform: translateY(-40px) translateX(-16px) scale(.8); opacity:.7; }
-    }
-  </style>
-</head>
-<body class="bg-white min-h-screen flex flex-col">
+    .dna-layer{ 
+  position:absolute; inset:0; pointer-events:none; 
+  opacity:.25; /* was .10 → now more visible */
+}
+
+.dna-dot{
+  position:absolute; 
+  width:12px; height:12px; /* was 6px → bigger dots */
+  border-radius:999px;
+  background:var(--bm-pink);
+  box-shadow:0 0 15px rgba(232,106,160,.8); /* brighter glow */
+  animation: helix 4s ease-in-out infinite; /* faster motion */
+}
+
+@keyframes helix{
+  0%   { transform: translateY(-60px) translateX(-20px) scale(.8); opacity:.8; }
+  50%  { transform: translateY(60px)  translateX(20px)  scale(1.1); opacity:1; }
+  100% { transform: translateY(-60px) translateX(-20px) scale(.8); opacity:.8; }
+}
+
 
   <!-- Header: darker glassy pink (old version) -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md">
