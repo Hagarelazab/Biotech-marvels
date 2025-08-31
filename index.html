@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -25,6 +25,30 @@
     html{ scroll-behavior: smooth; }
     body{ font-family:'Inter',system-ui,-apple-system,Segoe UI,Arial,sans-serif; }
 
+    /* ======= TYPOGRAPHY (only change) ======= */
+    /* Bigger, readable body text */
+    body { font-size: 18px; line-height: 1.7; color: #1f2937; } /* gray-800 */
+    @media (min-width: 768px){ body { font-size: 19px; } }
+
+    /* Consistent headings (no mixed colors) */
+    .h1{ 
+      color:#111; font-weight:800; 
+      /* clamp(min, preferred, max) scales well on mobile/desktop */
+      font-size: clamp(2.25rem, 4.5vw, 3.5rem); /* ~36px → ~56px */
+      line-height: 1.15;
+    }
+    .h2{ 
+      color:#111; font-weight:800; 
+      font-size: clamp(1.875rem, 3.2vw, 2.25rem); /* ~30px → ~36px */
+      line-height: 1.2;
+    }
+    .h3{ 
+      color:#111; font-weight:700; 
+      font-size: clamp(1.25rem, 2.2vw, 1.5rem); /* ~20px → ~24px */
+      line-height: 1.25;
+    }
+    /* ======================================= */
+
     /* Buttons (single accent color usage) */
     .btn-bm{
       background:var(--bm-pink);
@@ -44,11 +68,6 @@
       background:linear-gradient(180deg,var(--bm-glass),transparent);
       border:1px solid rgba(255,255,255,.25);
     }
-
-    /* Headings (consistent color) */
-    .h1{ @apply text-3xl sm:text-5xl font-extrabold text-gray-900; }
-    .h2{ @apply text-3xl font-extrabold text-gray-900; }
-    .h3{ @apply text-2xl font-bold text-gray-900; }
 
     /* DNA dotted divider */
     .bm-dna-divider{
@@ -79,7 +98,7 @@
   </style>
 </head>
 
-<body class="bg-white min-h-screen flex flex-col text-base sm:text-[17px] md:text-lg leading-relaxed text-gray-800">
+<body class="bg-white min-h-screen flex flex-col">
 
   <!-- Header / Nav -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md">
@@ -133,15 +152,15 @@
           loading="lazy" width="1200" height="675"
         />
 
-        <p class="text-gray-600 text-sm sm:text-base mb-2 inline-block bm-glass px-3 py-1 rounded-full border border-white/30">
+        <p class="text-gray-600 text-base sm:text-lg mb-2 inline-block bm-glass px-3 py-1 rounded-full border border-white/30">
           Biotechnology and Bioinformatics
         </p>
 
-        <h1 class="h1 leading-tight">
+        <h1 class="h1">
           Empowering Your Future in Biotechnology & Bioinformatics
         </h1>
 
-        <p class="text-[var(--bm-ink-70)] text-lg sm:text-xl mt-4 max-w-3xl mx-auto">
+        <p class="text-[var(--bm-ink-70)] mt-4 max-w-3xl mx-auto">
           Explore cutting-edge courses designed to advance your knowledge in
           bioinformatics, cancer research, and drug discovery.
         </p>
@@ -151,7 +170,7 @@
       </div>
     </section>
 
-    <!-- ========== FREE COURSE PROMO (optional) ========== -->
+    <!-- ========== FREE COURSE PROMO (kept) ========== -->
     <section
       class="mt-6 max-w-2xl mx-auto rounded-2xl border border-pink-500/30 bg-zinc-900/60 text-white shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center"
       aria-labelledby="free-course-title"
@@ -160,9 +179,7 @@
         <span>🎓</span><span>FREE COURSE</span>
       </div>
 
-      <h3 id="free-course-title" class="text-2xl sm:text-3xl font-extrabold">
-        Limited seats — 25 students only
-      </h3>
+      <h3 id="free-course-title" class="h3 text-white" style="font-size:1.75rem;">Limited seats — 25 students only</h3>
 
       <div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
         <span class="text-sm text-pink-200/90">⏳ Registration closes in</span>
@@ -180,7 +197,7 @@
       </a>
     </section>
 
-    <!-- ========== COURSES ========== -->
+    <!-- ========== COURSES (kept; only fonts larger) ========== -->
     <section id="courses" class="container mx-auto px-6 py-16">
       <h3 class="h2 mb-10 text-center">Our Courses</h3>
 
@@ -189,7 +206,7 @@
         <article class="border border-pink-500/20 rounded-xl p-6 bg-white hover:shadow-lg transition">
           <div class="flex items-center gap-3 mb-3">
             <!-- 🧬 DNA icon -->
-            <svg class="w-6 h-6 text-pink-500" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 3a.75.75 0 0 1 .75.75c0 2.222 1.273 3.86 2.63 5.092 1.316 1.195 2.786 2.007 3.493 2.371a.75.75 0 1 1-.664 1.35c-.77-.378-2.357-1.257-3.82-2.579A10.2 10.2 0 0 1 7.5 4.75.75.75 0 0 1 8.25 4V3.75A.75.75 0 0 1 7.5 3Z"/></svg>
+            <svg class="w-7 h-7 text-pink-500" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 3a.75.75 0 0 1 .75.75c0 2.222 1.273 3.86 2.63 5.092 1.316 1.195 2.786 2.007 3.493 2.371a.75.75 0 1 1-.664 1.35c-.77-.378-2.357-1.257-3.82-2.579A10.2 10.2 0 0 1 7.5 4.75.75.75 0 0 1 8.25 4V3.75A.75.75 0 0 1 7.5 3Z"/></svg>
             <h4 class="h3 m-0">Bioinformatics 101</h4>
           </div>
           <p class="text-gray-700">
@@ -204,7 +221,7 @@
         <article class="border border-pink-500/20 rounded-xl p-6 bg-white hover:shadow-lg transition">
           <div class="flex items-center gap-3 mb-3">
             <!-- 🎗️ Ribbon icon -->
-            <svg class="w-6 h-6 text-pink-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a5 5 0 0 0-4.47 7.16l-.2.2-4.6 4.6a2 2 0 0 0 2.83 2.83l4.6-4.6.2-.2A5 5 0 1 0 12 3Zm0 2.5A2.5 2.5 0 1 1 9.5 8 2.5 2.5 0 0 1 12 5.5Z"/></svg>
+            <svg class="w-7 h-7 text-pink-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a5 5 0 0 0-4.47 7.16l-.2.2-4.6 4.6a2 2 0 0 0 2.83 2.83l4.6-4.6.2-.2A5 5 0 1 0 12 3Zm0 2.5A2.5 2.5 0 1 1 9.5 8 2.5 2.5 0 0 1 12 5.5Z"/></svg>
             <h4 class="h3 m-0">Breast Cancer</h4>
           </div>
           <p class="text-gray-700">
@@ -218,12 +235,12 @@
         <article class="border border-pink-500/20 rounded-xl p-6 bg-white hover:shadow-lg transition">
           <div class="flex items-center gap-3 mb-3">
             <!-- 💊 Pill icon -->
-            <svg class="w-6 h-6 text-pink-500" viewBox="0 0 24 24" fill="currentColor"><path d="M19.79 4.21a5.5 5.5 0 0 0-7.78 0L4.2 11.99a5.5 5.5 0 1 0 7.78 7.78l7.78-7.78a5.5 5.5 0 0 0 0-7.78Zm-9.9 13.67a3 3 0 0 1-4.24-4.24l3.07-3.07 4.24 4.24-3.07 3.07Z"/></svg>
+            <svg class="w-7 h-7 text-pink-500" viewBox="0 0 24 24" fill="currentColor"><path d="M19.79 4.21a5.5 5.5 0 0 0-7.78 0L4.2 11.99a5.5 5.5 0 1 0 7.78 7.78l7.78-7.78a5.5 5.5 0 0 0 0-7.78Zm-9.9 13.67a3 3 0 0 1-4.24-4.24l3.07-3.07 4.24 4.24-3.07 3.07Z"/></svg>
             <h4 class="h3 m-0">Drug Discovery</h4>
           </div>
           <p class="text-gray-700">From target identification to clinical trials.</p>
 
-          <button class="btn-bm mt-4 w-full" data-toggle data-target="#drug-panel">Learn More</button>
+          <button class="btn-bm mt-4 w-full" data-toggle data-target="#drug-panel"><span class="label">Learn More</span></button>
 
           <div id="drug-panel" class="hidden mt-4 text-gray-700 space-y-3">
             <p class="font-semibold">Recorded Sessions – Build Your Foundations</p>
@@ -259,7 +276,7 @@
       </div>
     </section>
 
-    <!-- ========== FREE YOUTUBE COURSES ========== -->
+    <!-- ========== FREE YOUTUBE COURSES (kept) ========== -->
     <section id="youtube-courses" class="container mx-auto px-6 pt-10 pb-16">
       <h3 class="h2 text-center mb-2">Free YouTube Courses</h3>
       <p class="text-center text-gray-700 max-w-2xl mx-auto mb-8">
@@ -323,7 +340,7 @@
       </div>
     </section>
 
-    <!-- ========== WHO WE ARE ========== -->
+    <!-- ========== WHO WE ARE (kept) ========== -->
     <section id="who" class="container mx-auto px-6 py-16 text-center">
       <h3 class="h2 mb-6">Who We Are</h3>
       <img
@@ -339,7 +356,7 @@
       <div class="bm-dna-divider mt-10 mb-2 mx-auto max-w-3xl"></div>
     </section>
 
-    <!-- ========== ABOUT ========== -->
+    <!-- ========== ABOUT (kept) ========== -->
     <section id="about" class="bg-[var(--bm-rose)] py-16 px-6">
       <div class="container mx-auto max-w-4xl text-center">
         <h3 class="h2 mb-6">About Us</h3>
@@ -350,7 +367,7 @@
       </div>
     </section>
 
-    <!-- ========== CONTACT ========== -->
+    <!-- ========== CONTACT (kept) ========== -->
     <section id="contact" class="container mx-auto px-6 py-16">
       <h3 class="h2 mb-10 text-center">Contact Us</h3>
       <form class="max-w-lg mx-auto space-y-6">
@@ -373,7 +390,7 @@
       </form>
     </section>
 
-    <!-- ========== SOCIALS ========== -->
+    <!-- ========== SOCIALS (kept) ========== -->
     <section id="socials" class="bg-[var(--bm-rose)] py-12 px-6">
       <div class="container mx-auto text-center">
         <h3 class="h2 mb-6">Connect With Us</h3>
@@ -407,7 +424,7 @@
              aria-label="Instagram" target="_blank" rel="noopener"
              class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:scale-110 transition">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current" aria-hidden="true">
-              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-94C383.9 42.1 352.1 33.9 316.8 32.2 281 30.4 166.9 30.4 131.2 32.2 95.5 33.9 64.1 42.1 37.8 68.4 11.5 95.6 3.3 127.4 1.6 163.3c-1.8 35.9-1.8 143.7 0 179.6 1.7 35.9 9.9 67.7 36.2 94 26.3 26.3 57.1 34.5 93.1 36.2 35.9 1.8 150.3 1.8 186.2 0 35.9-1.7 67.7-9.9 94-36.2 26.3-26.3 34.5-58.1 36.2-94 1.8-35.9 1.8-143.6 0-179.5z"/>
+              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8z"/>
             </svg>
           </a>
         </div>
@@ -422,7 +439,7 @@
 
   <!-- Scripts -->
   <script>
-    // Countdown
+    // Countdown (kept)
     (function(){
       const countDownDate = new Date("2025-09-04T00:00:00").getTime();
       const el = document.getElementById("countdown");
@@ -440,7 +457,7 @@
       }, 1000);
     })();
 
-    // Simple, reliable toggle (no animations): show/hide panel + change button label
+    // Toggle panels (kept)
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('[data-toggle]');
       if (!btn) return;
@@ -455,7 +472,7 @@
       if (label) label.textContent = willShow ? 'Hide Content' : 'Learn More';
     });
 
-    // Switch the big YouTube embed when a thumbnail is clicked
+    // Switch the big YouTube embed (kept)
     (function () {
       const frame = document.getElementById('yt-embed');
       if (!frame) return;
