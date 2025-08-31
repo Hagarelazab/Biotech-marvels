@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +7,6 @@
   <meta name="keywords" content="Biotechnology, Bioinformatics, Education, Courses" />
   <title>Biotech & Bioinformatics Education • Biotech Marvels</title>
 
-  
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -15,30 +14,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
 
   <style>
-    /* ===== Brand tokens ===== */
     :root{
-      --bm-pink:#E86AA0;         /* logo pink */
-      --bm-pink-dark:#C94E86;    /* hover shade */
-      --bm-ink:#111111;          /* headings ink */
-      --bm-ink-70:#3a3a3a;       /* body text */
-      --bm-rose:#F9ECF3;         /* soft section bg */
+      --bm-pink:#E86AA0;
+      --bm-pink-dark:#C94E86;
+      --bm-ink:#111111;
+      --bm-ink-70:#3a3a3a;
+      --bm-rose:#F9ECF3;
       --bm-glass:rgba(232,106,160,.08);
 
-      --yt-pink:#ff4fa3;         /* neon pink for YouTube section */
-      --yt-sky:#b7e3ff;          /* soft light blue */
+      --yt-pink:#ff4fa3;
+      --yt-sky:#b7e3ff;
     }
-
     html{ scroll-behavior:smooth; }
     body{ font-family:'Inter',system-ui,-apple-system,Segoe UI,Arial,sans-serif; color:var(--bm-ink); }
 
-    /* Glass surface */
     .bm-glass{
       backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
       background:linear-gradient(180deg,var(--bm-glass),transparent);
       border:1px solid rgba(255,255,255,.25);
     }
-
-    /* Primary button */
     .btn-bm{
       background:var(--bm-pink); color:#fff; border-radius:14px;
       padding:.75rem 1.25rem; font-weight:700; display:inline-block;
@@ -47,7 +41,6 @@
     }
     .btn-bm:hover{ background:var(--bm-pink-dark); transform:translateY(-1.5px); box-shadow:0 10px 26px rgba(232,106,160,.35); }
 
-    /* Link underline accent */
     .link-underline{ position:relative; }
     .link-underline::after{
       content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0%;
@@ -56,14 +49,11 @@
     }
     .link-underline:hover::after{ width:100%; }
 
-    /* Underline accent for headlines */
     .bm-underline{ position:relative; display:inline-block; }
     .bm-underline:after{
       content:""; position:absolute; left:8px; right:8px; bottom:-6px; height:3px;
       background:var(--bm-pink); transform:skewX(-12deg); border-radius:2px;
     }
-
-    /* DNA dotted divider */
     .bm-dna-divider{
       background-image:
         radial-gradient(circle at 0 50%, rgba(232,106,160,.35) 2px, transparent 2px),
@@ -71,7 +61,7 @@
       background-size:24px 8px; background-repeat:repeat-x; height:8px; opacity:.5;
     }
 
-    /* Animated DNA overlay in hero */
+    /* DNA dots in hero */
     .dna-layer{ position:absolute; inset:0; pointer-events:none; opacity:.22; }
     .dna-dot{
       position:absolute; width:12px; height:12px; border-radius:999px; background:var(--bm-pink);
@@ -89,7 +79,7 @@
       100%{ transform: translateY(60px) translateX(20px) scale(.85); opacity:.85; }
     }
 
-    /* --- YouTube courses visuals --- */
+    /* YouTube section visuals */
     .glow {
       box-shadow:
         0 0 0 6px rgba(255,255,255,.35) inset,
@@ -117,14 +107,10 @@
       0%,100%{ transform: scale(1); box-shadow: 0 0 0 0 rgba(255,79,163,.35); }
       50%{ transform: scale(1.02); box-shadow: 0 0 0 10px rgba(255,79,163,.12); }
     }
-
-    /* Optional collapse animation for inside-card panels */
-    .collapse-fast { transition: grid-template-rows .28s ease, opacity .22s ease; }
   </style>
 </head>
 
 <body class="bg-white min-h-screen flex flex-col">
-
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md">
     <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between">
@@ -141,11 +127,9 @@
   </header>
 
   <main>
-    <!-- ===== HERO ===== -->
+    <!-- HERO -->
     <section class="relative overflow-hidden">
-      <!-- animated DNA overlay -->
       <div class="dna-layer" aria-hidden="true">
-        <!-- left→right wave -->
         <span class="dna-dot" style="left:10%; top:20%; animation-delay:.0s"></span>
         <span class="dna-dot" style="left:18%; top:50%; animation-delay:.2s"></span>
         <span class="dna-dot" style="left:26%; top:30%; animation-delay:.4s"></span>
@@ -157,7 +141,6 @@
         <span class="dna-dot" style="left:74%; top:22%; animation-delay:1.6s"></span>
         <span class="dna-dot" style="left:82%; top:52%; animation-delay:1.8s"></span>
         <span class="dna-dot" style="left:90%; top:27%; animation-delay:2.0s"></span>
-        <!-- right→left mirrored wave -->
         <span class="dna-dot rev" style="left:14%; top:62%; animation-delay:.6s"></span>
         <span class="dna-dot rev" style="left:22%; top:24%; animation-delay:.8s"></span>
         <span class="dna-dot rev" style="left:30%; top:54%; animation-delay:1.0s"></span>
@@ -171,7 +154,6 @@
       </div>
 
       <div class="container mx-auto px-6 pt-10 pb-6 text-center relative">
-        <!-- Hero Image -->
         <img
           src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
           alt="Biotech Marvels students receiving certificates"
@@ -197,7 +179,7 @@
       </div>
     </section>
 
-    <!-- ===== Free course card (general) ===== -->
+    <!-- Free course card -->
     <section
       class="mt-6 max-w-2xl mx-auto rounded-2xl border border-pink-500/30 bg-zinc-900/60 text-white shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center"
       aria-labelledby="free-course-title"
@@ -226,12 +208,12 @@
       </a>
     </section>
 
-    <!-- ===== Courses ===== -->
+    <!-- Courses -->
     <section id="courses" class="container mx-auto px-6 py-16">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-10 text-center">Our Courses</h3>
 
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- === Bioinformatics 101 (with inline expandable syllabus + register button) === -->
+        <!-- Bioinformatics 101 -->
         <article class="border border-pink-500/30 rounded-xl p-6 bg-white hover:shadow-lg transition">
           <h4 class="text-2xl font-bold mb-3 text-gray-900">Bioinformatics 101</h4>
           <p class="text-gray-700 mb-4">Introduction to bioinformatics concepts, tools, and databases.</p>
@@ -253,52 +235,44 @@
             </a>
           </div>
 
-          <!-- Bioinformatics content -->
           <div id="bio-panel" class="hidden mt-4 text-left text-gray-700 space-y-5">
             <div>
               <h5 class="font-bold text-pink-600 mb-2">Introduction to Genetics</h5>
               <ul class="list-disc list-inside space-y-1">
-                <li>Molecular Genetics Fundamentals: PCR, Gel Electrophoresis, DNA Cloning</li>
+                <li>Molecular Genetics: PCR, Gel Electrophoresis, DNA Cloning</li>
                 <li>Restriction Enzymes &amp; Genetic Mutations</li>
                 <li>The Biotechnology Revolution</li>
               </ul>
             </div>
-
             <div>
               <h5 class="font-bold text-pink-600 mb-2">Introduction to Bioinformatics</h5>
               <ul class="list-disc list-inside space-y-1">
-                <li>Exploring <b>NCBI</b></li>
-                <li>Sequence Alignment &amp; Primer Design tools</li>
+                <li>Exploring <b>NCBI</b>, Sequence Alignment &amp; Primer Design</li>
                 <li>Restriction Enzyme identification</li>
                 <li>Overview of <b>GeneCards</b></li>
               </ul>
             </div>
-
             <div>
               <h5 class="font-bold text-pink-600 mb-2">Bacterial Bioinformatics</h5>
               <ul class="list-disc list-inside space-y-1">
-                <li>Species Identification &amp; Serotyping</li>
-                <li>Resistance Gene detection</li>
-                <li>Choosing Effective Antibiotics</li>
-                <li>Plasmid identification tools</li>
+                <li>Species &amp; Serotyping</li>
+                <li>Resistance Genes &amp; Effective Antibiotics</li>
+                <li>Plasmid Identification</li>
               </ul>
             </div>
-
             <div>
               <h5 class="font-bold text-pink-600 mb-2">Introduction to Proteomics</h5>
               <ul class="list-disc list-inside space-y-1">
-                <li>Exploring <b>UniProt</b> &amp; <b>AlphaFold</b></li>
-                <li>Drug properties &amp; effects on the body</li>
+                <li><b>UniProt</b> &amp; <b>AlphaFold</b></li>
+                <li>Drug Properties &amp; Body Effects</li>
               </ul>
             </div>
-
             <div>
-              <h5 class="font-bold text-pink-600 mb-2">Intro to Programming for Bioinformatics</h5>
+              <h5 class="font-bold text-pink-600 mb-2">Intro to Programming</h5>
               <ul class="list-disc list-inside space-y-1">
-                <li>Basics of <b>R</b> programming</li>
+                <li>Basics of <b>R</b></li>
               </ul>
             </div>
-
             <div>
               <h5 class="font-bold text-pink-600 mb-2">Final Session</h5>
               <p>📌 Presentation Day</p>
@@ -306,14 +280,14 @@
           </div>
         </article>
 
-        <!-- === Breast Cancer (simple) === -->
+        <!-- Breast Cancer -->
         <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
           <h4 class="text-2xl font-bold mb-3 text-gray-900">Breast Cancer</h4>
           <p class="text-gray-700 mb-4">Biology, diagnosis, and treatment strategies with latest research.</p>
           <a href="#contact" class="btn-bm">Ask About This Course</a>
         </article>
 
-        <!-- === Drug Discovery (with inline content + register) === -->
+        <!-- Drug Discovery -->
         <article class="border border-pink-500/30 rounded-xl p-6 bg-white hover:shadow-lg transition">
           <h4 class="text-2xl font-bold mb-3 text-gray-900">Drug Discovery</h4>
           <p class="text-gray-700 mb-4">Explore the pipeline from target identification to clinical trials.</p>
@@ -346,7 +320,6 @@
                 <li><b>Biomarkers</b> – Indicators for detection, development, and personalized medicine.</li>
               </ul>
             </div>
-
             <div>
               <h5 class="font-bold text-pink-600 mb-1">Live Sessions – Learn by Doing</h5>
               <ul class="list-disc list-inside space-y-1">
@@ -357,7 +330,6 @@
                 <li><b>How to Discover a New Drug</b> – Leads, preclinical, clinical trials.</li>
               </ul>
             </div>
-
             <div>
               <h5 class="font-bold text-pink-600 mb-1">Learning Outcomes</h5>
               <ul class="list-disc list-inside space-y-1">
@@ -373,7 +345,7 @@
       </div>
     </section>
 
-    <!-- ===== Free YouTube Courses (futuristic button + expanding list) ===== -->
+    <!-- Free YouTube Courses -->
     <section id="youtube-courses" class="relative py-20 bg-gradient-to-b from-white via-[#eef7ff] to-[#ffeef7] text-[#111]">
       <div class="mx-auto max-w-4xl px-6 text-center">
         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0f172a]">
@@ -416,41 +388,64 @@
           <div id="courseList" class="w-full sm:w-3/4 lg:w-2/3 mt-16 hidden">
             <div class="glass rounded-2xl p-5 sm:p-6 shadow-xl ring-1 ring-white/50">
               <ul class="text-left divide-y divide-white/50">
+                <!-- Genetics 101 -->
                 <li>
-                  <a href="https://www.youtube.com/results?search_query=Genetics+101" target="_blank" rel="noopener" class="flex items-center gap-3 py-4 group">
-                    <!-- DNA icon -->
+                  <a href="https://youtube.com/playlist?list=PL1Xf_J0k133IVay2ncgA-_dvyzr2Cxshp&si=l4bcRBFWMXQke4OL" target="_blank" rel="noopener" class="flex items-center gap-3 py-4 group">
+                    <!-- DNA helix icon -->
                     <svg viewBox="0 0 24 24" class="w-6 h-6 text-[var(--yt-pink)]/90" fill="none" stroke="currentColor" stroke-width="1.6">
-                      <path d="M7 4c5 0 5 6 10 6M7 20c5 0 5-6 10-6M7 4v0a3 3 0 000 4v0m10 12v0a3 3 0 000-4v0" stroke-linecap="round"/>
+                      <path d="M7 4c5 0 5 6 10 6M7 20c5 0 5-6 10-6M7 4a3 3 0 000 4M17 20a3 3 0 000-4" stroke-linecap="round"/>
                     </svg>
                     <span class="font-semibold tracking-wide relative u">Genetics 101</span>
                     <span class="ml-auto text-sm text-[var(--yt-pink)]/80 opacity-0 group-hover:opacity-100 transition">Watch →</span>
                   </a>
+                  <!-- Warning note -->
+                  <div class="pl-9 -mt-2 mb-3">
+                    <span class="inline-flex items-center gap-2 text-[13px] text-[var(--bm-pink)] bg-pink-50 border border-pink-200 rounded-full px-3 py-1">
+                      <!-- warning icon -->
+                      <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 9v4m0 4h.01" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3l-8.47-14.14a2 2 0 00-3.42 0z" />
+                      </svg>
+                      Perfect for first-level students
+                    </span>
+                  </div>
                 </li>
+
+                <!-- Cancer Biology -->
                 <li>
-                  <a href="https://www.youtube.com/results?search_query=Cancer+Biology+lecture" target="_blank" rel="noopener" class="flex items-center gap-3 py-4 group">
-                    <!-- Microscope -->
+                  <a href="https://youtube.com/playlist?list=PL1Xf_J0k133LmBxAzM4IKFclc9FYzs2uv&si=praQu4cT1aw3M2HA" target="_blank" rel="noopener" class="flex items-center gap-3 py-4 group">
+                    <!-- Cancer cell icon (stylized cell + nucleus) -->
                     <svg viewBox="0 0 24 24" class="w-6 h-6 text-[var(--yt-pink)]/90" fill="none" stroke="currentColor" stroke-width="1.6">
-                      <path d="M9 3l3 3M6 9l6-6M12 7l5 5M5 20h14M16 12l3 3" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="12" cy="12" r="6" stroke="currentColor" />
+                      <circle cx="13.5" cy="10.5" r="2" fill="currentColor" stroke="none"/>
+                      <path d="M6 12c0 3 3 6 6 6m6-6c0-3-3-6-6-6" stroke-linecap="round" />
                     </svg>
                     <span class="font-semibold tracking-wide relative u">Cancer Biology</span>
                     <span class="ml-auto text-sm text-[var(--yt-pink)]/80 opacity-0 group-hover:opacity-100 transition">Watch →</span>
                   </a>
                 </li>
+
+                <!-- Bioinformatics -->
                 <li>
-                  <a href="https://www.youtube.com/results?search_query=Bioinformatics+course" target="_blank" rel="noopener" class="flex items-center gap-3 py-4 group">
-                    <!-- Data chart -->
+                  <a href="https://youtube.com/playlist?list=PL1Xf_J0k133LLCNMqltE808uBo3o7swOO&si=6lHq3Wr0ns6_jYJE" target="_blank" rel="noopener" class="flex items-center gap-3 py-4 group">
+                    <!-- Laptop icon -->
                     <svg viewBox="0 0 24 24" class="w-6 h-6 text-[var(--yt-pink)]/90" fill="none" stroke="currentColor" stroke-width="1.6">
-                      <path d="M4 19V5M4 19h16M8 15l3-3 3 2 4-5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <rect x="4" y="5" width="16" height="10" rx="1.5"/>
+                      <path d="M2 19h20" />
                     </svg>
                     <span class="font-semibold tracking-wide relative u">Bioinformatics</span>
                     <span class="ml-auto text-sm text-[var(--yt-pink)]/80 opacity-0 group-hover:opacity-100 transition">Watch →</span>
                   </a>
                 </li>
+
+                <!-- Botany -->
                 <li>
-                  <a href="https://www.youtube.com/results?search_query=Botany+intro+course" target="_blank" rel="noopener" class="flex items-center gap-3 py-4 group">
-                    <!-- Leaf -->
+                  <a href="https://youtube.com/playlist?list=PL1Xf_J0k133LRuqxjKcwRYoRtIKInCuit&si=wRueSOfOxTWokbeS" target="_blank" rel="noopener" class="flex items-center gap-3 py-4 group">
+                    <!-- Leaf icon -->
                     <svg viewBox="0 0 24 24" class="w-6 h-6 text-[var(--yt-pink)]/90" fill="none" stroke="currentColor" stroke-width="1.6">
-                      <path d="M12 4c5 0 8 3 8 8a8 8 0 11-8-8zm0 0v12" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M4 14c0-5.5 4.5-10 10-10 0 5.5-4.5 10-10 10z" />
+                      <path d="M14 4c0 6-4 10-10 10 0 0 6-2 10-10z" opacity=".35"/>
+                      <path d="M9 9l6 6" stroke-linecap="round"/>
                     </svg>
                     <span class="font-semibold tracking-wide relative u">Botany</span>
                     <span class="ml-auto text-sm text-[var(--yt-pink)]/80 opacity-0 group-hover:opacity-100 transition">Watch →</span>
@@ -458,13 +453,13 @@
                 </li>
               </ul>
             </div>
-            <p class="mt-3 text-xs text-slate-500">Tip: Replace the search links with your exact YouTube video URLs.</p>
+            <p class="mt-3 text-xs text-slate-500">All links open in a new tab.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Who we are ===== -->
+    <!-- Who we are -->
     <section id="who" class="container mx-auto px-6 py-16 text-center">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-6">Who We Are</h3>
       <img
@@ -480,7 +475,7 @@
       <div class="bm-dna-divider mt-10 mb-2 mx-auto max-w-3xl"></div>
     </section>
 
-    <!-- ===== About ===== -->
+    <!-- About -->
     <section id="about" class="bg-[var(--bm-rose)] py-16 px-6">
       <div class="container mx-auto max-w-4xl text-center">
         <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-6">About Us</h3>
@@ -491,7 +486,7 @@
       </div>
     </section>
 
-    <!-- ===== Contact ===== -->
+    <!-- Contact -->
     <section id="contact" class="container mx-auto px-6 py-16">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-10 text-center">Contact Us</h3>
       <form class="max-w-lg mx-auto space-y-6">
@@ -514,12 +509,12 @@
       </form>
     </section>
 
-    <!-- ===== Socials ===== -->
+    <!-- Socials -->
     <section id="socials" class="bg-[var(--bm-rose)] py-12 px-6">
       <div class="container mx-auto text-center">
         <h3 class="text-2xl sm:text-3xl font-extrabold text-[var(--bm-pink)] mb-6">Connect With Us</h3>
         <div class="flex items-center justify-center gap-6 flex-wrap">
-          <!-- TikTok (fixed SVG) -->
+          <!-- TikTok -->
           <a href="https://www.tiktok.com/@biotechmarvels?_t=ZS-8zBDKBQSCrh&_r=1"
              aria-label="TikTok" target="_blank" rel="noopener"
              class="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition">
@@ -549,11 +544,10 @@
             </svg>
           </a>
           <!-- Instagram -->
-          <a href="https://www.instagram.com/biotechmarvels?igsh=MW15a3k2Zzd0bGJrNg=="
-             aria-label="Instagram" target="_blank" rel="noopener"
+          <a href="https://www.instagram.com/biotechmarvels?igsh=MW15a3k2Zzd0bGJrNg==" aria-label="Instagram" target="_blank" rel="noopener"
              class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:scale-110 transition">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current" aria-hidden="true">
-              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-94C383.9 42.1 352.1 33.9 316.8 32.2 281 30.4 166.9 30.4 131.2 32.2 95.5 33.9 64.1 42.1 37.8 68.4 11.5 95.6 3.3 127.4 1.6 163.3c-1.8 35.9-1.8 143.7 0 179.6 1.7 35.9 9.9 67.7 36.2 94 26.3 26.3 57.1 34.5 93.1 36.2 35.9 1.8 150.3 1.8 186.2 0 35.9-1.7 67.7-9.9 94-36.2 26.3-26.3 34.5-58.1 36.2-94 1.8-35.9 1.8-143.6 0-179.5z"/>
+              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8z"/>
             </svg>
           </a>
         </div>
@@ -566,9 +560,9 @@
     <p class="text-sm">&copy; 2024 Biotech Marvels. All rights reserved.</p>
   </footer>
 
-  <!-- ===== Scripts ===== -->
+  <!-- Scripts -->
   <script>
-    // Countdown (registration close)
+    // Countdown
     const countDownDate = new Date("2025-09-04T00:00:00").getTime();
     const el = document.getElementById("countdown");
     function pad(n){ return String(n).padStart(2,'0'); }
@@ -598,7 +592,7 @@
       if (label) label.textContent = willShow ? 'Hide Content' : 'Learn More';
     });
 
-    // YouTube Courses: click to expand/collapse list
+    // YouTube Courses: click to expand/collapse list (+ hover open on desktop)
     (function(){
       const trigger = document.getElementById('ytTrigger');
       const list = document.getElementById('courseList');
@@ -607,22 +601,17 @@
         const isOpen = !list.classList.contains('hidden');
         list.classList.toggle('hidden', isOpen);
         trigger.setAttribute('aria-expanded', String(!isOpen));
-        trigger.classList.toggle('open', !isOpen);
-        trigger.classList.add('group'); // keep hover styling
       });
-      // Optional: hover open on desktop
       trigger.addEventListener('mouseenter', () => {
         if (window.innerWidth >= 768) {
           list.classList.remove('hidden');
           trigger.setAttribute('aria-expanded', 'true');
-          trigger.classList.add('open');
         }
       });
       trigger.addEventListener('mouseleave', () => {
         if (window.innerWidth >= 768) {
           list.classList.add('hidden');
           trigger.setAttribute('aria-expanded', 'false');
-          trigger.classList.remove('open');
         }
       });
     })();
