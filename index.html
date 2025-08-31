@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -14,6 +14,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
 
   <style>
+    /* Scroll reveal (kept for future) */
+    .reveal{ opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.show{ opacity:1; transform: translateY(0); }
+    .reveal-delay-1{ transition-delay:.1s; }
+    .reveal-delay-2{ transition-delay:.2s; }
+    .reveal-delay-3{ transition-delay:.3s; }
+
+    /* Nav underline */
+    .link-underline{ position:relative; }
+    .link-underline::after{
+      content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0%;
+      background: linear-gradient(90deg,#ffa8cd,#e86aa0,#d35696); transition: width .25s ease; border-radius:2px;
+    }
+    .link-underline:hover::after{ width:100%; }
+
+    /* Floating pink blob behind hero */
+    .blob{ position:absolute; filter: blur(28px); opacity:.25; pointer-events:none;
+      background: radial-gradient(closest-side, #ffb4d5 0%, #e86aa0 55%, transparent 70%);
+      width:340px; height:340px; border-radius:50%; animation: blobFloat 12s ease-in-out infinite; }
+    .blob.b2{ width:260px; height:260px; left:auto; right:10%; top:0; animation-delay:-5s; opacity:.22; }
+    @keyframes blobFloat{ 0%{transform:translate(0,0) scale(1);} 50%{transform:translate(20px,-24px) scale(1.06);} 100%{transform:translate(0,0) scale(1);} }
+
     :root{
       --bm-pink:#E86AA0;
       --bm-pink-dark:#C94E86;
@@ -22,26 +44,54 @@
       --bm-rose:#F9ECF3;
       --bm-glass:rgba(232,106,160,.08);
     }
-    body{ font-family:'Inter',system-ui,-apple-system,Segoe UI,Arial,sans-serif; color:var(--bm-ink); }
     html{ scroll-behavior:smooth; }
+    body{ font-family:'Inter',system-ui,-apple-system,Segoe UI,Arial,sans-serif; color:var(--bm-ink); }
 
+    /* Glass surface */
+    .bm-glass{
+      backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+      background:linear-gradient(180deg,var(--bm-glass),transparent);
+      border:1px solid rgba(255,255,255,.25);
+    }
+
+    /* Primary button */
     .btn-bm{
       background:var(--bm-pink); color:#fff; border-radius:14px;
       padding:.75rem 1.25rem; font-weight:700; display:inline-block;
       box-shadow:0 8px 22px rgba(232,106,160,.25);
       transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
-      text-align:center;
     }
     .btn-bm:hover{ background:var(--bm-pink-dark); transform:translateY(-1.5px); box-shadow:0 10px 26px rgba(232,106,160,.35); }
 
+    /* Underline accent */
     .bm-underline{ position:relative; display:inline-block; }
-    .bm-underline:after{ content:""; position:absolute; left:8px; right:8px; bottom:-6px; height:3px;
-      background:var(--bm-pink); transform:skewX(-12deg); border-radius:2px; }
+    .bm-underline:after{
+      content:""; position:absolute; left:8px; right:8px; bottom:-6px; height:3px;
+      background:var(--bm-pink); transform:skewX(-12deg); border-radius:2px;
+    }
 
+    /* DNA dotted divider */
     .bm-dna-divider{
-      background-image: radial-gradient(circle at 0 50%, rgba(232,106,160,.35) 2px, transparent 2px),
-                        radial-gradient(circle at 12px 50%, rgba(232,106,160,.2) 2px, transparent 2px);
+      background-image:
+        radial-gradient(circle at 0 50%, rgba(232,106,160,.35) 2px, transparent 2px),
+        radial-gradient(circle at 12px 50%, rgba(232,106,160,.2) 2px, transparent 2px);
       background-size:24px 8px; background-repeat:repeat-x; height:8px; opacity:.5;
+    }
+
+    /* Animated DNA overlay */
+    .dna-layer{ position:absolute; inset:0; pointer-events:none; opacity:.22; }
+    .dna-dot{ position:absolute; width:12px; height:12px; border-radius:999px; background:var(--bm-pink);
+      box-shadow:0 0 15px rgba(232,106,160,.8); animation: helix 4.5s ease-in-out infinite; }
+    .dna-dot.rev{ animation-name:helixRev; }
+    @keyframes helix{
+      0%{ transform: translateY(-60px) translateX(-20px) scale(.85); opacity:.85; }
+      50%{ transform: translateY(60px) translateX(20px) scale(1.1); opacity:1; }
+      100%{ transform: translateY(-60px) translateX(-20px) scale(.85); opacity:.85; }
+    }
+    @keyframes helixRev{
+      0%{ transform: translateY(60px) translateX(20px) scale(.85); opacity:.85; }
+      50%{ transform: translateY(-60px) translateX(-20px) scale(1.1); opacity:1; }
+      100%{ transform: translateY(60px) translateX(20px) scale(.85); opacity:.85; }
     }
   </style>
 </head>
@@ -49,7 +99,7 @@
 <body class="bg-white min-h-screen flex flex-col">
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 border-b border-white/20 text-white shadow-md">
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md">
     <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between">
       <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wide">Biotech Marvels</h1>
       <nav class="mt-3 sm:mt-0 flex gap-6 text-base sm:text-lg font-semibold">
@@ -65,10 +115,37 @@
   <main>
     <!-- HERO -->
     <section class="relative overflow-hidden">
+      <div class="dna-layer" aria-hidden="true">
+        <span class="dna-dot" style="left:10%; top:20%; animation-delay:.0s"></span>
+        <span class="dna-dot" style="left:18%; top:50%; animation-delay:.2s"></span>
+        <span class="dna-dot" style="left:26%; top:30%; animation-delay:.4s"></span>
+        <span class="dna-dot" style="left:34%; top:60%; animation-delay:.6s"></span>
+        <span class="dna-dot" style="left:42%; top:25%; animation-delay:.8s"></span>
+        <span class="dna-dot" style="left:50%; top:55%; animation-delay:1.0s"></span>
+        <span class="dna-dot" style="left:58%; top:28%; animation-delay:1.2s"></span>
+        <span class="dna-dot" style="left:66%; top:58%; animation-delay:1.4s"></span>
+        <span class="dna-dot" style="left:74%; top:22%; animation-delay:1.6s"></span>
+        <span class="dna-dot" style="left:82%; top:52%; animation-delay:1.8s"></span>
+        <span class="dna-dot" style="left:90%; top:27%; animation-delay:2.0s"></span>
+        <span class="dna-dot rev" style="left:14%; top:62%; animation-delay:.6s"></span>
+        <span class="dna-dot rev" style="left:22%; top:24%; animation-delay:.8s"></span>
+        <span class="dna-dot rev" style="left:30%; top:54%; animation-delay:1.0s"></span>
+        <span class="dna-dot rev" style="left:38%; top:26%; animation-delay:1.2s"></span>
+        <span class="dna-dot rev" style="left:46%; top:56%; animation-delay:1.4s"></span>
+        <span class="dna-dot rev" style="left:54%; top:22%; animation-delay:1.6s"></span>
+        <span class="dna-dot rev" style="left:62%; top:52%; animation-delay:1.8s"></span>
+        <span class="dna-dot rev" style="left:70%; top:24%; animation-delay:2.0s"></span>
+        <span class="dna-dot rev" style="left:78%; top:50%; animation-delay:2.2s"></span>
+        <span class="dna-dot rev" style="left:86%; top:26%; animation-delay:2.4s"></span>
+      </div>
+
       <div class="container mx-auto px-6 pt-10 pb-6 text-center relative">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
-             alt="Biotech Marvels students"
-             class="mx-auto mb-6 rounded-xl shadow-lg object-cover w-full max-w-3xl md:max-w-4xl aspect-[16/9] max-h-[420px] md:max-h-[520px]" />
+        <img
+          src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
+          alt="Biotech Marvels students receiving certificates"
+          class="mx-auto mb-6 rounded-xl shadow-lg object-cover w-full max-w-3xl md:max-w-4xl aspect-[16/9] max-h-[420px] md:max-h-[520px]"
+          loading="lazy" width="1200" height="675"
+        />
 
         <p class="text-gray-500 text-sm sm:text-base mb-2 inline-block bm-glass px-3 py-1 rounded-full border border-white/30">
           Biotechnology and Bioinformatics
@@ -89,16 +166,30 @@
     </section>
 
     <!-- Free course card -->
-    <section class="mt-6 max-w-2xl mx-auto rounded-2xl border border-pink-500/30 bg-zinc-900/60 text-white shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center">
-      <h3 class="text-2xl sm:text-3xl font-extrabold">Limited seats — 25 students only</h3>
+    <section
+      class="mt-6 max-w-2xl mx-auto rounded-2xl border border-pink-500/30 bg-zinc-900/60 text-white shadow-lg backdrop-blur-sm p-6 sm:p-8 text-center"
+      aria-labelledby="free-course-title"
+    >
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-pink-500/30 text-[11px] sm:text-xs font-bold tracking-wide mb-4">
+        <span>🎓</span><span>FREE COURSE</span>
+      </div>
+
+      <h3 id="free-course-title" class="text-2xl sm:text-3xl font-extrabold">
+        Limited seats — 25 students only
+      </h3>
+
       <div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
         <span class="text-sm text-pink-200/90">⏳ Registration closes in</span>
         <div id="countdown" class="font-mono text-white text-lg sm:text-xl px-3 py-1.5 rounded-md border border-pink-500/30">
           00d : 00h : 00m : 00s
         </div>
       </div>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header"
-         target="_blank" class="btn-bm mt-6 sm:mt-7">
+
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSewdyKojZMYCwgK6d13ExDTYkDJMUyEPc-R_vH0-1yeXeilzw/viewform?usp=header"
+        target="_blank" rel="noopener"
+        class="btn-bm mt-6 sm:mt-7"
+      >
         Click here to fill the form
       </a>
     </section>
@@ -108,143 +199,241 @@
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-10 text-center">Our Courses</h3>
 
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Bioinformatics 101 -->
+
+        <!-- Bioinformatics 101 (with syllabus + registration) -->
         <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
           <h4 class="text-2xl font-bold mb-3 text-gray-900">Bioinformatics 101</h4>
           <p class="text-gray-700 mb-4">Introduction to bioinformatics concepts, tools, and databases.</p>
 
-          <!-- Toggle button -->
-          <button class="btn-bm w-full" data-toggle data-target="#bio-panel" aria-expanded="false" aria-controls="bio-panel">
-            <span class="label">Learn More</span>
-          </button>
+          <div class="flex gap-3">
+            <button
+              class="btn-bm flex-1"
+              data-toggle
+              data-target="#bio-panel"
+              aria-expanded="false"
+              aria-controls="bio-panel">
+              <span class="label">View Syllabus</span>
+            </button>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSczqx6t70c09gLVBPACSuoJ4hx5RfUs1oEHsj65LT3FYwo8MA/viewform?usp=header"
+              target="_blank" rel="noopener"
+              class="btn-bm flex-1 text-center"
+            >Register</a>
+          </div>
 
-          <!-- Register button -->
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSczqx6t70c09gLVBPACSuoJ4hx5RfUs1oEHsj65LT3FYwo8MA/viewform?usp=header"
-             target="_blank" class="btn-bm w-full mt-3">
-            Register
-          </a>
-
-          <!-- Hidden content -->
           <div id="bio-panel" class="hidden mt-4 text-left text-gray-700 space-y-4">
             <div>
-              <h5 class="font-bold text-pink-600 mb-1">📌 Introduction to Genetics</h5>
-              <ul class="list-disc list-inside">
+              <h5 class="font-bold text-pink-600 mb-1">Introduction to Genetics</h5>
+              <ul class="list-disc list-inside space-y-1">
                 <li>Polymerase Chain Reaction (PCR)</li>
                 <li>Gel Electrophoresis</li>
-                <li>DNA Cloning</li>
-                <li>Restriction Enzymes</li>
+                <li>DNA Cloning & Restriction Enzymes</li>
                 <li>Genetic Mutations</li>
                 <li>The Biotechnology Revolution</li>
               </ul>
             </div>
             <div>
-              <h5 class="font-bold text-pink-600 mb-1">📌 Introduction to Bioinformatics</h5>
-              <ul class="list-disc list-inside">
-                <li>Exploring NCBI</li>
-                <li>Sequence Alignment tools</li>
-                <li>Primer Design</li>
-                <li>Restriction Enzymes</li>
-                <li>Overview of GeneCards</li>
+              <h5 class="font-bold text-pink-600 mb-1">Introduction to Bioinformatics</h5>
+              <ul class="list-disc list-inside space-y-1">
+                <li>NCBI basics</li>
+                <li>Sequence Alignment tools & principles</li>
+                <li>Primer Design tools & principles</li>
+                <li>Restriction Enzymes identification</li>
+                <li>GeneCards overview</li>
               </ul>
             </div>
             <div>
-              <h5 class="font-bold text-pink-600 mb-1">📌 Bacterial Bioinformatics</h5>
-              <ul class="list-disc list-inside">
-                <li>Species Identification</li>
-                <li>Serotype determination</li>
-                <li>Resistance Genes detection</li>
-                <li>Choosing Antibiotics</li>
-                <li>Plasmid identification</li>
+              <h5 class="font-bold text-pink-600 mb-1">Bacterial Bioinformatics</h5>
+              <ul class="list-disc list-inside space-y-1">
+                <li>Species identification & serotyping</li>
+                <li>Resistance gene detection</li>
+                <li>Choosing effective antibiotics</li>
+                <li>Plasmid identification tools</li>
               </ul>
             </div>
             <div>
-              <h5 class="font-bold text-pink-600 mb-1">📌 Introduction to Proteomics</h5>
-              <ul class="list-disc list-inside">
-                <li>Exploring UniProt</li>
-                <li>AlphaFold basics</li>
-                <li>Drug Properties & Effects</li>
+              <h5 class="font-bold text-pink-600 mb-1">Introduction to Proteomics</h5>
+              <ul class="list-disc list-inside space-y-1">
+                <li>UniProt, AlphaFold</li>
+                <li>Drug properties & effects</li>
               </ul>
             </div>
             <div>
-              <h5 class="font-bold text-pink-600 mb-1">📌 Programming for Bioinformatics</h5>
-              <ul class="list-disc list-inside">
-                <li>Basics of R Programming</li>
+              <h5 class="font-bold text-pink-600 mb-1">Intro to Programming</h5>
+              <ul class="list-disc list-inside space-y-1">
+                <li>Basics of R programming</li>
               </ul>
             </div>
-            <div>
-              <h5 class="font-bold text-pink-600 mb-1">📌 Final Session</h5>
-              <p>Presentation Day</p>
-            </div>
+            <p class="text-sm text-gray-600">📌 Final Session: Presentation Day</p>
           </div>
         </article>
 
         <!-- Breast Cancer -->
-        <article class="border border-pink-500/30 rounded-xl p-6 bg-white hover:shadow-lg transition">
+        <article class="border border-pink-500/30 rounded-xl p-6 hover:shadow-lg transition bg-white">
           <h4 class="text-2xl font-bold mb-3 text-gray-900">Breast Cancer</h4>
           <p class="text-gray-700 mb-4">Biology, diagnosis, and treatment strategies with latest research.</p>
-          <button class="btn-bm">Learn More</button>
+          <button class="btn-bm w-full">Learn More</button>
         </article>
 
-        <!-- Drug Discovery -->
+        <!-- Drug Discovery (with your detailed content + registration) -->
         <article class="border border-pink-500/30 rounded-xl p-6 bg-white hover:shadow-lg transition">
           <h4 class="text-2xl font-bold mb-3 text-gray-900">Drug Discovery</h4>
-          <p class="text-gray-700 mb-4">Explore the pipeline from target identification to clinical trials.</p>
-          <button class="btn-bm w-full" data-toggle data-target="#drug-panel"><span class="label">Learn More</span></button>
-          <div id="drug-panel" class="hidden mt-4 text-left text-gray-700 space-y-4">
-            <h5 class="font-bold text-pink-600 mb-1">📌 Recorded Sessions</h5>
-            <ul class="list-disc list-inside">
-              <li>Drug Discovery and Development</li>
-              <li>Drug Research</li>
-              <li>Drug Targets and Pathways</li>
-              <li>In Vitro Pharmacology</li>
-              <li>Biomarkers</li>
-            </ul>
-            <h5 class="font-bold text-pink-600 mb-1">📌 Live Sessions</h5>
-            <ul class="list-disc list-inside">
-              <li>What is Malaria Disease?</li>
-              <li>Experiments on Frogs</li>
-              <li>Introduction to Gut Microbiome</li>
-              <li>Plants as Drugs</li>
-              <li>How to Discover a New Drug</li>
-            </ul>
+          <p class="text-gray-700 mb-4">From targets to trials—foundations and live case studies.</p>
+
+          <div class="flex gap-3">
+            <button
+              class="btn-bm flex-1"
+              data-toggle
+              data-target="#drug-panel"
+              aria-expanded="false"
+              aria-controls="drug-panel">
+              <span class="label">Learn More</span>
+            </button>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdO_Xij1ABsPnSmB9VJmx1P3M08jgVnn8TIWyjEsuwf7rRbbg/viewform?usp=header"
+              target="_blank" rel="noopener"
+              class="btn-bm flex-1 text-center"
+            >Register</a>
+          </div>
+
+          <div id="drug-panel" class="hidden mt-4 text-left text-gray-700 space-y-5">
+            <div>
+              <h5 class="font-bold text-pink-600 mb-1">Recorded Sessions – Build Your Foundations</h5>
+              <p class="text-sm text-gray-600 mb-2">Gain a solid understanding of the essentials of drug discovery and development through carefully designed recorded lectures:</p>
+              <ul class="list-disc list-inside space-y-1">
+                <li><b>Drug Discovery & Development</b> – From the first idea to approved medicines.</li>
+                <li><b>Drug Research</b> – Techniques used to identify and evaluate potential drug candidates.</li>
+                <li><b>Drug Targets & Pathways</b> – How drugs interact with proteins, enzymes, and signaling networks.</li>
+                <li><b>In Vitro Pharmacology</b> – Laboratory methods for studying drug action outside living organisms.</li>
+                <li><b>Biomarkers</b> – Key indicators for disease detection, drug development, and personalized medicine.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h5 class="font-bold text-pink-600 mb-1">Live Sessions – Learn by Doing</h5>
+              <p class="text-sm text-gray-600 mb-2">Engage in interactive discussions, case studies, and practical examples during live classes:</p>
+              <ul class="list-disc list-inside space-y-1">
+                <li><b>Malaria Case Study</b> – Causes, life cycle of Plasmodium, and treatment strategies.</li>
+                <li><b>Pharmacology Experiments on Frogs</b> – Classic experiments illustrating drug effects on organs.</li>
+                <li><b>Introduction to the Gut Microbiome</b> – How gut microbes influence health, disease, and drug metabolism.</li>
+                <li><b>Plants as Medicines</b> – From aspirin and quinine to morphine, exploring nature’s contributions to modern medicine.</li>
+                <li><b>How to Discover a New Drug</b> – A step-by-step look at drug leads, preclinical research, and clinical trials.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h5 class="font-bold text-pink-600 mb-1">Learning Outcomes</h5>
+              <ul class="list-disc list-inside space-y-1">
+                <li>✅ Understand the entire drug discovery pipeline.</li>
+                <li>✅ Identify drug targets and signaling pathways.</li>
+                <li>✅ Explain the significance of biomarkers in research and medicine.</li>
+                <li>✅ Apply concepts to real diseases and lab experiments.</li>
+                <li>✅ Recognize the vital role of the microbiome and natural products.</li>
+              </ul>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Who We Are -->
+    <!-- Who we are -->
     <section id="who" class="container mx-auto px-6 py-16 text-center">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-6">Who We Are</h3>
-      <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/WhatsApp%20Image%202025-08-31%20at%2012.02.19%20AM.jpeg"
-           alt="Biotech Marvels team group photo"
-           class="mx-auto mb-6 rounded-xl shadow-lg object-cover w-full max-w-3xl md:max-w-4xl aspect-[16/9]" />
+      <img
+        src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/WhatsApp%20Image%202025-08-31%20at%2012.02.19%20AM.jpeg"
+        alt="Biotech Marvels team group photo"
+        class="mx-auto mb-6 rounded-xl shadow-lg object-cover w-full max-w-3xl md:max-w-4xl aspect-[16/9] max-h-[420px] md:max-h-[520px]"
+        loading="lazy" width="1200" height="675"
+      />
       <p class="text-lg text-[var(--bm-ink-70)] max-w-3xl mx-auto">
         Biotech Marvels is more than just courses – we’re a community of passionate learners and future innovators.
         Together, we celebrate science, collaboration, and growth.
       </p>
+      <div class="bm-dna-divider mt-10 mb-2 mx-auto max-w-3xl"></div>
     </section>
 
     <!-- About -->
-    <section id="about" class="bg-[var(--bm-rose)] py-16 px-6 text-center">
-      <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-6">About Us</h3>
-      <p class="text-black/80 text-lg leading-relaxed max-w-4xl mx-auto">
-        Biotech Marvels is dedicated to providing high-quality education in biotechnology and bioinformatics.
-        Our courses are designed by experts to help you gain practical knowledge and skills to excel in this field.
-      </p>
+    <section id="about" class="bg-[var(--bm-rose)] py-16 px-6">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-6">About Us</h3>
+        <p class="text-black/80 text-lg leading-relaxed">
+          Biotech Marvels is dedicated to providing high-quality education in biotechnology and bioinformatics.
+          Our courses are designed by experts to help you gain practical knowledge and skills to excel in this field.
+        </p>
+      </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="container mx-auto px-6 py-16">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-10 text-center">Contact Us</h3>
       <form class="max-w-lg mx-auto space-y-6">
-        <div><label for="name" class="block font-semibold mb-2">Name</label>
-          <input id="name" name="name" type="text" required class="w-full border border-pink-500/40 rounded px-4 py-2"/></div>
-        <div><label for="email" class="block font-semibold mb-2">Email</label>
-          <input id="email" name="email" type="email" required class="w-full border border-pink-500/40 rounded px-4 py-2"/></div>
-        <div><label for="message" class="block font-semibold mb-2">Message</label>
-          <textarea id="message" name="message" rows="4" required class="w-full border border-pink-500/40 rounded px-4 py-2"></textarea></div>
+        <div>
+          <label for="name" class="block text-black font-semibold mb-2">Name</label>
+          <input type="text" id="name" name="name" required
+                 class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--bm-pink)]" />
+        </div>
+        <div>
+          <label for="email" class="block text-black font-semibold mb-2">Email</label>
+          <input type="email" id="email" name="email" required
+                 class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--bm-pink)]" />
+        </div>
+        <div>
+          <label for="message" class="block text-black font-semibold mb-2">Message</label>
+          <textarea id="message" name="message" rows="4" required
+                    class="w-full border border-pink-500/40 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--bm-pink)]"></textarea>
+        </div>
         <button type="submit" class="btn-bm w-full">Send Message</button>
       </form>
+    </section>
+
+    <!-- Socials -->
+    <section id="socials" class="bg-[var(--bm-rose)] py-12 px-6">
+      <div class="container mx-auto text-center">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-[var(--bm-pink)] mb-6">Connect With Us</h3>
+        <div class="flex items-center justify-center gap-6 flex-wrap">
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@biotechmarvels?_t=ZS-8zBDKBQSCrh&_r=1"
+             aria-label="TikTok" target="_blank" rel="noopener"
+             class="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition">
+            <!-- Font Awesome TikTok path -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current" aria-hidden="true">
+              <path d="M448,209.9c-19.2,8.5-39.8,14.2-61.4,16.5c22-13.2,38.8-34.1,46.7-59.1c-20.5,12.1-43.2,20.9-67.3,25.6
+              c-19.4-20.6-47.1-33.5-77.7-33.5c-58.8,0-106.5,47.7-106.5,106.5c0,8.3,0.9,16.4,2.7,24.1C118.6,285.1,63,253.3,25.7,204.2
+              c-9.1,15.6-14.3,33.7-14.3,53.1c0,36.6,18.6,68.9,46.8,87.8c-17.3-0.5-33.6-5.3-47.9-13.2v1.3c0,51.1,36.4,93.7,84.6,103.4
+              c-8.9,2.4-18.3,3.7-28,3.7c-6.8,0-13.4-0.7-19.9-1.9c13.4,41.9,52.3,72.3,98.4,73.2c-36.1,28.3-81.6,45.2-131,45.2
+              c-8.5,0-16.9-0.5-25.1-1.5c46.7,29.9,102.1,47.3,161.6,47.3c193.8,0,299.7-160.5,299.7-299.7l-0.4-13.7
+              C420.7,250.1,436.5,231.3,448,209.9z"/>
+            </svg>
+          </a>
+
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/share/17DRNdrVzr/?mibextid=wwXIfr"
+             aria-label="Facebook" target="_blank" rel="noopener"
+             class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-4 h-4 fill-current" aria-hidden="true">
+              <path d="M279.14 288l14.22-92.66h-88.91V127.91c0-25.35 12.42-50.06 52.24-50.06H296V6.26S259.91 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.2V288z"/>
+            </svg>
+          </a>
+
+          <!-- WhatsApp -->
+          <a href="https://chat.whatsapp.com/IErTxH5U2tgDXdeFKWtN2t?mode=ems_copy_t"
+             aria-label="WhatsApp" target="_blank" rel="noopener"
+             class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500 text-white hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current" aria-hidden="true">
+              <path d="M380.9 97.1C339 55.2 283.2 32 224.5 32 105.1 32 7.1 130 7.1 249.4c0 38.6 10.1 76.3 29.3 109.4L0 480l124.6-36.6c31.9 17.5 67.9 26.7 104.9 26.7h.1c119.4 0 217.4-98 217.4-217.4 0-58.7-23.2-114.5-65.1-156.6zM224.5 438.6h-.1c-32.2 0-63.8-8.6-91.4-24.9l-6.5-3.9-73.9 21.7 21.8-72.1-4.2-6.8c-18.4-29.7-28.1-64.1-28.1-99 0-103.1 83.9-187 187.1-187 49.9 0 96.8 19.4 132.1 54.7 35.2 35.2 54.6 82.1 54.6 132.1 0 103.2-83.9 187-187.1 187zM313 301.7c-5.5-2.7-32.2-15.9-37.2-17.7-5-1.8-8.6-2.7-12.3 2.7-3.6 5.5-14.1 17.7-17.2 21.3-3.2 3.6-6.3 4.1-11.8 1.4-32.2-15.9-53.2-28.5-74.5-64.4-5.6-9.7 5.6-9 16.1-30 1.8-3.6.9-6.6-.5-9.3-1.4-2.7-12.3-29.7-16.8-40.7-4.4-10.6-8.9-9.1-12.3-9.3-3.2-.2-6.8-.2-10.4-.2s-9.3 1.4-14.1 6.6c-4.8 5.5-18.6 18.2-18.6 44.5s19 51.6 21.6 55.2c2.7 3.6 37.5 57.2 90.8 80.2 12.7 5.5 22.6 8.8 30.4 11.3 12.8 4.1 24.5 3.5 33.7 2.1 10.3-1.5 32.2-13.1 36.7-25.7 4.6-12.6 4.6-23.4 3.2-25.7-1.3-2.4-5-3.9-10.5-6.6z"/>
+            </svg>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/biotechmarvels?igsh=MW15a3k2Zzd0bGJrNg=="
+             aria-label="Instagram" target="_blank" rel="noopener"
+             class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current" aria-hidden="true">
+              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-94C383.9 42.1 352.1 33.9 316.8 32.2 281 30.4 166.9 30.4 131.2 32.2 95.5 33.9 64.1 42.1 37.8 68.4 11.5 95.6 3.3 127.4 1.6 163.3c-1.8 35.9-1.8 143.7 0 179.6 1.7 35.9 9.9 67.7 36.2 94 26.3 26.3 57.1 34.5 93.1 36.2 35.9 1.8 150.3 1.8 186.2 0 35.9-1.7 67.7-9.9 94-36.2 26.3-26.3 34.5-58.1 36.2-94 1.8-35.9 1.8-143.6 0-179.5z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -270,15 +459,19 @@
       el.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
     }, 1000);
 
-    // Toggle content
+    // Simple toggle for all cards (show/hide panel + change button label)
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('[data-toggle]');
       if (!btn) return;
-      const panel = document.querySelector(btn.getAttribute('data-target'));
+      const targetSel = btn.getAttribute('data-target');
+      const panel = document.querySelector(targetSel);
       if (!panel) return;
-      const show = panel.classList.contains('hidden');
-      panel.classList.toggle('hidden', !show);
-      btn.querySelector('.label').textContent = show ? "Hide Content" : "Learn More";
+
+      const willShow = panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', !willShow);
+      btn.setAttribute('aria-expanded', String(willShow));
+      const label = btn.querySelector('.label');
+      if (label) label.textContent = willShow ? 'Hide Content' : 'Learn More';
     });
   </script>
 </body>
