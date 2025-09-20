@@ -178,71 +178,28 @@
 
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
       
-      <!-- 1: Students -->
-      <div class="bg-white rounded-2xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl">
-        <div class="text-[var(--bm-pink)] mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M16 11c1.657 0 3-1.567 3-3.5S17.657 4 16 4s-3 1.567-3 3.5 1.343 3.5 3 3.5zM8 11c1.657 0 3-1.567 3-3.5S9.657 4 8 4 5 5.567 5 7.5 6.343 11 8 11zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 2.08 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/>
-          </svg>
-        </div>
-        <h4 class="text-3xl font-bold text-gray-900">1000+</h4>
-        <p class="text-gray-600">Students Trained</p>
-      </div>
-
-      <!-- 2: Courses -->
-      <div class="bg-white rounded-2xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl">
-        <div class="text-[var(--bm-pink)] mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 2H9a2 2 0 0 0-2 2v14.5a3.5 3.5 0 0 0 7 0V4h5v16h2V4a2 2 0 0 0-2-2zM9 20V4h4v16a1.5 1.5 0 0 1-3 0z"/>
-          </svg>
-        </div>
-        <h4 class="text-3xl font-bold text-gray-900">4</h4>
-        <p class="text-gray-600">Active Courses</p>
-      </div>
-
+     <!-- 1: Students -->
+<div class="bg-white rounded-2xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl">
+  <div class="text-[var(--bm-pink)] mb-4">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M16 11c1.657 0 3-1.567 3-3.5S17.657 4 16 4s-3 1.567-3 3.5 1.343 3.5 3 3.5zM8 11c1.657 0 3-1.567 3-3.5S9.657 4 8 4 5 5.567 5 7.5 6.343 11 8 11zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 2.08 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/>
+    </svg>
   </div>
-</section>
+  <h4 class="counter text-3xl font-bold text-gray-900" data-target="1000">0</h4>
+  <p class="text-gray-600">Students Trained</p>
+</div>
 
-
-      <!-- 2: Courses -->
-      <div class="bg-white rounded-2xl shadow-md p-6 hover:scale-[1.03] transition">
-        <div class="text-[var(--bm-pink)] mb-3">
-          <!-- Icon: Book -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 2H9a2 2 0 0 0-2 2v14.5a3.5 3.5 0 0 0 7 0V4h5v16h2V4a2 2 0 0 0-2-2zM9 20V4h4v16a1.5 1.5 0 0 1-3 0z"/>
-          </svg>
-        </div>
-        <h4 class="text-2xl font-bold text-gray-900">4</h4>
-        <p class="text-gray-600">كورسات نشطة</p>
-      </div>
-
-      <!-- 3: Instructors -->
-      <div class="bg-white rounded-2xl shadow-md p-6 hover:scale-[1.03] transition">
-        <div class="text-[var(--bm-pink)] mb-3">
-          <!-- Icon: Teacher -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm-6 8v-1c0-1.66 3.58-2.5 6-2.5s6 .84 6 2.5v1H6z"/>
-          </svg>
-        </div>
-        <h4 class="text-2xl font-bold text-gray-900">5+</h4>
-        <p class="text-gray-600">محاضرين خبرة</p>
-      </div>
-
-      <!-- 4: Countries -->
-      <div class="bg-white rounded-2xl shadow-md p-6 hover:scale-[1.03] transition">
-        <div class="text-[var(--bm-pink)] mb-3">
-          <!-- Icon: Globe -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 2c4.08 0 7.44 3.06 7.93 7h-3.1c-.43-2.91-2.25-5.24-4.83-6.32V4.2C11.66 4.08 11.83 4 12 4zm-2 .2v2.48c-2.58 1.08-4.4 3.41-4.83 6.32H2.07C2.56 7.06 5.92 4 10 4.2zM4.07 13h3.1c.43 2.91 2.25 5.24 4.83 6.32V19.8c-4.08-.2-7.44-3.26-7.93-6.8zM14 19.8v-2.48c2.58-1.08 4.4-3.41 4.83-6.32h3.1c-.49 3.74-3.85 6.8-7.93 6.8z"/>
-          </svg>
-        </div>
-        <h4 class="text-2xl font-bold text-gray-900">8</h4>
-        <p class="text-gray-600">دول مختلفة</p>
-      </div>
-
-    </div>
+<!-- 2: Courses -->
+<div class="bg-white rounded-2xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl">
+  <div class="text-[var(--bm-pink)] mb-4">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M19 2H9a2 2 0 0 0-2 2v14.5a3.5 3.5 0 0 0 7 0V4h5v16h2V4a2 2 0 0 0-2-2zM9 20V4h4v16a1.5 1.5 0 0 1-3 0z"/>
+    </svg>
   </div>
-</section>
+  <h4 class="counter text-3xl font-bold text-gray-900" data-target="4">0</h4>
+  <p class="text-gray-600">Active Courses</p>
+</div>
+
 
 
 
