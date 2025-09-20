@@ -203,6 +203,7 @@
 
 
 
+
     <!-- ========== COURSES ========== -->
     <section id="courses" class="container mx-auto px-6 py-16">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-10 text-center">Our Courses</h3>
@@ -728,5 +729,50 @@
       });
     })();
   </script>
+
+      <!-- Counter animation -->
+  <script>
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      counter.innerText = '0';
+      const updateCounter = () => {
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText;
+        const increment = target / 100;
+
+        if (current < target) {
+          counter.innerText = `${Math.ceil(current + increment)}`;
+          setTimeout(updateCounter, 30);
+        } else {
+          counter.innerText = target + '+';
+        }
+      };
+      updateCounter();
+    });
+  </script>
+
+  <!-- Counter animation -->
+  <script>
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      counter.innerText = '0';
+      const updateCounter = () => {
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText;
+        const increment = target / 100;
+
+        if (current < target) {
+          counter.innerText = `${Math.ceil(current + increment)}`;
+          setTimeout(updateCounter, 30);
+        } else {
+          counter.innerText = target + '+';
+        }
+      };
+      updateCounter();
+    });
+  </script>
+</body>
+</html>
+
 </body>
 </html>
