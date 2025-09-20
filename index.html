@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +7,6 @@
   <meta name="keywords" content="Biotechnology, Bioinformatics, Education, Courses" />
   <title>Biotech & Bioinformatics Education • Biotech Marvels</title>
 
-  
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -27,19 +26,13 @@
     html{ scroll-behavior:smooth; }
     body{ font-family:'Inter',system-ui,-apple-system,Segoe UI,Arial,sans-serif; color:var(--bm-ink); }
 
-
     /* ========== Animation ========== */
-@keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; animation: fadeUp 1s ease-out forwards; }
 
-.fade-up {
-  opacity: 0;
-  animation: fadeUp 1s ease-out forwards;
-}
-
-    
     /* Buttons */
     .btn-bm{
       background:var(--bm-pink); color:#fff; border-radius:14px;
@@ -87,7 +80,6 @@
     .glow-outer { box-shadow: 0 30px 80px rgba(255,79,163,.30); }
     @keyframes pulseSoft {
       0% { transform: scale(1); }
-      
       50% { transform: scale(1.02); }
       100% { transform: scale(1); }
     }
@@ -97,7 +89,7 @@
 <body class="bg-white min-h-screen flex flex-col">
 
   <!-- Header -->
-<header class="fade-up sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md">
+  <header class="fade-up sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md">
     <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between">
       <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wide">Biotech Marvels</h1>
       <nav class="mt-3 sm:mt-0 flex gap-6 text-base sm:text-lg font-semibold">
@@ -105,19 +97,17 @@
         <a href="#youtube-courses" class="hover:text-pink-200 transition">Free YouTube</a>
         <a href="#who" class="hover:text-pink-200 transition">Who We Are</a>
         <a href="#about" class="hover:text-pink-200 transition">About</a>
-<a href="#marvel-faces" class="hover:text-pink-200 transition">Marvel Faces</a>
+        <a href="#marvel-faces" class="hover:text-pink-200 transition">Marvel Faces</a>
         <a href="#socials" class="hover:text-pink-200 transition">Socials</a>
       </nav>
     </div>
   </header>
 
   <main>
-   
     <!-- ========== HERO ========== -->
-<section class="fade-up relative overflow-hidden">
-      <!-- animated DNA overlay -->
+    <section class="fade-up relative overflow-hidden">
       <div class="dna-layer" aria-hidden="true">
-        <!-- left→right wave -->
+        <!-- DNA dots (already full in your previous file, kept as is) -->
         <span class="dna-dot" style="left:10%; top:20%; animation-delay:.0s"></span>
         <span class="dna-dot" style="left:18%; top:50%; animation-delay:.2s"></span>
         <span class="dna-dot" style="left:26%; top:30%; animation-delay:.4s"></span>
@@ -129,7 +119,6 @@
         <span class="dna-dot" style="left:74%; top:22%; animation-delay:1.6s"></span>
         <span class="dna-dot" style="left:82%; top:52%; animation-delay:1.8s"></span>
         <span class="dna-dot" style="left:90%; top:27%; animation-delay:2.0s"></span>
-        <!-- right→left mirrored wave -->
         <span class="dna-dot rev" style="left:14%; top:62%; animation-delay:.6s"></span>
         <span class="dna-dot rev" style="left:22%; top:24%; animation-delay:.8s"></span>
         <span class="dna-dot rev" style="left:30%; top:54%; animation-delay:1.0s"></span>
@@ -143,13 +132,10 @@
       </div>
 
       <div class="container mx-auto px-6 pt-10 pb-6 text-center relative">
-        <!-- Hero Image -->
-        <img
-          src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
+        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
           alt="Biotech Marvels students receiving certificates"
           class="mx-auto mb-6 rounded-xl shadow-lg object-cover w-full max-w-3xl md:max-w-4xl aspect-[16/9] max-h-[420px] md:max-h-[520px]"
-          loading="lazy" width="1200" height="675"
-        />
+          loading="lazy" width="1200" height="675"/>
 
         <p class="text-gray-500 text-sm sm:text-base mb-2 inline-block bg-white/60 backdrop-blur px-3 py-1 rounded-full border border-white/40">
           Biotechnology and Bioinformatics
@@ -169,41 +155,37 @@
       </div>
     </section>
 
-   <!-- ========== STATS / INFOGRAPHICS ========== -->
-<section style="background-color: var(--bm-rose);" class="py-16 px-6">
-  <div class="container mx-auto text-center">
-    <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-12 flex items-center justify-center gap-2">
-      <span>📊</span> Quick Stats
-    </h3>
+    <!-- ========== STATS / INFOGRAPHICS ========== -->
+    <section style="background-color: var(--bm-rose);" class="py-16 px-6">
+      <div class="container mx-auto text-center">
+        <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-12 flex items-center justify-center gap-2">
+          <span>📊</span> Quick Stats
+        </h3>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- Students -->
+          <div class="bg-white rounded-2xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl">
+            <div class="text-[var(--bm-pink)] mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M16 11c1.657 0 3-1.567 3-3.5S17.657 4 16 4s-3 1.567-3 3.5 1.343 3.5 3 3.5zM8 11c1.657 0 3-1.567 3-3.5S9.657 4 8 4 5 5.567 5 7.5 6.343 11 8 11zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 2.08 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/>
+              </svg>
+            </div>
+            <h4 class="counter text-3xl font-bold text-gray-900" data-target="1000">0</h4>
+            <p class="text-gray-600">Students Trained</p>
+          </div>
 
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-      
-     <!-- 1: Students -->
-<div class="bg-white rounded-2xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl">
-  <div class="text-[var(--bm-pink)] mb-4">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M16 11c1.657 0 3-1.567 3-3.5S17.657 4 16 4s-3 1.567-3 3.5 1.343 3.5 3 3.5zM8 11c1.657 0 3-1.567 3-3.5S9.657 4 8 4 5 5.567 5 7.5 6.343 11 8 11zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 2.08 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/>
-    </svg>
-  </div>
-  <h4 class="counter text-3xl font-bold text-gray-900" data-target="1000">0</h4>
-  <p class="text-gray-600">Students Trained</p>
-</div>
-
-<!-- 2: Courses -->
-<div class="bg-white rounded-2xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl">
-  <div class="text-[var(--bm-pink)] mb-4">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M19 2H9a2 2 0 0 0-2 2v14.5a3.5 3.5 0 0 0 7 0V4h5v16h2V4a2 2 0 0 0-2-2zM9 20V4h4v16a1.5 1.5 0 0 1-3 0z"/>
-    </svg>
-  </div>
-  <h4 class="counter text-3xl font-bold text-gray-900" data-target="4">0</h4>
-  <p class="text-gray-600">Active Courses</p>
-</div>
-
-
-
-
-
+          <!-- Courses -->
+          <div class="bg-white rounded-2xl shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl">
+            <div class="text-[var(--bm-pink)] mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 2H9a2 2 0 0 0-2 2v14.5a3.5 3.5 0 0 0 7 0V4h5v16h2V4a2 2 0 0 0-2-2zM9 20V4h4v16a1.5 1.5 0 0 1-3 0z"/>
+              </svg>
+            </div>
+            <h4 class="counter text-3xl font-bold text-gray-900" data-target="4">0</h4>
+            <p class="text-gray-600">Active Courses</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- ========== COURSES ========== -->
     <section id="courses" class="container mx-auto px-6 py-16">
       <h3 class="text-3xl font-extrabold text-[var(--bm-pink)] mb-10 text-center">Our Courses</h3>
@@ -402,7 +384,6 @@
                 <li class="p-5 text-left hover:bg-pink-50/60 transition">
                   <a href="https://youtube.com/playlist?list=PL1Xf_J0k133IVay2ncgA-_dvyzr2Cxshp&si=l4bcRBFWMXQke4OL"
                      target="_blank" class="flex items-center gap-3 group">
-                    <!-- DNA icon -->
                     <svg viewBox="0 0 64 64" class="w-6 h-6 text-pink-500"><path fill="currentColor" d="M22 10c-2 6 4 10 10 12s12 6 10 12h-6c0-4-6-6-10-8s-8-6-8-12h4zM42 54c2-6-4-10-10-12s-12-6-10-12h6c0 4 6 6 10 8s8 6 8 12h-4zM22 22h8v4h-8v-4zm12 16h8v4h-8v-4z"/></svg>
                     <span class="text-lg font-semibold text-slate-800 group-hover:text-pink-600">Genetics 101</span>
                     <span class="ml-auto text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full">Perfect for first-level students</span>
@@ -413,7 +394,6 @@
                 <li class="p-5 text-left hover:bg-pink-50/60 transition">
                   <a href="https://youtube.com/playlist?list=PL1Xf_J0k133LmBxAzM4IKFclc9FYzs2uv&si=praQu4cT1aw3M2HA"
                      target="_blank" class="flex items-center gap-3 group">
-                    <!-- Cancer cell icon (nucleus) -->
                     <svg viewBox="0 0 64 64" class="w-6 h-6 text-rose-500"><circle cx="32" cy="32" r="18" fill="currentColor" opacity=".2"/><circle cx="32" cy="32" r="8" fill="currentColor"/></svg>
                     <span class="text-lg font-semibold text-slate-800 group-hover:text-pink-600">Cancer Biology</span>
                   </a>
@@ -423,7 +403,6 @@
                 <li class="p-5 text-left hover:bg-pink-50/60 transition">
                   <a href="https://youtube.com/playlist?list=PL1Xf_J0k133LLCNMqltE808uBo3o7swOO&si=6lHq3Wr0ns6_jYJE"
                      target="_blank" class="flex items-center gap-3 group">
-                    <!-- Laptop icon -->
                     <svg viewBox="0 0 64 64" class="w-6 h-6 text-sky-600"><rect x="12" y="16" width="40" height="24" rx="2" ry="2" fill="currentColor" opacity=".25"/><rect x="8" y="44" width="48" height="6" rx="2" fill="currentColor"/></svg>
                     <span class="text-lg font-semibold text-slate-800 group-hover:text-pink-600">Bioinformatics</span>
                   </a>
@@ -433,7 +412,6 @@
                 <li class="p-5 text-left hover:bg-pink-50/60 transition">
                   <a href="https://youtube.com/playlist?list=PL1Xf_J0k133LRuqxjKcwRYoRtIKInCuit&si=wRueSOfOxTWokbeS"
                      target="_blank" class="flex items-center gap-3 group">
-                    <!-- Leaf/flower icon -->
                     <svg viewBox="0 0 64 64" class="w-6 h-6 text-emerald-600"><path d="M50 14c-9 2-18 6-24 12S16 38 14 50c12-2 22-6 28-12s10-15 8-24z" fill="currentColor"/><circle cx="24" cy="24" r="3" fill="currentColor" opacity=".35"/></svg>
                     <span class="text-lg font-semibold text-slate-800 group-hover:text-pink-600">Botany</span>
                   </a>
@@ -472,152 +450,147 @@
       </div>
     </section>
 
-
     <!-- ========== MARVEL FACES (Wall of Fame) ========== -->
-<section id="marvel-faces" class="bg-white py-16 px-6">
-  <div class="container mx-auto text-center">
-    <h3 class="text-3xl sm:text-4xl font-extrabold text-[var(--bm-pink)] mb-6">
-      🌟 Marvel Faces
-    </h3>
-    <p class="text-lg text-[var(--bm-ink-70)] max-w-2xl mx-auto mb-12">
-      Celebrating our top students who inspire the <strong>Biotech Marvels</strong> community.
-    </p>
+    <section id="marvel-faces" class="bg-white py-16 px-6">
+      <div class="container mx-auto text-center">
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-[var(--bm-pink)] mb-6">
+          🌟 Marvel Faces
+        </h3>
+        <p class="text-lg text-[var(--bm-ink-70)] max-w-2xl mx-auto mb-12">
+          Celebrating our top students who inspire the <strong>Biotech Marvels</strong> community.
+        </p>
 
-    <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <!-- 1 -->
+          <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
+            <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student1.jpeg"
+                 alt="Student 1" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
+              <p class="text-sm text-gray-600">Bioinformatics</p>
+              <p class="mt-2 text-sm text-gray-700 italic">“Inspiring others to learn.”</p>
+            </div>
+          </article>
 
-  <!-- 1 -->
-  <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student1.jpeg"
-         alt="Student 1" class="w-full h-64 object-cover" loading="lazy">
-    <div class="p-4">
-      <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
-      <p class="text-sm text-gray-600">Bioinformatics</p>
-      <p class="mt-2 text-sm text-gray-700 italic">“Inspiring others to learn.”</p>
-    </div>
-  </article>
+          <!-- 2 -->
+          <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
+            <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student2.jpeg"
+                 alt="Student 2" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
+              <p class="text-sm text-gray-600">Drug Discovery</p>
+              <p class="mt-2 text-sm text-gray-700 italic">“Future scientist 🚀.”</p>
+            </div>
+          </article>
 
-  <!-- 2 -->
-  <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student2.jpeg"
-         alt="Student 2" class="w-full h-64 object-cover" loading="lazy">
-    <div class="p-4">
-      <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
-      <p class="text-sm text-gray-600">Drug Discovery</p>
-      <p class="mt-2 text-sm text-gray-700 italic">“Future scientist 🚀.”</p>
-    </div>
-  </article>
+          <!-- 3 -->
+          <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
+            <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student3.jpeg"
+                 alt="Student 3" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
+              <p class="text-sm text-gray-600">Cancer Biology</p>
+              <p class="mt-2 text-sm text-gray-700 italic">“Learning. Innovating. Discovering.”</p>
+            </div>
+          </article>
 
-  <!-- 3 -->
-  <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student3.jpeg"
-         alt="Student 3" class="w-full h-64 object-cover" loading="lazy">
-    <div class="p-4">
-      <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
-      <p class="text-sm text-gray-600">Cancer Biology</p>
-      <p class="mt-2 text-sm text-gray-700 italic">“Learning. Innovating. Discovering.”</p>
-    </div>
-  </article>
+          <!-- 4 -->
+          <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
+            <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student4.jpeg"
+                 alt="Student 4" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
+              <p class="text-sm text-gray-600">Genetics</p>
+              <p class="mt-2 text-sm text-gray-700 italic">“Curious minds win.”</p>
+            </div>
+          </article>
 
-  <!-- 4 -->
-  <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student4.jpeg"
-         alt="Student 4" class="w-full h-64 object-cover" loading="lazy">
-    <div class="p-4">
-      <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
-      <p class="text-sm text-gray-600">Genetics</p>
-      <p class="mt-2 text-sm text-gray-700 italic">“Curious minds win.”</p>
-    </div>
-  </article>
+          <!-- 5 -->
+          <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
+            <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student5.jpeg"
+                 alt="Student 5" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
+              <p class="text-sm text-gray-600">Bioinformatics</p>
+              <p class="mt-2 text-sm text-gray-700 italic">“From zero to hero.”</p>
+            </div>
+          </article>
 
-  <!-- 5 -->
-  <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student5.jpeg"
-         alt="Student 5" class="w-full h-64 object-cover" loading="lazy">
-    <div class="p-4">
-      <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
-      <p class="text-sm text-gray-600">Bioinformatics</p>
-      <p class="mt-2 text-sm text-gray-700 italic">“From zero to hero.”</p>
-    </div>
-  </article>
+          <!-- 6 -->
+          <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
+            <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student6.jpeg"
+                 alt="Student 6" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
+              <p class="text-sm text-gray-600">Drug Discovery</p>
+              <p class="mt-2 text-sm text-gray-700 italic">“Keep exploring.”</p>
+            </div>
+          </article>
 
-  <!-- 6 -->
-  <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student6.jpeg"
-         alt="Student 6" class="w-full h-64 object-cover" loading="lazy">
-    <div class="p-4">
-      <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
-      <p class="text-sm text-gray-600">Drug Discovery</p>
-      <p class="mt-2 text-sm text-gray-700 italic">“Keep exploring.”</p>
-    </div>
-  </article>
+          <!-- 7 -->
+          <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
+            <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student7.jpeg"
+                 alt="Student 7" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
+              <p class="text-sm text-gray-600">Cancer Biology</p>
+              <p class="mt-2 text-sm text-gray-700 italic">“Science for impact.”</p>
+            </div>
+          </article>
 
-  <!-- 7 -->
-  <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student7.jpeg"
-         alt="Student 7" class="w-full h-64 object-cover" loading="lazy">
-    <div class="p-4">
-      <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
-      <p class="text-sm text-gray-600">Cancer Biology</p>
-      <p class="mt-2 text-sm text-gray-700 italic">“Science for impact.”</p>
-    </div>
-  </article>
+          <!-- 8 -->
+          <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
+            <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student8.jpeg"
+                 alt="Student 8" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
+              <p class="text-sm text-gray-600">Genetics</p>
+              <p class="mt-2 text-sm text-gray-700 italic">“Better every day.”</p>
+            </div>
+          </article>
 
-  <!-- 8 -->
-  <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student8.jpeg"
-         alt="Student 8" class="w-full h-64 object-cover" loading="lazy">
-    <div class="p-4">
-      <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
-      <p class="text-sm text-gray-600">Genetics</p>
-      <p class="mt-2 text-sm text-gray-700 italic">“Better every day.”</p>
-    </div>
-  </article>
+          <!-- 9 -->
+          <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
+            <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student9.jpeg"
+                 alt="Student 9" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
+              <p class="text-sm text-gray-600">Bioinformatics</p>
+              <p class="mt-2 text-sm text-gray-700 italic">“Learning never stops.”</p>
+            </div>
+          </article>
 
-  <!-- 9 -->
-  <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student9.jpeg"
-         alt="Student 9" class="w-full h-64 object-cover" loading="lazy">
-    <div class="p-4">
-      <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
-      <p class="text-sm text-gray-600">Bioinformatics</p>
-      <p class="mt-2 text-sm text-gray-700 italic">“Learning never stops.”</p>
-    </div>
-  </article>
+          <!-- 10 -->
+          <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
+            <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student10.jpeg"
+                 alt="Student 10" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
+              <p class="text-sm text-gray-600">Drug Discovery</p>
+              <p class="mt-2 text-sm text-gray-700 italic">“Dream. Do. Discover.”</p>
+            </div>
+          </article>
 
-  <!-- 10 -->
-  <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student10.jpeg"
-         alt="Student 10" class="w-full h-64 object-cover" loading="lazy">
-    <div class="p-4">
-      <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
-      <p class="text-sm text-gray-600">Drug Discovery</p>
-      <p class="mt-2 text-sm text-gray-700 italic">“Dream. Do. Discover.”</p>
-    </div>
-  </article>
-
-  <!-- 11 -->
-  <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student11.jpeg"
-         alt="Student 11" class="w-full h-64 object-cover" loading="lazy">
-    <div class="p-4">
-      <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
-      <p class="text-sm text-gray-600">Cancer Biology</p>
-      <p class="mt-2 text-sm text-gray-700 italic">“Lead with science.”</p>
-    </div>
-  </article>
-
-</div>
-
-
-
-    
+          <!-- 11 -->
+          <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
+            <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student11.jpeg"
+                 alt="Student 11" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-[var(--bm-pink)]">Top Student</h4>
+              <p class="text-sm text-gray-600">Cancer Biology</p>
+              <p class="mt-2 text-sm text-gray-700 italic">“Lead with science.”</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <!-- ========== SOCIALS ========== -->
     <section id="socials" class="bg-[var(--bm-rose)] py-12 px-6">
       <div class="container mx-auto text-center">
         <h3 class="text-2xl sm:text-3xl font-extrabold text-[var(--bm-pink)] mb-6">Connect With Us</h3>
         <div class="flex items-center justify-center gap-6 flex-wrap">
-          <!-- TikTok (fixed SVG) -->
+          <!-- TikTok -->
           <a href="https://www.tiktok.com/@biotechmarvels?_t=ZS-8zBDKBQSCrh&_r=1"
              aria-label="TikTok" target="_blank" rel="noopener"
              class="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white hover:scale-110 transition">
@@ -657,7 +630,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- Footer -->
@@ -667,22 +639,23 @@
 
   <!-- ========== SCRIPTS ========== -->
   <script>
-    /* Countdown */
+    /* Countdown (optional – only works if you add an element with id="countdown") */
     const countDownDate = new Date("2025-09-04T00:00:00").getTime();
     const el = document.getElementById("countdown");
     function pad(n){ return String(n).padStart(2,'0'); }
     const timer = setInterval(function () {
       const now = Date.now();
       const distance = countDownDate - now;
-      if (distance <= 0) { clearInterval(timer); if(el) el.textContent = "⏰ Registration Closed!"; return; }
+      if (!el) { clearInterval(timer); return; }
+      if (distance <= 0) { clearInterval(timer); el.textContent = "⏰ Registration Closed!"; return; }
       const d = Math.floor(distance / (1000 * 60 * 60 * 24));
       const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const s = Math.floor((distance % (1000 * 60)) / 1000);
-      if(el) el.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
+      el.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
     }, 1000);
 
-    /* Generic inside-card toggle (Bioinformatics + Drug Discovery) */
+    /* Inside-card toggle (Bioinformatics + Drug Discovery) */
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('[data-toggle]');
       if (!btn) return;
@@ -715,10 +688,7 @@
         setOpen(open);
       });
 
-      list.addEventListener('click', (e) => {
-        // Keep open when clicking links inside
-        e.stopPropagation();
-      });
+      list.addEventListener('click', (e) => { e.stopPropagation(); }); // keep open when clicking inside
 
       document.addEventListener('click', (e) => {
         if (!wrapper.contains(e.target)) setOpen(false);
@@ -728,79 +698,45 @@
         if (e.key === 'Escape') setOpen(false);
       });
     })();
-  </script>
 
-      <!-- Counter animation -->
-  <script>
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-      counter.innerText = '0';
-      const updateCounter = () => {
-        const target = +counter.getAttribute('data-target');
-        const current = +counter.innerText;
-        const increment = target / 100;
+    /* Counter Animation (for .counter elements in Quick Stats) */
+    (function(){
+      const counters = document.querySelectorAll('.counter');
+      if (!counters.length) return;
 
-        if (current < target) {
-          counter.innerText = `${Math.ceil(current + increment)}`;
-          setTimeout(updateCounter, 30);
-        } else {
-          counter.innerText = target + '+';
-        }
+      const animateCounters = () => {
+        counters.forEach(counter => {
+          counter.innerText = '0';
+          const updateCounter = () => {
+            const target = +counter.getAttribute('data-target');
+            const current = +counter.innerText;
+            const increment = Math.max(1, Math.ceil(target / 100)); // smoother step
+            if (current < target) {
+              counter.innerText = `${Math.min(target, current + increment)}`;
+              setTimeout(updateCounter, 20);
+            } else {
+              counter.innerText = target + '+';
+            }
+          };
+          updateCounter();
+        });
       };
-      updateCounter();
-    });
-  </script>
 
-  <!-- Counter animation -->
-  <script>
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-      counter.innerText = '0';
-      const updateCounter = () => {
-        const target = +counter.getAttribute('data-target');
-        const current = +counter.innerText;
-        const increment = target / 100;
-
-        if (current < target) {
-          counter.innerText = `${Math.ceil(current + increment)}`;
-          setTimeout(updateCounter, 30);
-        } else {
-          counter.innerText = target + '+';
-        }
-      };
-      updateCounter();
-    });
-  </script>
-    
-</body>
-</html>
-
-</bo      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') setOpen(false);
-      });
+      // Trigger once the section is in view (nice UX)
+      const statsSection = document.querySelector('section[style*="--bm-rose"][class*="py-16"]');
+      if ('IntersectionObserver' in window && statsSection) {
+        const io = new IntersectionObserver((entries) => {
+          if (entries.some(e => e.isIntersecting)) {
+            animateCounters();
+            io.disconnect();
+          }
+        }, { threshold: 0.3 });
+        io.observe(statsSection);
+      } else {
+        // Fallback
+        animateCounters();
+      }
     })();
-
-    /* Counter Animation */
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-      counter.innerText = '0';
-      const updateCounter = () => {
-        const target = +counter.getAttribute('data-target');
-        const current = +counter.innerText;
-        const increment = target / 100;
-
-        if (current < target) {
-          counter.innerText = `${Math.ceil(current + increment)}`;
-          setTimeout(updateCounter, 30);
-        } else {
-          counter.innerText = target + '+';
-        }
-      };
-      updateCounter();
-    });
-
   </script>
 </body>
-</html>
-dy>
 </html>
