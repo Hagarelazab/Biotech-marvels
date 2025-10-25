@@ -114,20 +114,66 @@
 </head>
 <body class="bg-white min-h-screen flex flex-col">
 
-  <!-- Header -->
-  <header class="fade-up sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md">
-    <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between">
-      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wide">Biotech Marvels</h1>
-      <nav class="mt-3 sm:mt-0 flex gap-6 text-base sm:text-lg font-semibold">
-        <a href="#courses" class="hover:text-pink-200 transition">Courses</a>
-        <a href="#youtube-courses" class="hover:text-pink-200 transition">Free YouTube</a>
-        <a href="#who" class="hover:text-pink-200 transition">Who We Are</a>
-        <a href="#about" class="hover:text-pink-200 transition">About</a>
-        <a href="#marvel-faces" class="hover:text-pink-200 transition">Marvel Faces</a>
-        <a href="#socials" class="hover:text-pink-200 transition">Socials</a>
-      </nav>
+ <!-- Header -->
+<header id="siteHeader"
+  class="fade-up sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md transition-all duration-300">
+  <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3 group">
+      <!-- لو عندك لوجو صورة حطه هنا بدل الـ SVG -->
+      <!-- <img src="/logo.svg" alt="Biotech Marvels" class="h-9 w-9 rounded-lg"> -->
+      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" class="opacity-20"></circle>
+        <path d="M5 8c4 0 4 8 8 8s4-8 8-8" class="opacity-90" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <span class="text-2xl sm:text-3xl font-extrabold tracking-wide">
+        Biotech <span class="opacity-90">Marvels</span>
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-7 text-base font-semibold">
+      <a href="#courses" class="hover:text-pink-200 transition">Courses</a>
+      <a href="#youtube-courses" class="hover:text-pink-200 transition">Free YouTube</a>
+      <a href="#who" class="hover:text-pink-200 transition">Who We Are</a>
+      <a href="#about" class="hover:text-pink-200 transition">About</a>
+      <a href="#marvel-faces" class="hover:text-pink-200 transition">Marvel Faces</a>
+      <a href="#socials" class="hover:text-pink-200 transition">Socials</a>
+
+      <!-- CTA -->
+      <a href="#courses"
+         class="ml-2 inline-flex items-center justify-center rounded-xl px-4 py-2 font-extrabold bg-white text-pink-600 hover:scale-[1.02] transition shadow">
+        Start Learning
+      </a>
+    </nav>
+
+    <!-- Mobile: CTA + Burger -->
+    <div class="lg:hidden flex items-center gap-2">
+      <a href="#courses"
+         class="inline-flex items-center justify-center rounded-xl px-3 py-1.5 text-sm font-bold bg-white text-pink-600 shadow">
+        Join Now
+      </a>
+      <button id="burger" class="p-2 rounded-lg bg-white/10 hover:bg-white/20" aria-controls="mobileMenu" aria-expanded="false">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
     </div>
-  </header>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-white/15">
+    <nav class="px-6 py-3 grid gap-3 text-base font-semibold bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30">
+      <a href="#courses" class="py-2">Courses</a>
+      <a href="#youtube-courses" class="py-2">Free YouTube</a>
+      <a href="#who" class="py-2">Who We Are</a>
+      <a href="#about" class="py-2">About</a>
+      <a href="#marvel-faces" class="py-2">Marvel Faces</a>
+      <a href="#socials" class="py-2">Socials</a>
+    </nav>
+  </div>
+</header>
 
   <main>
 <!-- ========== HERO ========== -->
@@ -765,6 +811,52 @@
     }
   })();
 </script>
+    <script>
+    // Burger toggle + Active link + Shrink on scroll
+    (function () {
+      const burger = document.getElementById('burger');
+      const menu = document.getElementById('mobileMenu');
+      if (!burger || !menu) return;
+      burger.addEventListener('click', () => {
+        const open = menu.classList.contains('hidden');
+        menu.classList.toggle('hidden', !open);
+        burger.setAttribute('aria-expanded', String(open));
+      });
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        menu.classList.add('hidden'); burger.setAttribute('aria-expanded', 'false');
+      }));
+    })();
+
+    (function () {
+      const sections = ['courses','youtube-courses','who','about','marvel-faces','socials']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+      const links = Array.from(document.querySelectorAll('header nav a[href^="#"]'));
+      if (!sections.length || !links.length || !('IntersectionObserver' in window)) return;
+      const byHref = (id) => links.filter(a => a.getAttribute('href') === '#' + id);
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          const id = e.target.id;
+          const isIn = e.isIntersecting;
+          byHref(id).forEach(a => a.classList.toggle('text-white', isIn));
+          byHref(id).forEach(a => a.classList.toggle('underline decoration-white/70 underline-offset-4', isIn));
+        });
+      }, {threshold: 0.6});
+      sections.forEach(sec => io.observe(sec));
+    })();
+
+    (function () {
+      const hdr = document.getElementById('siteHeader');
+      if (!hdr) return;
+      window.addEventListener('scroll', () => {
+        const down = (window.scrollY || 0) > 10;
+        hdr.classList.toggle('shadow-lg', down);
+        hdr.classList.toggle('bg-pink-600/50', down);
+      }, {passive:true});
+    })();
+  </script>
+</body>
+</html>
 </body>
 </html>
 
