@@ -13,21 +13,26 @@
   <!-- Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
 
+  <!-- Your Button Styles -->
   <style>
-    :root{
-      --bm-pink:#E86AA0;
-      --bm-pink-dark:#C94E86;
-      --bm-ink:#111111;
-      --bm-ink-70:#3a3a3a;
-      --bm-rose:#F9ECF3;
-      --bm-glass:rgba(232,106,160,.08);
-      --yt-pink:#ff4fa3;
+    button, .btn, a.button {
+      background-color: #ff4b99; /* Pink */
+      color: white;
+      border-radius: 8px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
-    html{ scroll-behavior:smooth; }
-    body{
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-      color:var(--bm-ink);
+
+    button:hover, .btn:hover, a.button:hover {
+      background-color: #e03e86; /* Slightly darker pink */
+      transform: scale(1.05);
     }
+  </style>
+</head>
+
+
 
     /* ========== Animation ========== */
     @keyframes fadeUp {
