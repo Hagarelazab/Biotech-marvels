@@ -704,104 +704,94 @@
         </svg>
       </a>
 
-    </div>
-  </div>
-</section>
-
-</main>
-</body>
-</html>
-
-
-
-<!-- Footer -->
+    <!-- Footer -->
 <footer class="bg-black text-[var(--bm-pink)] text-center py-6">
-  <p class="text-sm">&copy; 2024 Biotech Marvels. All rights reserved.</p>
+  <p class="text-sm">&copy; 2023 Biotech Marvels. All rights reserved.</p>
 </footer>
+
 <!-- ========== SCRIPTS ========== -->
 <script>
-  /* Countdown */
+document.addEventListener('DOMContentLoaded', () => {
+  // ===== Countdown =====
   const countDownDate = new Date("2025-09-04T00:00:00").getTime();
-  const el = document.getElementById("countdown");
+  const countdownEl = document.getElementById("countdown");
   function pad(n){ return String(n).padStart(2,'0'); }
-  const timer = setInterval(function () {
-    const now = Date.now();
-    const distance = countDownDate - now;
-    if (!el) { clearInterval(timer); return; }
-    if (distance <= 0) {
-      clearInterval(timer);
-      el.textContent = "⏰ Registration Closed!";
-      return;
-    }
-    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((distance % (1000 * 60)) / 1000);
-    el.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
-  }, 1000);
 
-  /* Inside-card toggle */
+  if (countdownEl) {
+    const timer = setInterval(() => {
+      const now = Date.now();
+      const distance = countDownDate - now;
+      if (distance <= 0) {
+        clearInterval(timer);
+        countdownEl.textContent = "⏰ Registration Closed!";
+        return;
+      }
+      const d = Math.floor(distance / (1000*60*60*24));
+      const h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const m = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const s = Math.floor((distance % (1000*60)) / 1000);
+      countdownEl.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
+    }, 1000);
+  }
+
+  // ===== Inside-card toggle =====
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-toggle]');
     if (!btn) return;
-    const targetSel = btn.getAttribute('data-target');
-    const panel = document.querySelector(targetSel);
-    if (!panel) return;
-    const willShow = panel.classList.contains('hidden');
-    panel.classList.toggle('hidden', !willShow);
-    btn.setAttribute('aria-expanded', String(willShow));
+    const target = document.querySelector(btn.getAttribute('data-target'));
+    if (!target) return;
+    const willShow = target.classList.contains('hidden');
+    target.classList.toggle('hidden', !willShow);
+    btn.setAttribute('aria-expanded', willShow);
     const label = btn.querySelector('.label');
     if (label) label.textContent = willShow ? 'Hide Content' : 'Learn More';
   });
 
-  /* Free YouTube courses dropdown */
-  (function(){
-    const wrapper = document.getElementById('ytWrapper');
-    const trigger = document.getElementById('ytTrigger');
-    const list = document.getElementById('courseList');
-    if (!wrapper || !trigger || !list) return;
-    function setOpen(open) {
-      list.classList.toggle('hidden', !open);
-      trigger.setAttribute('aria-expanded', String(open));
-    }
-    trigger.addEventListener('click', (e) => {
+  // ===== Free YouTube courses dropdown =====
+  const ytWrapper = document.getElementById('ytWrapper');
+  const ytTrigger = document.getElementById('ytTrigger');
+  const courseList = document.getElementById('courseList');
+  if (ytWrapper && ytTrigger && courseList) {
+    const setOpen = (open) => {
+      courseList.classList.toggle('hidden', !open);
+      ytTrigger.setAttribute('aria-expanded', open);
+    };
+    ytTrigger.addEventListener('click', e => {
       e.stopPropagation();
-      const open = list.classList.contains('hidden');
-      setOpen(open);
+      setOpen(courseList.classList.contains('hidden'));
     });
-    list.addEventListener('click', (e) => e.stopPropagation());
-    document.addEventListener('click', (e) => {
-      if (!wrapper.contains(e.target)) setOpen(false);
+    document.addEventListener('click', e => {
+      if (!ytWrapper.contains(e.target)) setOpen(false);
     });
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', e => {
       if (e.key === 'Escape') setOpen(false);
     });
-  })();
+  }
 
-  /* Counter animation */
-  (function(){
-    const counters = document.querySelectorAll('.counter');
-    if (!counters.length) return;
+  // ===== Counter animation =====
+  const counters = document.querySelectorAll('.counter');
+  if (counters.length) {
     const animateCounters = () => {
       counters.forEach(counter => {
         counter.innerText = '0';
-        const updateCounter = () => {
+        const update = () => {
           const target = +counter.getAttribute('data-target');
-          const current = +counter.innerText;
-          const increment = Math.max(1, Math.ceil(target / 100));
+          const current = +counter.innerText.replace(/\D/g,'');
+          const increment = Math.max(1, Math.ceil(target/100));
           if (current < target) {
-            counter.innerText = `${Math.min(target, current + increment)}`;
-            setTimeout(updateCounter, 20);
+            counter.innerText = Math.min(target, current+increment);
+            setTimeout(update, 20);
           } else {
             counter.innerText = target + '+';
           }
         };
-        updateCounter();
+        update();
       });
     };
-    const statsSection = document.querySelector('section[style*="--bm-rose"][class*="py-16"]');
+
+    const statsSection = document.querySelector('#stats');
     if ('IntersectionObserver' in window && statsSection) {
-      const io = new IntersectionObserver((entries) => {
+      const io = new IntersectionObserver(entries => {
         if (entries.some(e => e.isIntersecting)) {
           animateCounters();
           io.disconnect();
@@ -811,31 +801,29 @@
     } else {
       animateCounters();
     }
-  })();
+  }
 
-  /* Burger toggle + Active link + Shrink on scroll */
-  (function () {
-    const burger = document.getElementById('burger');
-    const menu = document.getElementById('mobileMenu');
-    if (!burger || !menu) return;
+  // ===== Burger menu toggle =====
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (burger && mobileMenu) {
     burger.addEventListener('click', () => {
-      const open = menu.classList.contains('hidden');
-      menu.classList.toggle('hidden', !open);
-      burger.setAttribute('aria-expanded', String(open));
+      const open = mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden', !open);
+      burger.setAttribute('aria-expanded', open);
     });
-    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      burger.setAttribute('aria-expanded', 'false');
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      burger.setAttribute('aria-expanded', false);
     }));
-  })();
+  }
 
-  /* Highlight active nav links */
-  (function () {
-    const sections = ['courses','youtube-courses','who','about','marvel-faces','socials']
-      .map(id => document.getElementById(id))
-      .filter(Boolean);
-    const links = Array.from(document.querySelectorAll('header nav a[href^="#"]'));
-    if (!sections.length || !links.length || !('IntersectionObserver' in window)) return;
+  // ===== Highlight active nav links =====
+  const sections = ['courses','youtube-courses','who','about','marvel-faces','socials']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  const links = Array.from(document.querySelectorAll('header nav a[href^="#"]'));
+  if (sections.length && links.length && 'IntersectionObserver' in window) {
     const byHref = (id) => links.filter(a => a.getAttribute('href') === '#' + id);
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -844,22 +832,21 @@
         byHref(id).forEach(a => a.classList.toggle('text-white', isIn));
         byHref(id).forEach(a => a.classList.toggle('underline decoration-white/70 underline-offset-4', isIn));
       });
-    }, {threshold: 0.6});
+    }, { threshold: 0.6 });
     sections.forEach(sec => io.observe(sec));
-  })();
+  }
 
-  /* Shrink header on scroll */
-  (function () {
-    const hdr = document.getElementById('siteHeader');
-    if (!hdr) return;
+  // ===== Shrink header on scroll =====
+  const hdr = document.getElementById('siteHeader');
+  if (hdr) {
     window.addEventListener('scroll', () => {
       const down = (window.scrollY || 0) > 10;
       hdr.classList.toggle('shadow-lg', down);
       hdr.classList.toggle('bg-pink-600/50', down);
     }, {passive:true});
-  })();
+  }
 
-  /* YouTube dropdown (secondary trigger if IDs differ) */
+  // ===== Secondary YouTube dropdown toggle =====
   const youtubeBtn = document.querySelector('#youtube-toggle');
   const youtubeDropdown = document.querySelector('#youtube-dropdown');
   if (youtubeBtn && youtubeDropdown) {
@@ -867,6 +854,7 @@
       youtubeDropdown.classList.toggle('hidden');
     });
   }
+});
 </script>
 </body>
 </html>
