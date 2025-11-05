@@ -718,7 +718,6 @@
 <footer class="bg-black text-[var(--bm-pink)] text-center py-6">
   <p class="text-sm">&copy; 2024 Biotech Marvels. All rights reserved.</p>
 </footer>
-
 <!-- ========== SCRIPTS ========== -->
 <script>
   /* Countdown */
@@ -813,57 +812,61 @@
       animateCounters();
     }
   })();
-</script>
-    <script>
-    // Burger toggle + Active link + Shrink on scroll
-    (function () {
-      const burger = document.getElementById('burger');
-      const menu = document.getElementById('mobileMenu');
-      if (!burger || !menu) return;
-      burger.addEventListener('click', () => {
-        const open = menu.classList.contains('hidden');
-        menu.classList.toggle('hidden', !open);
-        burger.setAttribute('aria-expanded', String(open));
+
+  /* Burger toggle + Active link + Shrink on scroll */
+  (function () {
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('mobileMenu');
+    if (!burger || !menu) return;
+    burger.addEventListener('click', () => {
+      const open = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', !open);
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      burger.setAttribute('aria-expanded', 'false');
+    }));
+  })();
+
+  /* Highlight active nav links */
+  (function () {
+    const sections = ['courses','youtube-courses','who','about','marvel-faces','socials']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    const links = Array.from(document.querySelectorAll('header nav a[href^="#"]'));
+    if (!sections.length || !links.length || !('IntersectionObserver' in window)) return;
+    const byHref = (id) => links.filter(a => a.getAttribute('href') === '#' + id);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        const id = e.target.id;
+        const isIn = e.isIntersecting;
+        byHref(id).forEach(a => a.classList.toggle('text-white', isIn));
+        byHref(id).forEach(a => a.classList.toggle('underline decoration-white/70 underline-offset-4', isIn));
       });
-      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        menu.classList.add('hidden'); burger.setAttribute('aria-expanded', 'false');
-      }));
-    })();
+    }, {threshold: 0.6});
+    sections.forEach(sec => io.observe(sec));
+  })();
 
-    (function () {
-      const sections = ['courses','youtube-courses','who','about','marvel-faces','socials']
-        .map(id => document.getElementById(id))
-        .filter(Boolean);
-      const links = Array.from(document.querySelectorAll('header nav a[href^="#"]'));
-      if (!sections.length || !links.length || !('IntersectionObserver' in window)) return;
-      const byHref = (id) => links.filter(a => a.getAttribute('href') === '#' + id);
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          const id = e.target.id;
-          const isIn = e.isIntersecting;
-          byHref(id).forEach(a => a.classList.toggle('text-white', isIn));
-          byHref(id).forEach(a => a.classList.toggle('underline decoration-white/70 underline-offset-4', isIn));
-        });
-      }, {threshold: 0.6});
-      sections.forEach(sec => io.observe(sec));
-    })();
+  /* Shrink header on scroll */
+  (function () {
+    const hdr = document.getElementById('siteHeader');
+    if (!hdr) return;
+    window.addEventListener('scroll', () => {
+      const down = (window.scrollY || 0) > 10;
+      hdr.classList.toggle('shadow-lg', down);
+      hdr.classList.toggle('bg-pink-600/50', down);
+    }, {passive:true});
+  })();
 
-    (function () {
-      const hdr = document.getElementById('siteHeader');
-      if (!hdr) return;
-      window.addEventListener('scroll', () => {
-        const down = (window.scrollY || 0) > 10;
-        hdr.classList.toggle('shadow-lg', down);
-        hdr.classList.toggle('bg-pink-600/50', down);
-      }, {passive:true});
-    })();
-  </script>
+  /* YouTube dropdown (secondary trigger if IDs differ) */
+  const youtubeBtn = document.querySelector('#youtube-toggle');
+  const youtubeDropdown = document.querySelector('#youtube-dropdown');
+  if (youtubeBtn && youtubeDropdown) {
+    youtubeBtn.addEventListener('click', () => {
+      youtubeDropdown.classList.toggle('hidden');
+    });
+  }
+</script>
 </body>
 </html>
-</body>
-</html>
-
-
-
-
-    
