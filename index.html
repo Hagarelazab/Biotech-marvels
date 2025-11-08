@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,227 +14,126 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
 
   <style>
-    button, .btn, a.button {
-      background-color: #ff4b99; /* Pink */
-      color: white;
-      border-radius: 8px;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+    :root{
+      --bm-pink:#E86AA0;
+      --bm-pink-dark:#C94E86;
+      --bm-ink:#111111;
+      --bm-ink-70:#3a3a3a;
+      --bm-rose:#F9ECF3;
+      --bm-glass:rgba(232,106,160,.08);
+      --yt-pink:#ff4fa3;
+    }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+      color:var(--bm-ink);
     }
 
-    button:hover, .btn:hover, a.button:hover {
-      background-color: #e03e86; /* Slightly darker pink */
-      transform: scale(1.05);
+    /* ========== Animation ========== */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; animation: fadeUp 1s ease-out forwards; }
+
+    /* Buttons */
+    .btn-bm{
+      background:var(--bm-pink);
+      color:#fff;
+      border-radius:14px;
+      padding:.75rem 1.25rem;
+      font-weight:700;
+      display:inline-block;
+      box-shadow:0 8px 22px rgba(232,106,160,.25);
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn-bm:hover{
+      background:var(--bm-pink-dark);
+      transform:translateY(-1.5px);
+      box-shadow:0 10px 26px rgba(232,106,160,.35);
+    }
+
+    /* Underline accent */
+    .bm-underline{
+      position:relative;
+      display:inline-block;
+    }
+    .bm-underline:after{
+      content:"";
+      position:absolute;
+      left:8px;
+      right:8px;
+      bottom:-6px;
+      height:3px;
+      background:var(--bm-pink);
+      transform:skewX(-12deg);
+      border-radius:2px;
+    }
+
+    /* DNA dotted divider */
+    .bm-dna-divider{
+      background-image: radial-gradient(circle at 0 50%, rgba(232,106,160,.35) 2px, transparent 2px),
+                        radial-gradient(circle at 12px 50%, rgba(232,106,160,.2) 2px, transparent 2px);
+      background-size:24px 8px;
+      background-repeat:repeat-x;
+      height:8px;
+      opacity:.5;
+    }
+
+    /* Animated DNA overlay in hero */
+    .dna-layer{ position:absolute; inset:0; pointer-events:none; opacity:.22; }
+    .dna-dot{
+      position:absolute;
+      width:12px; height:12px;
+      border-radius:999px;
+      background:var(--bm-pink);
+      box-shadow:0 0 15px rgba(232,106,160,.8);
+      animation: helix 4.5s ease-in-out infinite;
+    }
+    .dna-dot.rev{ animation-name:helixRev; }
+    @keyframes helix{
+      0%{ transform: translateY(-60px) translateX(-20px) scale(.85); opacity:.85; }
+      50%{ transform: translateY(60px) translateX(20px) scale(1.1); opacity:1; }
+      100%{ transform: translateY(-60px) translateX(-20px) scale(.85); opacity:.85; }
+    }
+    @keyframes helixRev{
+      0%{ transform: translateY(60px) translateX(20px) scale(.85); opacity:.85; }
+      50%{ transform: translateY(-60px) translateX(-20px) scale(1.1); opacity:1; }
+      100%{ transform: translateY(60px) translateX(20px) scale(.85); opacity:.85; }
+    }
+
+    /* YouTube glow helpers */
+    .glow { box-shadow: 0 20px 60px rgba(255,79,163,.25), inset 0 0 0 1px rgba(255,255,255,.6); }
+    .glow-outer { box-shadow: 0 30px 80px rgba(255,79,163,.30); }
+    @keyframes pulseSoft {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
+<body class="bg-white min-h-screen flex flex-col">
 
-
-
-   /* ========== Animation ========== */
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-up {
-  opacity: 0;
-  animation: fadeUp 1s ease-out forwards;
-}
-
-/* Buttons */
-.btn-bm {
-  background: var(--bm-pink);
-  color: #fff;
-  border-radius: 14px;
-  padding: 0.75rem 1.25rem;
-  font-weight: 700;
-  display: inline-block;
-  box-shadow: 0 8px 22px rgba(232, 106, 160, 0.25);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-}
-
-.btn-bm:hover {
-  background: var(--bm-pink-dark);
-  transform: translateY(-1.5px);
-  box-shadow: 0 10px 26px rgba(232, 106, 160, 0.35);
-}
-
-/* Underline accent */
-.bm-underline {
-  position: relative;
-  display: inline-block;
-}
-
-.bm-underline:after {
-  content: "";
-  position: absolute;
-  left: 8px;
-  right: 8px;
-  bottom: -6px;
-  height: 3px;
-  background: var(--bm-pink);
-  transform: skewX(-12deg);
-  border-radius: 2px;
-}
-
-/* DNA dotted divider */
-.bm-dna-divider {
-  background-image: radial-gradient(circle at 0 50%, rgba(232, 106, 160, 0.35) 2px, transparent 2px),
-                    radial-gradient(circle at 12px 50%, rgba(232, 106, 160, 0.2) 2px, transparent 2px);
-  background-size: 24px 8px;
-  background-repeat: repeat-x;
-  height: 8px;
-  opacity: 0.5;
-}
-
-/* Animated DNA overlay in hero */
-.dna-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.22;
-}
-
-.dna-dot {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: var(--bm-pink);
-  box-shadow: 0 0 15px rgba(232, 106, 160, 0.8);
-  animation: helix 4.5s ease-in-out infinite;
-}
-
-.dna-dot.rev {
-  animation-name: helixRev;
-}
-
-@keyframes helix {
-  0% {
-    transform: translateY(-60px) translateX(-20px) scale(0.85);
-    opacity: 0.85;
-  }
-  50% {
-    transform: translateY(60px) translateX(20px) scale(0.85);
-    opacity: 0.85;
-  }
-  100% {
-    transform: translateY(-60px) translateX(-20px) scale(0.85);
-    opacity: 0.85;
-  }
-}
-
-@keyframes helixRev {
-  0% {
-    transform: translateY(60px) translateX(20px) scale(0.85);
-    opacity: 0.85;
-  }
-  50% {
-    transform: translateY(-60px) translateX(-20px) scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(60px) translateX(20px) scale(0.85);
-    opacity: 0.85;
-  }
-}
-
-/* YouTube glow helpers */
-.glow {
-  box-shadow: 0 20px 60px rgba(255, 79, 163, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-}
-
-.glow-outer {
-  box-shadow: 0 30px 80px rgba(255, 79, 163, 0.3);
-}
-
-@keyframes pulseSoft {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.02);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
- <!-- Header -->
-<header id="siteHeader"
-  class="fade-up sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md transition-all duration-300">
-  <div class="container mx-auto px-6 py-3 flex items-center justify-between">
-
-    <!-- Logo -->
-    <a href="#" class="flex items-center gap-3 group">
-      <!-- لو عندك لوجو صورة حطه هنا بدل الـ SVG -->
-      <!-- <img src="/logo.svg" alt="Biotech Marvels" class="h-9 w-9 rounded-lg"> -->
-      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" class="opacity-20"></circle>
-        <path d="M5 8c4 0 4 8 8 8s4-8 8-8" class="opacity-90" fill="none" stroke="currentColor" stroke-width="2"/>
-      </svg>
-      <span class="text-2xl sm:text-3xl font-extrabold tracking-wide">
-        Biotech <span class="opacity-90">Marvels</span>
-      </span>
-    </a>
-
-    <!-- Desktop Nav -->
-    <nav class="hidden lg:flex items-center gap-7 text-base font-semibold">
-      <a href="#courses" class="hover:text-pink-200 transition">Courses</a>
-      <a href="#youtube-courses" class="hover:text-pink-200 transition">Free YouTube</a>
-      <a href="#who" class="hover:text-pink-200 transition">Who We Are</a>
-      <a href="#about" class="hover:text-pink-200 transition">About</a>
-      <a href="#marvel-faces" class="hover:text-pink-200 transition">Marvel Faces</a>
-      <a href="#socials" class="hover:text-pink-200 transition">Socials</a>
-
-      <!-- CTA -->
-      <a href="#courses"
-         class="ml-2 inline-flex items-center justify-center rounded-xl px-4 py-2 font-extrabold bg-white text-pink-600 hover:scale-[1.02] transition shadow">
-        Start Learning
-      </a>
-    </nav>
-
-    <!-- Mobile: CTA + Burger -->
-    <div class="lg:hidden flex items-center gap-2">
-      <a href="#courses"
-         class="inline-flex items-center justify-center rounded-xl px-3 py-1.5 text-sm font-bold bg-white text-pink-600 shadow">
-        Join Now
-      </a>
-      <button id="burger" class="p-2 rounded-lg bg-white/10 hover:bg-white/20" aria-controls="mobileMenu" aria-expanded="false">
-        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
-        </svg>
-      </button>
+  <!-- Header -->
+  <header class="fade-up sticky top-0 z-50 backdrop-blur-md bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30 border-b border-white/20 text-white shadow-md">
+    <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between">
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wide">Biotech Marvels</h1>
+      <nav class="mt-3 sm:mt-0 flex gap-6 text-base sm:text-lg font-semibold">
+        <a href="#courses" class="hover:text-pink-200 transition">Courses</a>
+        <a href="#youtube-courses" class="hover:text-pink-200 transition">Free YouTube</a>
+        <a href="#who" class="hover:text-pink-200 transition">Who We Are</a>
+        <a href="#about" class="hover:text-pink-200 transition">About</a>
+        <a href="#marvel-faces" class="hover:text-pink-200 transition">Marvel Faces</a>
+        <a href="#socials" class="hover:text-pink-200 transition">Socials</a>
+      </nav>
     </div>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="lg:hidden hidden border-t border-white/15">
-    <nav class="px-6 py-3 grid gap-3 text-base font-semibold bg-pink-600/40 supports-[backdrop-filter]:bg-pink-600/30">
-      <a href="#courses" class="py-2">Courses</a>
-      <a href="#youtube-courses" class="py-2">Free YouTube</a>
-      <a href="#who" class="py-2">Who We Are</a>
-      <a href="#about" class="py-2">About</a>
-      <a href="#marvel-faces" class="py-2">Marvel Faces</a>
-      <a href="#socials" class="py-2">Socials</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
   <main>
 <!-- ========== HERO ========== -->
 <section class="fade-up relative overflow-hidden">
   <div class="dna-layer" aria-hidden="true">
-    <!-- DNA dots (زي ما كانت) -->
+    <!-- DNA dots -->
     <span class="dna-dot" style="left:10%; top:20%; animation-delay:.0s"></span>
     <span class="dna-dot" style="left:18%; top:50%; animation-delay:.2s"></span>
     <span class="dna-dot" style="left:26%; top:30%; animation-delay:.4s"></span>
@@ -286,6 +183,8 @@
     <div class="bm-dna-divider mt-10 mb-2 mx-auto max-w-3xl"></div>
   </div>
 </section>
+
+
 
     <!-- ========== STATS / INFOGRAPHICS ========== -->
 <section style="background-color: var(--bm-rose);" class="py-16 px-6">
@@ -752,7 +651,7 @@
         </svg>
       </a>
 
-            <!-- Instagram -->
+      <!-- Instagram -->
       <a href="https://www.instagram.com/biotechmarvels?igsh=MW15a3k2Zzd0bGJrNg==" aria-label="Instagram"
          target="_blank" rel="noopener"
          class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white hover:scale-110 transition">
@@ -761,94 +660,100 @@
         </svg>
       </a>
 
-    <!-- Footer -->
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
 <footer class="bg-black text-[var(--bm-pink)] text-center py-6">
-  <p class="text-sm">&copy; 2023 Biotech Marvels. All rights reserved.</p>
+  <p class="text-sm">&copy; 2024 Biotech Marvels. All rights reserved.</p>
 </footer>
 
 <!-- ========== SCRIPTS ========== -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // ===== Countdown =====
+  /* Countdown */
   const countDownDate = new Date("2025-09-04T00:00:00").getTime();
-  const countdownEl = document.getElementById("countdown");
+  const el = document.getElementById("countdown");
   function pad(n){ return String(n).padStart(2,'0'); }
+  const timer = setInterval(function () {
+    const now = Date.now();
+    const distance = countDownDate - now;
+    if (!el) { clearInterval(timer); return; }
+    if (distance <= 0) {
+      clearInterval(timer);
+      el.textContent = "⏰ Registration Closed!";
+      return;
+    }
+    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((distance % (1000 * 60)) / 1000);
+    el.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
+  }, 1000);
 
-  if (countdownEl) {
-    const timer = setInterval(() => {
-      const now = Date.now();
-      const distance = countDownDate - now;
-      if (distance <= 0) {
-        clearInterval(timer);
-        countdownEl.textContent = "⏰ Registration Closed!";
-        return;
-      }
-      const d = Math.floor(distance / (1000*60*60*24));
-      const h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-      const m = Math.floor((distance % (1000*60*60)) / (1000*60));
-      const s = Math.floor((distance % (1000*60)) / 1000);
-      countdownEl.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
-    }, 1000);
-  }
-
-  // ===== Inside-card toggle =====
+  /* Inside-card toggle */
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-toggle]');
     if (!btn) return;
-    const target = document.querySelector(btn.getAttribute('data-target'));
-    if (!target) return;
-    const willShow = target.classList.contains('hidden');
-    target.classList.toggle('hidden', !willShow);
-    btn.setAttribute('aria-expanded', willShow);
+    const targetSel = btn.getAttribute('data-target');
+    const panel = document.querySelector(targetSel);
+    if (!panel) return;
+    const willShow = panel.classList.contains('hidden');
+    panel.classList.toggle('hidden', !willShow);
+    btn.setAttribute('aria-expanded', String(willShow));
     const label = btn.querySelector('.label');
     if (label) label.textContent = willShow ? 'Hide Content' : 'Learn More';
   });
 
-  // ===== Free YouTube courses dropdown =====
-  const ytWrapper = document.getElementById('ytWrapper');
-  const ytTrigger = document.getElementById('ytTrigger');
-  const courseList = document.getElementById('courseList');
-  if (ytWrapper && ytTrigger && courseList) {
-    const setOpen = (open) => {
-      courseList.classList.toggle('hidden', !open);
-      ytTrigger.setAttribute('aria-expanded', open);
-    };
-    ytTrigger.addEventListener('click', e => {
+  /* Free YouTube courses dropdown */
+  (function(){
+    const wrapper = document.getElementById('ytWrapper');
+    const trigger = document.getElementById('ytTrigger');
+    const list = document.getElementById('courseList');
+    if (!wrapper || !trigger || !list) return;
+    function setOpen(open) {
+      list.classList.toggle('hidden', !open);
+      trigger.setAttribute('aria-expanded', String(open));
+    }
+    trigger.addEventListener('click', (e) => {
       e.stopPropagation();
-      setOpen(courseList.classList.contains('hidden'));
+      const open = list.classList.contains('hidden');
+      setOpen(open);
     });
-    document.addEventListener('click', e => {
-      if (!ytWrapper.contains(e.target)) setOpen(false);
+    list.addEventListener('click', (e) => e.stopPropagation());
+    document.addEventListener('click', (e) => {
+      if (!wrapper.contains(e.target)) setOpen(false);
     });
-    document.addEventListener('keydown', e => {
+    document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') setOpen(false);
     });
-  }
+  })();
 
-  // ===== Counter animation =====
-  const counters = document.querySelectorAll('.counter');
-  if (counters.length) {
+  /* Counter animation */
+  (function(){
+    const counters = document.querySelectorAll('.counter');
+    if (!counters.length) return;
     const animateCounters = () => {
       counters.forEach(counter => {
         counter.innerText = '0';
-        const update = () => {
+        const updateCounter = () => {
           const target = +counter.getAttribute('data-target');
-          const current = +counter.innerText.replace(/\D/g,'');
-          const increment = Math.max(1, Math.ceil(target/100));
+          const current = +counter.innerText;
+          const increment = Math.max(1, Math.ceil(target / 100));
           if (current < target) {
-            counter.innerText = Math.min(target, current+increment);
-            setTimeout(update, 20);
+            counter.innerText = `${Math.min(target, current + increment)}`;
+            setTimeout(updateCounter, 20);
           } else {
             counter.innerText = target + '+';
           }
         };
-        update();
+        updateCounter();
       });
     };
-
-    const statsSection = document.querySelector('#stats');
+    const statsSection = document.querySelector('section[style*="--bm-rose"][class*="py-16"]');
     if ('IntersectionObserver' in window && statsSection) {
-      const io = new IntersectionObserver(entries => {
+      const io = new IntersectionObserver((entries) => {
         if (entries.some(e => e.isIntersecting)) {
           animateCounters();
           io.disconnect();
@@ -858,60 +763,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       animateCounters();
     }
-  }
-
-  // ===== Burger menu toggle =====
-  const burger = document.getElementById('burger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (burger && mobileMenu) {
-    burger.addEventListener('click', () => {
-      const open = mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden', !open);
-      burger.setAttribute('aria-expanded', open);
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      burger.setAttribute('aria-expanded', false);
-    }));
-  }
-
-  // ===== Highlight active nav links =====
-  const sections = ['courses','youtube-courses','who','about','marvel-faces','socials']
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
-  const links = Array.from(document.querySelectorAll('header nav a[href^="#"]'));
-  if (sections.length && links.length && 'IntersectionObserver' in window) {
-    const byHref = (id) => links.filter(a => a.getAttribute('href') === '#' + id);
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        const id = e.target.id;
-        const isIn = e.isIntersecting;
-        byHref(id).forEach(a => a.classList.toggle('text-white', isIn));
-        byHref(id).forEach(a => a.classList.toggle('underline decoration-white/70 underline-offset-4', isIn));
-      });
-    }, { threshold: 0.6 });
-    sections.forEach(sec => io.observe(sec));
-  }
-
-  // ===== Shrink header on scroll =====
-  const hdr = document.getElementById('siteHeader');
-  if (hdr) {
-    window.addEventListener('scroll', () => {
-      const down = (window.scrollY || 0) > 10;
-      hdr.classList.toggle('shadow-lg', down);
-      hdr.classList.toggle('bg-pink-600/50', down);
-    }, {passive:true});
-  }
-
-  // ===== Secondary YouTube dropdown toggle =====
-  const youtubeBtn = document.querySelector('#youtube-toggle');
-  const youtubeDropdown = document.querySelector('#youtube-dropdown');
-  if (youtubeBtn && youtubeDropdown) {
-    youtubeBtn.addEventListener('click', () => {
-      youtubeDropdown.classList.toggle('hidden');
-    });
-  }
-});
+  })();
 </script>
 </body>
 </html>
+
+
+
+
+    
