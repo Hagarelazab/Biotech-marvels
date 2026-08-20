@@ -3,345 +3,947 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Biotech Marvels offers cutting-edge courses in biotechnology and bioinformatics." />
+  <meta
+    name="description"
+    content="Biotech Marvels offers practical biotechnology, bioinformatics, cancer biology, and drug discovery education for future scientists."
+  />
   <title>Biotech Marvels</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    :root{
-      --bm-pink:#E86AA0;
-      --bm-pink-dark:#C94E86;
-      --bm-rose:#F9ECF3;
-      --yt-pink:#ff4fa3;
+    :root {
+      --bm-pink: #e95f9d;
+      --bm-pink-dark: #c94780;
+      --bm-pink-soft: #fff1f7;
+      --bm-rose: #f9edf3;
+      --bm-ink: #18111a;
+      --bm-muted: #6b6470;
+      --bm-border: #f2c6d8;
+      --bm-navy: #111827;
+      --yt-pink: #ff4fa3;
     }
 
-    html{scroll-behavior:smooth;}
-
-    body{
-      font-family:'Inter', sans-serif;
-      color:#111;
-      background:#fff;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .btn-bm{
-      background:var(--bm-pink);
-      color:#fff;
-      border-radius:14px;
-      padding:.75rem 1.25rem;
-      font-weight:800;
-      display:inline-block;
-      box-shadow:0 8px 22px rgba(232,106,160,.25);
-      transition:.2s ease;
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--bm-ink);
+      background: #fff;
+      overflow-x: hidden;
     }
 
-    .btn-bm:hover{
-      background:var(--bm-pink-dark);
-      transform:translateY(-2px);
-      box-shadow:0 12px 30px rgba(232,106,160,.38);
+    ::selection {
+      background: rgba(233, 95, 157, 0.2);
     }
 
-    .bm-underline{
-      position:relative;
-      display:inline-block;
+    .container-shell {
+      width: min(1180px, calc(100% - 2rem));
+      margin-inline: auto;
     }
 
-    .bm-underline:after{
-      content:"";
-      position:absolute;
-      left:8px;
-      right:8px;
-      bottom:-6px;
-      height:3px;
-      background:var(--bm-pink);
-      border-radius:4px;
+    .btn-primary,
+    .btn-secondary,
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 46px;
+      border-radius: 14px;
+      padding: 0.82rem 1.2rem;
+      font-weight: 800;
+      transition: 0.22s ease;
+      text-decoration: none;
     }
 
-    .bm-dna-divider{
-      background-image:radial-gradient(circle, rgba(232,106,160,.35) 2px, transparent 2px);
-      background-size:24px 8px;
-      height:8px;
-      opacity:.45;
+    .btn-primary {
+      background: var(--bm-pink);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(233, 95, 157, 0.22);
     }
 
-    .dna-dot{
-      position:absolute;
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      background:var(--bm-pink);
-      box-shadow:0 0 15px rgba(232,106,160,.8);
-      animation:floaty 4s ease-in-out infinite;
-      opacity:.25;
+    .btn-primary:hover {
+      background: var(--bm-pink-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(233, 95, 157, 0.3);
     }
 
-    @keyframes floaty{
-      0%,100%{transform:translateY(-18px);}
-      50%{transform:translateY(18px);}
-    }
-.glow{
-      box-shadow:0 30px 80px rgba(255,79,163,.30);
+    .btn-secondary {
+      background: #fff;
+      color: var(--bm-ink);
+      border: 1px solid #e9e2e6;
     }
 
-    @keyframes pulseSoft{
-      0%,100%{transform:scale(1);}
-      50%{transform:scale(1.04);}
+    .btn-secondary:hover {
+      border-color: var(--bm-pink);
+      color: var(--bm-pink-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: var(--bm-ink);
+      color: #fff;
+    }
+
+    .btn-dark:hover {
+      background: #2a202b;
+      transform: translateY(-2px);
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg, var(--bm-pink) 0%, #f681b5 48%, #c84b84 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      background: var(--bm-pink-soft);
+      color: var(--bm-pink-dark);
+      padding: 0.45rem 0.8rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .section-title {
+      margin-top: 1rem;
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+    }
+
+    .section-copy {
+      color: var(--bm-muted);
+      font-size: 1.02rem;
+      line-height: 1.75;
+    }
+
+    .scientific-grid {
+      background-image:
+        linear-gradient(rgba(233, 95, 157, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(233, 95, 157, 0.04) 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+
+    .molecule-pattern {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .molecule-pattern::before,
+    .molecule-pattern::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      filter: blur(2px);
+    }
+
+    .molecule-pattern::before {
+      width: 360px;
+      height: 360px;
+      top: -180px;
+      right: -140px;
+      background: radial-gradient(circle, rgba(233, 95, 157, 0.13), transparent 66%);
+    }
+
+    .molecule-pattern::after {
+      width: 280px;
+      height: 280px;
+      left: -110px;
+      bottom: -130px;
+      background: radial-gradient(circle, rgba(244, 177, 210, 0.14), transparent 66%);
+    }
+
+    .dna-dots {
+      background-image: radial-gradient(circle, rgba(233, 95, 157, 0.22) 1.5px, transparent 1.5px);
+      background-size: 22px 10px;
+    }
+
+    .hero-image-card {
+      position: relative;
+      border-radius: 28px;
+      padding: 10px;
+      background: linear-gradient(145deg, #ffffff, #fff6fa);
+      border: 1px solid rgba(233, 95, 157, 0.18);
+      box-shadow: 0 28px 70px rgba(65, 44, 58, 0.13);
+    }
+
+    .hero-image-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 8% -16px 8%;
+      height: 35px;
+      background: rgba(233, 95, 157, 0.13);
+      filter: blur(22px);
+      border-radius: 999px;
+      z-index: -1;
+    }
+
+    .metric-card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(233, 95, 157, 0.15);
+      border-radius: 22px;
+      padding: 1.45rem;
+      box-shadow: 0 14px 36px rgba(60, 43, 54, 0.06);
+      transition: 0.22s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 44px rgba(60, 43, 54, 0.1);
+    }
+
+    .course-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      background: #fff;
+      border: 1px solid var(--bm-border);
+      border-radius: 24px;
+      padding: 1.6rem;
+      box-shadow: 0 10px 30px rgba(60, 43, 54, 0.05);
+      transition: 0.25s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 50px rgba(60, 43, 54, 0.11);
+      border-color: rgba(233, 95, 157, 0.45);
+    }
+
+    .course-card::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 999px;
+      right: -70px;
+      top: -70px;
+      background: radial-gradient(circle, rgba(233, 95, 157, 0.14), transparent 70%);
+    }
+
+    .course-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--bm-pink-soft);
+      font-size: 1.55rem;
+      border: 1px solid rgba(233, 95, 157, 0.15);
+    }
+
+    .mini-chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.34rem 0.65rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: #f6f4f6;
+      color: #5e5660;
+    }
+
+    .playlist-card {
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(233, 95, 157, 0.14);
+      border-radius: 20px;
+      padding: 1.15rem 1.2rem;
+      box-shadow: 0 12px 30px rgba(60, 43, 54, 0.05);
+      transition: 0.22s ease;
+    }
+
+    .playlist-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(233, 95, 157, 0.38);
+      box-shadow: 0 18px 40px rgba(60, 43, 54, 0.09);
+    }
+
+    .value-card {
+      border-radius: 22px;
+      border: 1px solid rgba(233, 95, 157, 0.15);
+      background: #fff;
+      padding: 1.4rem;
+      box-shadow: 0 12px 30px rgba(60, 43, 54, 0.05);
+    }
+
+    .value-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--bm-pink-soft);
+      color: var(--bm-pink-dark);
+      font-weight: 900;
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+
+    .mobile-nav.open {
+      display: block;
+    }
+
+    @media (max-width: 767px) {
+      .desktop-nav {
+        display: none;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .mobile-menu-button {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header class="sticky top-0 z-50 bg-pink-500/80 backdrop-blur-md text-white shadow-md">
-  <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-    <h1 class="text-2xl font-extrabold">Biotech Marvels</h1>
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b border-pink-100/70 bg-white/90 backdrop-blur-xl">
+    <div class="container-shell flex items-center justify-between py-4">
+      <a href="#top" class="flex items-center gap-2.5">
+        <div class="grid h-10 w-10 place-items-center rounded-2xl bg-[var(--bm-pink)] text-white font-black shadow-md">
+          BM
+        </div>
+        <div>
+          <div class="font-black leading-none">Biotech Marvels</div>
+          <div class="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-gray-400">
+            Learn. Think. Discover.
+          </div>
+        </div>
+      </a>
 
-    <nav class="flex flex-wrap justify-center gap-4 text-sm font-bold">
-      <a href="#courses" class="hover:text-pink-100">Courses</a>
-<a href="#youtube-courses" class="hover:text-pink-100">Free YouTube</a>
-      <a href="#who" class="hover:text-pink-100">Who We Are</a>
-      <a href="#about" class="hover:text-pink-100">About</a>
-</nav>
-  </div>
-</header>
+      <nav class="desktop-nav flex items-center gap-7 text-sm font-bold">
+        <a href="#courses" class="text-gray-700 hover:text-[var(--bm-pink)]">Courses</a>
+        <a href="#why" class="text-gray-700 hover:text-[var(--bm-pink)]">Why Us</a>
+        <a href="#free-learning" class="text-gray-700 hover:text-[var(--bm-pink)]">Free Learning</a>
+        <a href="#story" class="text-gray-700 hover:text-[var(--bm-pink)]">Our Story</a>
+        <a href="#courses" class="btn-primary !min-h-[40px] !px-4 !py-2">Explore Courses</a>
+      </nav>
 
-<main>
-
-<section class="relative overflow-hidden">
-  <span class="dna-dot" style="left:10%;top:30%;"></span>
-  <span class="dna-dot" style="left:92%;top:35%;animation-delay:.5s;"></span>
-  <span class="dna-dot" style="left:35%;top:85%;animation-delay:1s;"></span>
-
-  <div class="container mx-auto px-6 pt-10 pb-10 text-center">
-    <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
-         alt="Biotech Marvels"
-         class="mx-auto mb-6 rounded-xl shadow-xl object-cover w-full max-w-4xl aspect-[16/9]" />
-
-    <p class="text-gray-500 text-sm mb-2">Biotechnology and Bioinformatics</p>
-
-    <h2 class="text-3xl sm:text-5xl font-black leading-tight">
-      Empowering Your Future in
-      <span class="text-[var(--bm-pink)] bm-underline">Biotechnology & Bioinformatics</span>
-    </h2>
-
-    <p class="text-gray-700 text-lg mt-5 max-w-3xl mx-auto">
-      Explore cutting-edge courses designed to advance your knowledge in bioinformatics,
-      cancer research, and drug discovery.
-    </p>
-
-    <div class="mt-7 flex justify-center gap-3 flex-wrap">
-      <a href="#courses" class="btn-bm">View Courses</a>
-</div>
-
-    <div class="bm-dna-divider mt-10 mx-auto max-w-3xl"></div>
-  </div>
-</section>
-
-<section class="py-16 px-6 bg-[var(--bm-rose)]">
-  <div class="container mx-auto text-center">
-    <h3 class="text-3xl font-black text-[var(--bm-pink)] mb-10">📊 Quick Stats</h3>
-
-    <div class="grid gap-8 sm:grid-cols-2 max-w-2xl mx-auto">
-      <div class="bg-white rounded-2xl shadow-lg p-8">
-        <div class="text-4xl mb-3">👥</div>
-        <h4 class="counter text-3xl font-black" data-target="1000">0</h4>
-        <p class="text-gray-600">Students Trained</p>
-      </div>
-
-      <div class="bg-white rounded-2xl shadow-lg p-8">
-        <div class="text-4xl mb-3">📚</div>
-        <h4 class="counter text-3xl font-black" data-target="4">0</h4>
-        <p class="text-gray-600">Active Courses</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="courses" class="container mx-auto px-6 py-16">
-  <h3 class="text-3xl font-black text-[var(--bm-pink)] mb-10 text-center">Our Courses</h3>
-
-  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-
-    <article class="border border-pink-300 rounded-xl p-6 bg-white hover:shadow-xl transition">
-      <h4 class="text-2xl font-black mb-3">Bioinformatics 101</h4>
-      <p class="text-gray-700 mb-4">Introduction to bioinformatics concepts, tools, and databases.</p>
-
-      <div class="flex gap-2">
-        <button class="btn-bm flex-1" data-toggle data-target="#bio-panel">
-          <span class="label">Learn More</span>
-        </button>
-
-        <a class="btn-bm flex-1 text-center"
-           href="https://docs.google.com/forms/d/e/1FAIpQLSczqx6t70c09gLVBPACSuoJ4hx5RfUs1oEHsj65LT3FYwo8MA/viewform?usp=header"
-           target="_blank">Register</a>
-      </div>
-
-      <div id="bio-panel" class="hidden mt-4 text-left text-gray-700 space-y-3">
-        <h5 class="font-black text-pink-600">📚 Course Topics</h5>
-        <ul class="list-disc list-inside">
-          <li>PCR</li>
-          <li>Gel Electrophoresis</li>
-          <li>NCBI</li>
-          <li>Sequence Alignment</li>
-          <li>Primer Design</li>
-          <li>R Programming Basics</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="border border-pink-300 rounded-xl p-6 bg-white hover:shadow-xl transition">
-      <h4 class="text-2xl font-black mb-3">Breast Cancer</h4>
-      <p class="text-gray-700 mb-4">Biology, diagnosis, treatment strategies, and latest research.</p>
-</article>
-
-    <article class="border border-pink-300 rounded-xl p-6 bg-white hover:shadow-xl transition">
-      <h4 class="text-2xl font-black mb-3">Drug Discovery</h4>
-      <p class="text-gray-700 mb-4">Explore the pipeline from target identification to clinical trials.</p>
-
-      <div class="flex gap-2">
-        <button class="btn-bm flex-1" data-toggle data-target="#drug-panel">
-          <span class="label">Learn More</span>
-        </button>
-
-        <a class="btn-bm flex-1 text-center"
-           href="https://docs.google.com/forms/d/e/1FAIpQLSdO_Xij1ABsPnSmB9VJmx1P3M08jgVnn8TIWyjEsuwf7rRbbg/viewform?usp=header"
-           target="_blank">Register</a>
-      </div>
-
-      <div id="drug-panel" class="hidden mt-4 text-left text-gray-700 space-y-3">
-        <h5 class="font-black text-pink-600">🧪 Course Topics</h5>
-        <ul class="list-disc list-inside">
-          <li>Drug Discovery & Development</li>
-          <li>Drug Targets</li>
-          <li>Biomarkers</li>
-          <li>Gut Microbiome</li>
-          <li>Natural Products</li>
-        </ul>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-
-<section id="youtube-courses" class="py-20 bg-gradient-to-b from-white via-[#eef7ff] to-[#ffeef7]">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <h3 class="text-3xl sm:text-4xl font-black">
-      Free <span class="text-[var(--yt-pink)]">YouTube</span> Courses
-    </h3>
-
-    <p class="mt-3 text-gray-600">
-      Click to view free curated playlists.
-    </p>
-
-    <button id="ytTrigger"
-      class="mt-10 mx-auto grid place-items-center w-44 h-44 rounded-3xl bg-gradient-to-br from-white to-pink-100 glow hover:scale-105 transition">
-      <span class="text-5xl text-pink-500" style="animation:pulseSoft 2.5s infinite;">▶</span>
-    </button>
-
-    <div id="courseList" class="hidden mt-10 max-w-2xl mx-auto rounded-2xl bg-white shadow-xl overflow-hidden">
-      <a class="block p-5 border-b hover:bg-pink-50 font-bold" target="_blank"
-         href="https://youtube.com/playlist?list=PL1Xf_J0k133IVay2ncgA-_dvyzr2Cxshp&si=l4bcRBFWMXQke4OL">Genetics 101</a>
-
-      <a class="block p-5 border-b hover:bg-pink-50 font-bold" target="_blank"
-         href="https://youtube.com/playlist?list=PL1Xf_J0k133LmBxAzM4IKFclc9FYzs2uv&si=praQu4cT1aw3M2HA">Cancer Biology</a>
-
-      <a class="block p-5 border-b hover:bg-pink-50 font-bold" target="_blank"
-         href="https://youtube.com/playlist?list=PL1Xf_J0k133LLCNMqltE808uBo3o7swOO&si=6lHq3Wr0ns6_jYJE">Bioinformatics</a>
-
-      <a class="block p-5 hover:bg-pink-50 font-bold" target="_blank"
-         href="https://youtube.com/playlist?list=PL1Xf_J0k133LRuqxjKcwRYoRtIKInCuit&si=wRueSOfOxTWokbeS">Botany</a>
-    </div>
-  </div>
-</section>
-
-<section id="who" class="container mx-auto px-6 py-16 text-center">
-  <h3 class="text-3xl font-black text-[var(--bm-pink)] mb-6">Who We Are</h3>
-
-  <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/WhatsApp%20Image%202025-08-31%20at%2012.02.19%20AM.jpeg"
-       alt="Biotech Marvels team"
-       class="mx-auto mb-6 rounded-xl shadow-xl object-cover w-full max-w-4xl aspect-[16/9]" />
-
-  <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-    Biotech Marvels is more than just courses — we’re a community of passionate learners and future innovators.
-    Together, we celebrate science, collaboration, and growth.
-  </p>
-
-  <div class="bm-dna-divider mt-10 mx-auto max-w-3xl"></div>
-</section>
-
-<section id="about" class="py-16 px-6 bg-[var(--bm-rose)]">
-  <div class="container mx-auto max-w-4xl text-center">
-    <h3 class="text-3xl font-black text-[var(--bm-pink)] mb-6">About Us</h3>
-
-    <p class="text-gray-800 text-lg leading-relaxed">
-      Biotech Marvels is dedicated to providing high-quality education in biotechnology and bioinformatics.
-      Our courses are designed by experts to help students gain practical knowledge and skills.
-    </p>
-  </div>
-</section>
-
-
-</main>
-
-<footer class="bg-pink-600 text-white py-8">
-  <div class="container mx-auto px-6 text-center">
-    <h3 class="text-2xl font-black mb-4">Biotech Marvels</h3>
-
-    <div class="flex justify-center gap-6 mb-4 text-sm">
-      <a href="#" class="hover:text-pink-200">Instagram</a>
-      <a href="#" class="hover:text-pink-200">Facebook</a>
-      <a href="#" class="hover:text-pink-200">YouTube</a>
+      <button
+        id="mobileMenuButton"
+        class="mobile-menu-button rounded-xl border border-pink-100 px-3 py-2 text-xl"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
     </div>
 
-    <p class="text-sm text-pink-100">© 2026 Biotech Marvels. All rights reserved.</p>
-  </div>
-</footer>
+    <div id="mobileNav" class="mobile-nav border-t border-pink-100 bg-white">
+      <div class="container-shell flex flex-col gap-4 py-5 text-sm font-bold">
+        <a href="#courses">Courses</a>
+        <a href="#why">Why Us</a>
+        <a href="#free-learning">Free Learning</a>
+        <a href="#story">Our Story</a>
+        <a href="#courses" class="btn-primary w-full">Explore Courses</a>
+      </div>
+    </div>
+  </header>
 
-<script>
-  const counters = document.querySelectorAll('.counter');
+  <main id="top">
 
-  counters.forEach(counter => {
-    const updateCounter = () => {
-      const target = Number(counter.getAttribute('data-target'));
-      const current = Number(counter.innerText.replace('+',''));
-      const increment = Math.max(1, target / 100);
+    <!-- HERO -->
+    <section class="molecule-pattern scientific-grid">
+      <div class="container-shell grid min-h-[720px] items-center gap-12 py-16 lg:grid-cols-[1.02fr_.98fr] lg:py-20">
+        <div class="relative z-10">
+          <div class="section-kicker">
+            <span>🧬</span>
+            Biotechnology education for future scientists
+          </div>
 
-      if (current < target) {
-        counter.innerText = Math.ceil(current + increment);
-        setTimeout(updateCounter, 18);
-      } else {
-        counter.innerText = target + '+';
-      }
+          <h1 class="mt-5 max-w-3xl text-[clamp(2.8rem,6vw,5.7rem)] font-black leading-[0.98] tracking-[-0.055em]">
+            Build your future in
+            <span class="text-gradient">Biotechnology & Bioinformatics.</span>
+          </h1>
+
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Learn practical scientific skills, understand the evidence behind modern biotechnology,
+            and develop the confidence to move from student to researcher.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#courses" class="btn-primary">Explore Courses <span>→</span></a>
+            <a href="#free-learning" class="btn-secondary">Watch Free Courses <span>▶</span></a>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-semibold text-gray-500">
+            <span>✓ 1000+ students trained</span>
+            <span>✓ Practical learning</span>
+            <span>✓ Science-first community</span>
+          </div>
+        </div>
+
+        <div class="relative z-10">
+          <div class="hero-image-card">
+            <img
+              src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/hero.jpg"
+              alt="Biotech Marvels student community"
+              class="aspect-[4/3] w-full rounded-[20px] object-cover"
+            />
+          </div>
+
+          <div class="mx-auto mt-6 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-3">
+            <div class="rounded-2xl border border-pink-100 bg-white px-4 py-3 text-center shadow-sm">
+              <div class="text-xl font-black text-[var(--bm-pink)]">2023</div>
+              <div class="text-xs font-semibold text-gray-500">Founded</div>
+            </div>
+            <div class="rounded-2xl border border-pink-100 bg-white px-4 py-3 text-center shadow-sm">
+              <div class="text-xl font-black text-[var(--bm-pink)]">4+</div>
+              <div class="text-xs font-semibold text-gray-500">Learning Tracks</div>
+            </div>
+            <div class="col-span-2 rounded-2xl border border-pink-100 bg-white px-4 py-3 text-center shadow-sm sm:col-span-1">
+              <div class="text-xl font-black text-[var(--bm-pink)]">1000+</div>
+              <div class="text-xs font-semibold text-gray-500">Learners</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST / STATS -->
+    <section class="bg-[var(--bm-rose)] py-14">
+      <div class="container-shell">
+        <div class="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <div class="section-kicker">Trusted learning community</div>
+            <h2 class="mt-3 text-3xl font-black tracking-[-0.03em] sm:text-4xl">
+              Real learning. Real momentum.
+            </h2>
+          </div>
+          <p class="max-w-xl text-gray-600">
+            A growing platform built around practical education, accessible science, and student progress.
+          </p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="metric-card">
+            <div class="text-3xl">👥</div>
+            <div class="counter mt-4 text-4xl font-black" data-target="1000">0</div>
+            <div class="mt-1 font-semibold text-gray-500">Students Trained</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="text-3xl">🧪</div>
+            <div class="counter mt-4 text-4xl font-black" data-target="4">0</div>
+            <div class="mt-1 font-semibold text-gray-500">Specialized Courses</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="text-3xl">▶️</div>
+            <div class="counter mt-4 text-4xl font-black" data-target="4">0</div>
+            <div class="mt-1 font-semibold text-gray-500">Free Playlists</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="text-3xl">🌱</div>
+            <div class="mt-4 text-4xl font-black">2023</div>
+            <div class="mt-1 font-semibold text-gray-500">Biotech Marvels Founded</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses" class="py-20">
+      <div class="container-shell">
+        <div class="mx-auto max-w-3xl text-center">
+          <div class="section-kicker">Our learning tracks</div>
+          <h2 class="section-title">Courses designed to move you from theory to practice.</h2>
+          <p class="section-copy mt-5">
+            Build practical biotechnology skills through clear explanations, applied tools, and scientific thinking.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+
+          <!-- Bioinformatics -->
+          <article class="course-card flex flex-col">
+            <div class="relative z-10">
+              <div class="flex items-start justify-between gap-4">
+                <div class="course-icon">🧬</div>
+                <span class="mini-chip">Beginner Friendly</span>
+              </div>
+
+              <p class="mt-6 text-xs font-black uppercase tracking-[0.18em] text-[var(--bm-pink)]">
+                Bioinformatics
+              </p>
+              <h3 class="mt-2 text-2xl font-black">Bioinformatics 101</h3>
+              <p class="mt-3 leading-7 text-gray-600">
+                Learn foundational bioinformatics concepts, key databases, sequence analysis, primer design, and introductory R.
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="mini-chip">NCBI</span>
+                <span class="mini-chip">Sequence Analysis</span>
+                <span class="mini-chip">R Basics</span>
+              </div>
+
+              <div id="bio-panel" class="hidden mt-5 rounded-2xl bg-pink-50 p-4 text-sm text-gray-700">
+                <p class="font-black text-[var(--bm-pink-dark)]">Course topics</p>
+                <ul class="mt-2 list-inside list-disc space-y-1">
+                  <li>PCR</li>
+                  <li>Gel Electrophoresis</li>
+                  <li>NCBI</li>
+                  <li>Sequence Alignment</li>
+                  <li>Primer Design</li>
+                  <li>R Programming Basics</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="relative z-10 mt-auto flex gap-3 pt-7">
+              <button class="btn-secondary flex-1" data-toggle data-target="#bio-panel">
+                <span class="label">Explore Course</span>
+              </button>
+              <a
+                class="btn-primary flex-1"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSczqx6t70c09gLVBPACSuoJ4hx5RfUs1oEHsj65LT3FYwo8MA/viewform?usp=header"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Register
+              </a>
+            </div>
+          </article>
+
+          <!-- Breast Cancer -->
+          <article class="course-card flex flex-col">
+            <div class="relative z-10">
+              <div class="flex items-start justify-between gap-4">
+                <div class="course-icon">🎗️</div>
+                <span class="mini-chip">Next Cohort Soon</span>
+              </div>
+
+              <p class="mt-6 text-xs font-black uppercase tracking-[0.18em] text-[var(--bm-pink)]">
+                Cancer Biology
+              </p>
+              <h3 class="mt-2 text-2xl font-black">Breast Cancer</h3>
+              <p class="mt-3 leading-7 text-gray-600">
+                Understand the biology of breast cancer, diagnosis, major treatment strategies, and how research shapes clinical thinking.
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="mini-chip">Tumor Biology</span>
+                <span class="mini-chip">Diagnosis</span>
+                <span class="mini-chip">Therapeutics</span>
+              </div>
+
+              <div id="cancer-panel" class="hidden mt-5 rounded-2xl bg-pink-50 p-4 text-sm text-gray-700">
+                <p class="font-black text-[var(--bm-pink-dark)]">What you will explore</p>
+                <ul class="mt-2 list-inside list-disc space-y-1">
+                  <li>Breast cancer biology</li>
+                  <li>Molecular subtypes</li>
+                  <li>Diagnosis and biomarkers</li>
+                  <li>Treatment strategies</li>
+                  <li>Current research directions</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="relative z-10 mt-auto pt-7">
+              <button class="btn-secondary w-full" data-toggle data-target="#cancer-panel">
+                <span class="label">View Course Details</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Drug Discovery -->
+          <article class="course-card flex flex-col">
+            <div class="relative z-10">
+              <div class="flex items-start justify-between gap-4">
+                <div class="course-icon">💊</div>
+                <span class="mini-chip">Applied Track</span>
+              </div>
+
+              <p class="mt-6 text-xs font-black uppercase tracking-[0.18em] text-[var(--bm-pink)]">
+                Drug Discovery
+              </p>
+              <h3 class="mt-2 text-2xl font-black">Drug Discovery</h3>
+              <p class="mt-3 leading-7 text-gray-600">
+                Explore how scientific ideas move from target identification and biomarkers toward therapeutic development.
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="mini-chip">Drug Targets</span>
+                <span class="mini-chip">Biomarkers</span>
+                <span class="mini-chip">Natural Products</span>
+              </div>
+
+              <div id="drug-panel" class="hidden mt-5 rounded-2xl bg-pink-50 p-4 text-sm text-gray-700">
+                <p class="font-black text-[var(--bm-pink-dark)]">Course topics</p>
+                <ul class="mt-2 list-inside list-disc space-y-1">
+                  <li>Drug Discovery & Development</li>
+                  <li>Drug Targets</li>
+                  <li>Biomarkers</li>
+                  <li>Gut Microbiome</li>
+                  <li>Natural Products</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="relative z-10 mt-auto flex gap-3 pt-7">
+              <button class="btn-secondary flex-1" data-toggle data-target="#drug-panel">
+                <span class="label">Explore Course</span>
+              </button>
+              <a
+                class="btn-primary flex-1"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdO_Xij1ABsPnSmB9VJmx1P3M08jgVnn8TIWyjEsuwf7rRbbg/viewform?usp=header"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Register
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY BIOTECH MARVELS -->
+    <section id="why" class="molecule-pattern bg-[var(--bm-rose)] py-20">
+      <div class="container-shell">
+        <div class="grid items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
+          <div>
+            <div class="section-kicker">Why Biotech Marvels?</div>
+            <h2 class="section-title">
+              More than information. We teach you how to
+              <span class="text-gradient">think scientifically.</span>
+            </h2>
+            <p class="section-copy mt-5 max-w-xl">
+              Our approach combines accessible explanations with practical skills and a strong scientific mindset,
+              so students can understand not only what a concept means, but how to use it.
+            </p>
+            <a href="#free-learning" class="btn-dark mt-7">Start Learning for Free →</a>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+            <div class="value-card flex gap-4">
+              <div class="value-number">01</div>
+              <div>
+                <h3 class="text-lg font-black">Practical Learning</h3>
+                <p class="mt-2 text-sm leading-6 text-gray-600">
+                  Learn tools, workflows, and concepts you can actually apply in study and research.
+                </p>
+              </div>
+            </div>
+
+            <div class="value-card flex gap-4">
+              <div class="value-number">02</div>
+              <div>
+                <h3 class="text-lg font-black">Scientific Thinking</h3>
+                <p class="mt-2 text-sm leading-6 text-gray-600">
+                  Understand the evidence, ask better questions, and avoid memorizing science without context.
+                </p>
+              </div>
+            </div>
+
+            <div class="value-card flex gap-4">
+              <div class="value-number">03</div>
+              <div>
+                <h3 class="text-lg font-black">Community</h3>
+                <p class="mt-2 text-sm leading-6 text-gray-600">
+                  Learn alongside ambitious students who are building their futures in biotechnology.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREE LEARNING -->
+    <section id="free-learning" class="scientific-grid py-20">
+      <div class="container-shell">
+        <div class="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+          <div>
+            <div class="section-kicker">Free YouTube learning</div>
+            <h2 class="section-title">
+              Start learning before you ever join a course.
+            </h2>
+            <p class="section-copy mt-5 max-w-xl">
+              Explore curated free playlists covering core biology and biotechnology topics.
+              Learn at your own pace, revisit concepts, and build a stronger foundation.
+            </p>
+
+            <div class="mt-7 inline-flex items-center gap-3 rounded-2xl border border-pink-100 bg-white px-5 py-4 shadow-sm">
+              <div class="grid h-12 w-12 place-items-center rounded-2xl bg-[var(--bm-pink)] text-xl text-white">▶</div>
+              <div>
+                <div class="font-black">Biotech Marvels on YouTube</div>
+                <div class="text-sm text-gray-500">Free science education, always accessible.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <a
+              class="playlist-card"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://youtube.com/playlist?list=PL1Xf_J0k133IVay2ncgA-_dvyzr2Cxshp&si=l4bcRBFWMXQke4OL"
+            >
+              <div class="text-2xl">🧬</div>
+              <h3 class="mt-4 text-lg font-black">Genetics 101</h3>
+              <p class="mt-2 text-sm leading-6 text-gray-600">
+                Build a strong foundation in genetics and core molecular concepts.
+              </p>
+              <div class="mt-4 font-black text-[var(--bm-pink)]">Watch Playlist →</div>
+            </a>
+
+            <a
+              class="playlist-card"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://youtube.com/playlist?list=PL1Xf_J0k133LmBxAzM4IKFclc9FYzs2uv&si=praQu4cT1aw3M2HA"
+            >
+              <div class="text-2xl">🎗️</div>
+              <h3 class="mt-4 text-lg font-black">Cancer Biology</h3>
+              <p class="mt-2 text-sm leading-6 text-gray-600">
+                Explore cancer biology, mechanisms, and research-focused concepts.
+              </p>
+              <div class="mt-4 font-black text-[var(--bm-pink)]">Watch Playlist →</div>
+            </a>
+
+            <a
+              class="playlist-card"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://youtube.com/playlist?list=PL1Xf_J0k133LLCNMqltE808uBo3o7swOO&si=6lHq3Wr0ns6_jYJE"
+            >
+              <div class="text-2xl">💻</div>
+              <h3 class="mt-4 text-lg font-black">Bioinformatics</h3>
+              <p class="mt-2 text-sm leading-6 text-gray-600">
+                Learn databases, analysis concepts, and computational biology foundations.
+              </p>
+              <div class="mt-4 font-black text-[var(--bm-pink)]">Watch Playlist →</div>
+            </a>
+
+            <a
+              class="playlist-card"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://youtube.com/playlist?list=PL1Xf_J0k133LRuqxjKcwRYoRtIKInCuit&si=wRueSOfOxTWokbeS"
+            >
+              <div class="text-2xl">🌱</div>
+              <h3 class="mt-4 text-lg font-black">Botany</h3>
+              <p class="mt-2 text-sm leading-6 text-gray-600">
+                Review plant biology and foundational botanical concepts clearly.
+              </p>
+              <div class="mt-4 font-black text-[var(--bm-pink)]">Watch Playlist →</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY / WHO WE ARE -->
+    <section id="story" class="bg-white py-20">
+      <div class="container-shell">
+        <div class="grid items-center gap-12 lg:grid-cols-2">
+          <div class="relative">
+            <div class="absolute -left-5 -top-5 h-28 w-28 rounded-full bg-pink-100 blur-2xl"></div>
+            <img
+              src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/WhatsApp%20Image%202025-08-31%20at%2012.02.19%20AM.jpeg"
+              alt="Biotech Marvels team"
+              class="relative z-10 aspect-[4/3] w-full rounded-[28px] object-cover shadow-2xl"
+            />
+          </div>
+
+          <div>
+            <div class="section-kicker">Our story</div>
+            <h2 class="section-title">
+              Built by scientists.
+              <span class="text-gradient">Made for future scientists.</span>
+            </h2>
+            <p class="section-copy mt-5">
+              Biotech Marvels is more than a collection of courses. It is a community created to make biotechnology
+              education clearer, more practical, and more accessible to students who want to grow beyond the classroom.
+            </p>
+
+            <p class="section-copy mt-4">
+              We believe students learn best when scientific concepts are connected to real tools, evidence,
+              research questions, and a community that encourages curiosity.
+            </p>
+
+            <div class="mt-7 grid gap-3 sm:grid-cols-2">
+              <div class="rounded-2xl bg-[var(--bm-pink-soft)] p-4">
+                <div class="font-black">Clarity first</div>
+                <div class="mt-1 text-sm text-gray-600">Complex science explained in an understandable way.</div>
+              </div>
+              <div class="rounded-2xl bg-[var(--bm-pink-soft)] p-4">
+                <div class="font-black">Growth focused</div>
+                <div class="mt-1 text-sm text-gray-600">Learning designed to build confidence and research readiness.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="px-4 pb-20 pt-4">
+      <div class="container-shell relative overflow-hidden rounded-[34px] bg-[var(--bm-ink)] px-6 py-14 text-center text-white sm:px-10">
+        <div class="absolute inset-0 dna-dots opacity-20"></div>
+        <div class="relative z-10 mx-auto max-w-3xl">
+          <div class="section-kicker !bg-white/10 !text-pink-100">Your next step</div>
+          <h2 class="mt-5 text-3xl font-black tracking-[-0.04em] sm:text-5xl">
+            Ready to start your biotech journey?
+          </h2>
+          <p class="mx-auto mt-4 max-w-2xl text-lg leading-8 text-gray-300">
+            Explore practical biotechnology and bioinformatics courses built to help you learn,
+            think, and grow with confidence.
+          </p>
+
+          <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <a href="#courses" class="btn-primary">Explore Courses →</a>
+            <a href="#free-learning" class="btn-secondary">Start with Free Learning</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-pink-100 bg-[var(--bm-rose)]">
+    <div class="container-shell grid gap-10 py-12 md:grid-cols-[1.4fr_.6fr_.6fr]">
+      <div>
+        <div class="flex items-center gap-3">
+          <div class="grid h-10 w-10 place-items-center rounded-2xl bg-[var(--bm-pink)] font-black text-white">
+            BM
+          </div>
+          <div class="font-black">Biotech Marvels</div>
+        </div>
+        <p class="mt-4 max-w-md text-sm leading-6 text-gray-600">
+          Empowering the next generation of biotechnology innovators through practical learning,
+          scientific thinking, and community.
+        </p>
+      </div>
+
+      <div>
+        <div class="font-black">Explore</div>
+        <div class="mt-4 flex flex-col gap-3 text-sm text-gray-600">
+          <a href="#courses" class="hover:text-[var(--bm-pink)]">Courses</a>
+          <a href="#free-learning" class="hover:text-[var(--bm-pink)]">Free Learning</a>
+          <a href="#story" class="hover:text-[var(--bm-pink)]">Our Story</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="font-black">Connect</div>
+        <div class="mt-4 flex flex-col gap-3 text-sm text-gray-600">
+          <a href="#" class="hover:text-[var(--bm-pink)]">Instagram</a>
+          <a href="#" class="hover:text-[var(--bm-pink)]">Facebook</a>
+          <a href="#" class="hover:text-[var(--bm-pink)]">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-pink-100 py-5 text-center text-xs text-gray-500">
+      © 2026 Biotech Marvels. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Animated counters
+    const counters = document.querySelectorAll(".counter");
+
+    const animateCounter = (counter) => {
+      const target = Number(counter.getAttribute("data-target"));
+      const duration = 1100;
+      const startTime = performance.now();
+
+      const update = (currentTime) => {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(target * eased);
+
+        counter.textContent = value + (target >= 10 ? "+" : "+");
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          counter.textContent = target + "+";
+        }
+      };
+
+      requestAnimationFrame(update);
     };
 
-    updateCounter();
-  });
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
 
-  document.querySelectorAll('[data-toggle]').forEach(button => {
-    button.addEventListener('click', () => {
-      const target = document.querySelector(button.dataset.target);
-      if (!target) return;
+    counters.forEach((counter) => observer.observe(counter));
 
-      target.classList.toggle('hidden');
+    // Expand/collapse course details
+    document.querySelectorAll("[data-toggle]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = document.querySelector(button.dataset.target);
+        if (!target) return;
 
-      const label = button.querySelector('.label');
-      if (label) {
-        label.textContent = target.classList.contains('hidden') ? 'Learn More' : 'Show Less';
-      }
+        target.classList.toggle("hidden");
+
+        const label = button.querySelector(".label");
+        if (label) {
+          label.textContent = target.classList.contains("hidden")
+            ? button.dataset.target === "#cancer-panel"
+              ? "View Course Details"
+              : "Explore Course"
+            : "Show Less";
+        }
+      });
     });
-  });
 
-  const ytTrigger = document.getElementById('ytTrigger');
-  const courseList = document.getElementById('courseList');
+    // Mobile navigation
+    const mobileMenuButton = document.getElementById("mobileMenuButton");
+    const mobileNav = document.getElementById("mobileNav");
 
-  if (ytTrigger && courseList) {
-    ytTrigger.addEventListener('click', () => {
-      courseList.classList.toggle('hidden');
-    });
-  }
-</script>
+    if (mobileMenuButton && mobileNav) {
+      mobileMenuButton.addEventListener("click", () => {
+        mobileNav.classList.toggle("open");
+        const isOpen = mobileNav.classList.contains("open");
+        mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
+        mobileMenuButton.textContent = isOpen ? "✕" : "☰";
+      });
+
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNav.classList.remove("open");
+          mobileMenuButton.setAttribute("aria-expanded", "false");
+          mobileMenuButton.textContent = "☰";
+        });
+      });
+    }
+  </script>
 
 </body>
+</html>
