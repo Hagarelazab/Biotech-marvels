@@ -320,9 +320,15 @@
   <!-- HEADER -->
   <header class="sticky top-0 z-50 border-b border-pink-100/70 bg-white/90 backdrop-blur-xl">
     <div class="container-shell flex items-center justify-between py-4">
-      <a href="#top" class="flex items-center gap-2.5">
-        <div class="grid h-10 w-10 place-items-center rounded-2xl bg-[var(--bm-pink)] text-white font-black shadow-md">
-          BM
+      <a href="index.html#top" class="flex items-center gap-3" aria-label="Biotech Marvels home">
+        <div class="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-sm">
+          <img
+            src="logo"
+            alt="Biotech Marvels logo"
+            class="h-full w-full object-contain p-1.5"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+          />
+          <span class="hidden h-full w-full place-items-center bg-[var(--bm-pink)] font-black text-white">BM</span>
         </div>
         <div>
           <div class="font-black leading-none">Biotech Marvels</div>
@@ -334,6 +340,7 @@
 
       <nav class="desktop-nav flex items-center gap-7 text-sm font-bold">
         <a href="#courses" class="text-gray-700 hover:text-[var(--bm-pink)]">Courses</a>
+        <a href="services.html" class="text-gray-700 hover:text-[var(--bm-pink)]">Services</a>
         <a href="#why" class="text-gray-700 hover:text-[var(--bm-pink)]">Why Us</a>
         <a href="#free-learning" class="text-gray-700 hover:text-[var(--bm-pink)]">Free Learning</a>
         <a href="#story" class="text-gray-700 hover:text-[var(--bm-pink)]">Our Story</a>
@@ -353,6 +360,7 @@
     <div id="mobileNav" class="mobile-nav border-t border-pink-100 bg-white">
       <div class="container-shell flex flex-col gap-4 py-5 text-sm font-bold">
         <a href="#courses">Courses</a>
+        <a href="services.html">Services</a>
         <a href="#why">Why Us</a>
         <a href="#free-learning">Free Learning</a>
         <a href="#story">Our Story</a>
@@ -829,8 +837,14 @@
     <div class="container-shell grid gap-10 py-12 md:grid-cols-[1.4fr_.6fr_.6fr]">
       <div>
         <div class="flex items-center gap-3">
-          <div class="grid h-10 w-10 place-items-center rounded-2xl bg-[var(--bm-pink)] font-black text-white">
-            BM
+          <div class="flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl border border-pink-100 bg-white">
+            <img
+              src="logo"
+              alt="Biotech Marvels logo"
+              class="h-full w-full object-contain p-1"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+            />
+            <span class="hidden h-full w-full place-items-center bg-[var(--bm-pink)] font-black text-white">BM</span>
           </div>
           <div class="font-black">Biotech Marvels</div>
         </div>
@@ -844,6 +858,7 @@
         <div class="font-black">Explore</div>
         <div class="mt-4 flex flex-col gap-3 text-sm text-gray-600">
           <a href="#courses" class="hover:text-[var(--bm-pink)]">Courses</a>
+          <a href="services.html" class="hover:text-[var(--bm-pink)]">Services</a>
           <a href="#free-learning" class="hover:text-[var(--bm-pink)]">Free Learning</a>
           <a href="#story" class="hover:text-[var(--bm-pink)]">Our Story</a>
         </div>
@@ -947,3 +962,4 @@
 
 </body>
 </html>
+
