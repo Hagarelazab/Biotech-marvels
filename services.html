@@ -228,7 +228,7 @@
         <a href="services.html" class="text-[var(--bm-pink)]">Services</a>
         <a href="index.html#free-learning" class="text-gray-700 hover:text-[var(--bm-pink)]">Free Learning</a>
         <a href="index.html#story" class="text-gray-700 hover:text-[var(--bm-pink)]">Our Story</a>
-        <a href="#primer-design" class="btn-primary !min-h-[40px] !px-4 !py-2">Primer Design</a>
+        <a href="#request-primer" class="btn-primary !min-h-[40px] !px-4 !py-2">Request Primer Design</a>
       </nav>
 
       <button
@@ -247,7 +247,7 @@
         <a href="services.html" class="text-[var(--bm-pink)]">Services</a>
         <a href="index.html#free-learning">Free Learning</a>
         <a href="index.html#story">Our Story</a>
-        <a href="#primer-design" class="btn-primary w-full">Primer Design</a>
+        <a href="#request-primer" class="btn-primary w-full">Request Primer Design</a>
       </div>
     </div>
   </header>
@@ -480,27 +480,287 @@
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="px-4 py-20">
-      <div class="container-shell overflow-hidden rounded-[34px] bg-[var(--bm-ink)] px-6 py-14 text-center text-white sm:px-10">
-        <div class="mx-auto max-w-3xl">
-          <div class="section-kicker !bg-white/10 !text-pink-100">Primer Design Service</div>
-          <h2 class="mt-5 text-3xl font-black tracking-[-.04em] sm:text-5xl">
-            Have a target you want to work on?
+    <!-- REQUEST FORM -->
+    <section id="request-primer" class="px-4 py-20">
+      <div class="container-shell">
+        <div class="mx-auto max-w-3xl text-center">
+          <div class="section-kicker">Request Primer Design</div>
+          <h2 class="mt-4 text-[clamp(2.4rem,4.5vw,4.2rem)] font-black leading-[1.02] tracking-[-.045em]">
+            Tell us what you need.
           </h2>
-          <p class="mx-auto mt-4 max-w-2xl text-lg leading-8 text-gray-300">
-            Prepare your gene or sequence information and contact Biotech Marvels to discuss your primer-design request.
+          <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-gray-600">
+            Submit your project details below. Our team will review your request and contact you
+            directly before any work begins.
           </p>
+        </div>
 
-          <div class="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="index.html" class="btn-secondary">Return to Home</a>
-            <!-- Replace # with your request form / WhatsApp / contact URL when ready. -->
-            <a href="#" class="btn-primary">Request Primer Design</a>
+        <div class="mx-auto mt-12 max-w-5xl overflow-hidden rounded-[30px] border border-pink-100 bg-white shadow-[0_24px_70px_rgba(60,43,54,.10)]">
+          <div class="grid lg:grid-cols-[.72fr_1.28fr]">
+
+            <!-- PROCESS SIDE -->
+            <aside class="bg-[var(--bm-ink)] p-7 text-white sm:p-9">
+              <div class="text-xs font-black uppercase tracking-[.18em] text-pink-300">How it works</div>
+              <h3 class="mt-3 text-3xl font-black tracking-[-.035em]">
+                From request to final report.
+              </h3>
+
+              <div class="mt-8 space-y-6">
+                <div class="flex gap-4">
+                  <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 font-black text-pink-200">1</div>
+                  <div>
+                    <div class="font-black">Submit details</div>
+                    <p class="mt-1 text-sm leading-6 text-gray-300">
+                      Tell us about your gene, organism, PCR purpose, and any design requirements.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 font-black text-pink-200">2</div>
+                  <div>
+                    <div class="font-black">Team review</div>
+                    <p class="mt-1 text-sm leading-6 text-gray-300">
+                      We review your request and make sure the information is sufficient for the service.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 font-black text-pink-200">3</div>
+                  <div>
+                    <div class="font-black">We contact you</div>
+                    <p class="mt-1 text-sm leading-6 text-gray-300">
+                      Our team contacts you using your preferred method to confirm the scope and next steps.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 font-black text-pink-200">4</div>
+                  <div>
+                    <div class="font-black">Receive your report</div>
+                    <p class="mt-1 text-sm leading-6 text-gray-300">
+                      Once the project is completed, we deliver the primer-design report to you.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-9 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm leading-6 text-gray-300">
+                <strong class="text-white">No immediate payment required.</strong><br>
+                First, submit the request. The team reviews it and contacts you before the service begins.
+              </div>
+            </aside>
+
+            <!-- FORM SIDE -->
+            <div class="p-7 sm:p-9">
+              <div id="formWrap">
+                <div class="mb-7">
+                  <h3 class="text-2xl font-black">Primer Design Request</h3>
+                  <p class="mt-2 text-sm leading-6 text-gray-500">
+                    Fields marked <span class="text-[var(--bm-pink)]">*</span> are required.
+                  </p>
+                </div>
+
+                <form id="primerRequestForm" class="space-y-6" novalidate>
+                  <div class="grid gap-5 sm:grid-cols-2">
+                    <label class="block">
+                      <span class="text-sm font-bold">Full name <span class="text-[var(--bm-pink)]">*</span></span>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        autocomplete="name"
+                        class="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                        placeholder="Your full name"
+                      />
+                    </label>
+
+                    <label class="block">
+                      <span class="text-sm font-bold">Email <span class="text-[var(--bm-pink)]">*</span></span>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        autocomplete="email"
+                        class="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                        placeholder="you@example.com"
+                      />
+                    </label>
+                  </div>
+
+                  <div class="grid gap-5 sm:grid-cols-2">
+                    <label class="block">
+                      <span class="text-sm font-bold">WhatsApp number</span>
+                      <input
+                        type="tel"
+                        name="whatsapp"
+                        autocomplete="tel"
+                        class="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                        placeholder="+20 ..."
+                      />
+                    </label>
+
+                    <label class="block">
+                      <span class="text-sm font-bold">Preferred contact method <span class="text-[var(--bm-pink)]">*</span></span>
+                      <select
+                        name="contact_method"
+                        required
+                        class="mt-2 w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                      >
+                        <option value="">Choose one</option>
+                        <option>Email</option>
+                        <option>WhatsApp</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <div class="grid gap-5 sm:grid-cols-2">
+                    <label class="block">
+                      <span class="text-sm font-bold">Institution / University</span>
+                      <input
+                        type="text"
+                        name="institution"
+                        class="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                        placeholder="Optional"
+                      />
+                    </label>
+
+                    <label class="block">
+                      <span class="text-sm font-bold">Country</span>
+                      <input
+                        type="text"
+                        name="country"
+                        class="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                        placeholder="Your country"
+                      />
+                    </label>
+                  </div>
+
+                  <div class="h-px bg-gray-100"></div>
+
+                  <div class="grid gap-5 sm:grid-cols-2">
+                    <label class="block">
+                      <span class="text-sm font-bold">Gene / target name <span class="text-[var(--bm-pink)]">*</span></span>
+                      <input
+                        type="text"
+                        name="gene"
+                        required
+                        class="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                        placeholder="e.g. TP53"
+                      />
+                    </label>
+
+                    <label class="block">
+                      <span class="text-sm font-bold">Organism <span class="text-[var(--bm-pink)]">*</span></span>
+                      <input
+                        type="text"
+                        name="organism"
+                        required
+                        class="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                        placeholder="e.g. Homo sapiens"
+                      />
+                    </label>
+                  </div>
+
+                  <label class="block">
+                    <span class="text-sm font-bold">Accession number or target sequence</span>
+                    <textarea
+                      name="sequence"
+                      rows="4"
+                      class="mt-2 w-full resize-y rounded-2xl border border-gray-200 px-4 py-3 font-mono text-sm outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                      placeholder="Paste accession number or sequence here if available"
+                    ></textarea>
+                  </label>
+
+                  <div class="grid gap-5 sm:grid-cols-2">
+                    <label class="block">
+                      <span class="text-sm font-bold">PCR application <span class="text-[var(--bm-pink)]">*</span></span>
+                      <select
+                        name="pcr_application"
+                        required
+                        class="mt-2 w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                      >
+                        <option value="">Select application</option>
+                        <option>Conventional PCR</option>
+                        <option>RT-PCR</option>
+                        <option>qPCR / Real-time PCR</option>
+                        <option>Sequencing / validation</option>
+                        <option>Other</option>
+                      </select>
+                    </label>
+
+                    <label class="block">
+                      <span class="text-sm font-bold">Preferred amplicon size</span>
+                      <input
+                        type="text"
+                        name="amplicon_size"
+                        class="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                        placeholder="e.g. 120–180 bp"
+                      />
+                    </label>
+                  </div>
+
+                  <label class="block">
+                    <span class="text-sm font-bold">Special requirements / project notes</span>
+                    <textarea
+                      name="notes"
+                      rows="4"
+                      class="mt-2 w-full resize-y rounded-2xl border border-gray-200 px-4 py-3 outline-none transition focus:border-[var(--bm-pink)] focus:ring-4 focus:ring-pink-100"
+                      placeholder="Tell us anything else we should know about your project."
+                    ></textarea>
+                  </label>
+
+                  <label class="flex items-start gap-3 rounded-2xl bg-pink-50 p-4">
+                    <input type="checkbox" name="consent" required class="mt-1 h-4 w-4 accent-[var(--bm-pink)]" />
+                    <span class="text-sm leading-6 text-gray-600">
+                      I confirm that the information provided is accurate and I agree to be contacted by the
+                      Biotech Marvels team regarding this request.
+                      <span class="text-[var(--bm-pink)]">*</span>
+                    </span>
+                  </label>
+
+                  <div id="formError" class="hidden rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700"></div>
+
+                  <button type="submit" class="btn-primary w-full sm:w-auto">
+                    Submit Primer Design Request →
+                  </button>
+
+                  <p class="text-xs leading-5 text-gray-400">
+                    Your request is reviewed first. Submission does not mean the project has automatically started.
+                  </p>
+                </form>
+              </div>
+
+              <!-- SUCCESS MESSAGE -->
+              <div id="successMessage" class="hidden py-12 text-center">
+                <div class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-pink-100 text-3xl">✓</div>
+                <div class="mt-6 text-xs font-black uppercase tracking-[.18em] text-[var(--bm-pink)]">Request received</div>
+                <h3 class="mt-3 text-3xl font-black">Thank you.</h3>
+                <p class="mx-auto mt-4 max-w-lg text-base leading-7 text-gray-600">
+                  Your Primer Design request has been submitted. Please wait for the Biotech Marvels team
+                  to contact you using your preferred contact method.
+                </p>
+
+                <div class="mx-auto mt-7 max-w-md rounded-2xl bg-[var(--bm-rose)] p-5 text-left text-sm leading-6 text-gray-600">
+                  <strong class="text-gray-900">What happens next?</strong><br>
+                  1. Our team reviews your project details.<br>
+                  2. We contact you if we need clarification.<br>
+                  3. We confirm the service scope and next steps.<br>
+                  4. After completion, your primer-design report is delivered to you.
+                </div>
+
+                <a href="index.html" class="btn-secondary mt-7">Back to Home</a>
+              </div>
+            </div>
           </div>
+        </div>
 
-          <p class="mt-4 text-xs text-gray-500">
-            Add your preferred contact or request-form link to the “Request Primer Design” button.
-          </p>
+        <div class="mx-auto mt-6 max-w-5xl rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
+          <strong>Website setup note:</strong>
+          The form design and confirmation flow are complete. To make submissions actually arrive in your inbox,
+          connect the form to a form endpoint such as Formspree or your own backend. Replace
+          <code class="rounded bg-white px-1.5 py-1">YOUR_FORM_ENDPOINT</code> in the JavaScript below.
         </div>
       </div>
     </section>
@@ -555,6 +815,7 @@
   </footer>
 
   <script>
+    // Mobile menu
     const mobileMenuButton = document.getElementById("mobileMenuButton");
     const mobileNav = document.getElementById("mobileNav");
 
@@ -572,6 +833,72 @@
           mobileMenuButton.setAttribute("aria-expanded", "false");
           mobileMenuButton.textContent = "☰";
         });
+      });
+    }
+
+    // ----------------------------------------------------------
+    // PRIMER REQUEST FORM
+    // Replace this with your real Formspree / backend endpoint.
+    // Example: https://formspree.io/f/xxxxxxxx
+    // ----------------------------------------------------------
+    const FORM_ENDPOINT = "YOUR_FORM_ENDPOINT";
+
+    const primerForm = document.getElementById("primerRequestForm");
+    const formWrap = document.getElementById("formWrap");
+    const successMessage = document.getElementById("successMessage");
+    const formError = document.getElementById("formError");
+
+    if (primerForm) {
+      primerForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        formError.classList.add("hidden");
+        formError.textContent = "";
+
+        if (!primerForm.checkValidity()) {
+          primerForm.reportValidity();
+          return;
+        }
+
+        if (FORM_ENDPOINT === "YOUR_FORM_ENDPOINT") {
+          formError.textContent =
+            "The request form is ready, but it still needs a submission endpoint before it can send requests to your team.";
+          formError.classList.remove("hidden");
+          return;
+        }
+
+        const submitButton = primerForm.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
+
+        try {
+          const formData = new FormData(primerForm);
+
+          const response = await fetch(FORM_ENDPOINT, {
+            method: "POST",
+            body: formData,
+            headers: {
+              Accept: "application/json"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error("Submission failed");
+          }
+
+          formWrap.classList.add("hidden");
+          successMessage.classList.remove("hidden");
+          successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+          primerForm.reset();
+        } catch (error) {
+          formError.textContent =
+            "We could not submit your request right now. Please try again later.";
+          formError.classList.remove("hidden");
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+        }
       });
     }
   </script>
