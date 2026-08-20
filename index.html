@@ -81,25 +81,7 @@
       0%,100%{transform:translateY(-18px);}
       50%{transform:translateY(18px);}
     }
-
-    .seat{
-      background:linear-gradient(145deg,#ffffff,#ffe8f3);
-      border:1px solid rgba(232,106,160,.25);
-      box-shadow:0 15px 35px rgba(232,106,160,.18);
-      transition:.25s ease;
-    }
-
-    .seat:hover{
-      transform:translateY(-8px) scale(1.03);
-      box-shadow:0 20px 50px rgba(232,106,160,.35);
-    }
-
-    .chair-icon{
-      font-size:46px;
-      filter:drop-shadow(0 8px 14px rgba(232,106,160,.35));
-    }
-
-    .glow{
+.glow{
       box-shadow:0 30px 80px rgba(255,79,163,.30);
     }
 
@@ -118,12 +100,10 @@
 
     <nav class="flex flex-wrap justify-center gap-4 text-sm font-bold">
       <a href="#courses" class="hover:text-pink-100">Courses</a>
-      <a href="#mentorship" class="hover:text-pink-100">Mentorship</a>
-      <a href="#youtube-courses" class="hover:text-pink-100">Free YouTube</a>
+<a href="#youtube-courses" class="hover:text-pink-100">Free YouTube</a>
       <a href="#who" class="hover:text-pink-100">Who We Are</a>
       <a href="#about" class="hover:text-pink-100">About</a>
-      <a href="#marvel-faces" class="hover:text-pink-100">Marvel Faces</a>
-    </nav>
+</nav>
   </div>
 </header>
 
@@ -153,8 +133,7 @@
 
     <div class="mt-7 flex justify-center gap-3 flex-wrap">
       <a href="#courses" class="btn-bm">View Courses</a>
-      <a href="#mentorship" class="btn-bm">Apply for Mentorship</a>
-    </div>
+</div>
 
     <div class="bm-dna-divider mt-10 mx-auto max-w-3xl"></div>
   </div>
@@ -215,8 +194,7 @@
     <article class="border border-pink-300 rounded-xl p-6 bg-white hover:shadow-xl transition">
       <h4 class="text-2xl font-black mb-3">Breast Cancer</h4>
       <p class="text-gray-700 mb-4">Biology, diagnosis, treatment strategies, and latest research.</p>
-      <a href="#mentorship" class="btn-bm">Ask About Next Cohort</a>
-    </article>
+</article>
 
     <article class="border border-pink-300 rounded-xl p-6 bg-white hover:shadow-xl transition">
       <h4 class="text-2xl font-black mb-3">Drug Discovery</h4>
@@ -247,73 +225,6 @@
   </div>
 </section>
 
-<section id="mentorship" class="relative overflow-hidden py-20 px-6 bg-gradient-to-br from-[#1b1020] via-[#2a1022] to-[#111827] text-white">
-  <div class="absolute inset-0 opacity-20">
-    <span class="dna-dot" style="left:12%;top:20%;"></span>
-    <span class="dna-dot" style="left:80%;top:25%;animation-delay:.8s;"></span>
-    <span class="dna-dot" style="left:50%;top:78%;animation-delay:1.4s;"></span>
-  </div>
-
-  <div class="container mx-auto text-center relative">
-    <p class="inline-block bg-pink-500/20 border border-pink-300/30 text-pink-200 px-4 py-2 rounded-full text-sm font-bold mb-5">
-      Limited Mentorship Opportunity
-    </p>
-
-    <h3 class="text-4xl sm:text-5xl font-black mb-5">
-      Apply for <span class="text-pink-400">Mentorship</span>
-    </h3>
-
-    <p class="max-w-3xl mx-auto text-lg text-pink-50/90 mb-10">
-      Work directly with Biotech Marvels mentors in a focused learning journey.
-      Only <strong>5 empty seats</strong> are available for students ready to grow.
-    </p>
-
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 max-w-5xl mx-auto mb-10">
-      <div class="seat rounded-3xl p-6 text-center">
-        <div class="chair-icon">🪑</div>
-        <h4 class="text-pink-600 font-black mt-3">Seat 01</h4>
-        <p class="text-gray-600 text-sm">Available</p>
-      </div>
-
-      <div class="seat rounded-3xl p-6 text-center">
-        <div class="chair-icon">🪑</div>
-        <h4 class="text-pink-600 font-black mt-3">Seat 02</h4>
-        <p class="text-gray-600 text-sm">Available</p>
-      </div>
-
-      <div class="seat rounded-3xl p-6 text-center">
-        <div class="chair-icon">🪑</div>
-        <h4 class="text-pink-600 font-black mt-3">Seat 03</h4>
-        <p class="text-gray-600 text-sm">Available</p>
-      </div>
-
-      <div class="seat rounded-3xl p-6 text-center">
-        <div class="chair-icon">🪑</div>
-        <h4 class="text-pink-600 font-black mt-3">Seat 04</h4>
-        <p class="text-gray-600 text-sm">Available</p>
-      </div>
-
-      <div class="seat rounded-3xl p-6 text-center col-span-2 sm:col-span-1">
-        <div class="chair-icon">🪑</div>
-        <h4 class="text-pink-600 font-black mt-3">Seat 05</h4>
-        <p class="text-gray-600 text-sm">Available</p>
-      </div>
-    </div>
-
-    <div class="bg-white/10 border border-white/15 rounded-3xl p-6 max-w-3xl mx-auto backdrop-blur-md">
-      <h4 class="text-2xl font-black mb-3">Your seat could be next.</h4>
-      <p class="text-pink-50/80 mb-6">
-        Get guidance, project direction, scientific thinking, and personal support for your biotech or bioinformatics path.
-      </p>
-
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSczqx6t70c09gLVBPACSuoJ4hx5RfUs1oEHsj65LT3FYwo8MA/viewform?usp=header"
-         target="_blank"
-         class="btn-bm">
-        Apply Now
-      </a>
-    </div>
-  </div>
-</section>
 
 <section id="youtube-courses" class="py-20 bg-gradient-to-b from-white via-[#eef7ff] to-[#ffeef7]">
   <div class="max-w-4xl mx-auto px-6 text-center">
@@ -372,74 +283,6 @@
   </div>
 </section>
 
-<section id="marvel-faces" class="py-16 px-6 bg-white">
-  <div class="container mx-auto text-center">
-    <h3 class="text-3xl sm:text-4xl font-black text-[var(--bm-pink)] mb-6">🌟 Marvel Faces</h3>
-
-    <p class="text-gray-700 max-w-2xl mx-auto mb-12">
-      Celebrating our top students who inspire the <strong>Biotech Marvels</strong> community.
-    </p>
-
-    <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-
-      <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student1.jpeg" class="w-full h-64 object-cover">
-        <div class="p-4"><h4 class="font-black text-pink-500">Top Student</h4><p class="text-sm text-gray-600">Bioinformatics</p></div>
-      </article>
-
-      <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student2.jpeg" class="w-full h-64 object-cover">
-        <div class="p-4"><h4 class="font-black text-pink-500">Top Student</h4><p class="text-sm text-gray-600">Drug Discovery</p></div>
-      </article>
-
-      <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student3.jpeg" class="w-full h-64 object-cover">
-        <div class="p-4"><h4 class="font-black text-pink-500">Top Student</h4><p class="text-sm text-gray-600">Cancer Biology</p></div>
-      </article>
-
-      <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student4.jpeg" class="w-full h-64 object-cover">
-        <div class="p-4"><h4 class="font-black text-pink-500">Top Student</h4><p class="text-sm text-gray-600">Genetics</p></div>
-      </article>
-
-      <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student5.jpeg" class="w-full h-64 object-cover">
-        <div class="p-4"><h4 class="font-black text-pink-500">Top Student</h4><p class="text-sm text-gray-600">Bioinformatics</p></div>
-      </article>
-
-      <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student6.jpeg" class="w-full h-64 object-cover">
-        <div class="p-4"><h4 class="font-black text-pink-500">Top Student</h4><p class="text-sm text-gray-600">Drug Discovery</p></div>
-      </article>
-
-      <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student7.jpeg" class="w-full h-64 object-cover">
-        <div class="p-4"><h4 class="font-black text-pink-500">Top Student</h4><p class="text-sm text-gray-600">Cancer Biology</p></div>
-      </article>
-
-      <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student8.jpeg" class="w-full h-64 object-cover">
-        <div class="p-4"><h4 class="font-black text-pink-500">Top Student</h4><p class="text-sm text-gray-600">Genetics</p></div>
-      </article>
-
-      <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student9.jpeg" class="w-full h-64 object-cover">
-        <div class="p-4"><h4 class="font-black text-pink-500">Top Student</h4><p class="text-sm text-gray-600">Bioinformatics</p></div>
-      </article>
-
-      <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student10.jpeg" class="w-full h-64 object-cover">
-        <div class="p-4"><h4 class="font-black text-pink-500">Top Student</h4><p class="text-sm text-gray-600">Drug Discovery</p></div>
-      </article>
-
-      <article class="bg-[var(--bm-rose)] rounded-2xl shadow-md overflow-hidden hover:scale-[1.02] transition">
-        <img src="https://raw.githubusercontent.com/Hagarelazab/Biotech-marvels/main/student11.jpeg" class="w-full h-64 object-cover">
-        <div class="p-4"><h4 class="font-black text-pink-500">Top Student</h4><p class="text-sm text-gray-600">Cancer Biology</p></div>
-      </article>
-
-    </div>
-  </div>
-</section>
 
 </main>
 
@@ -502,4 +345,3 @@
 </script>
 
 </body>
-</html>  
