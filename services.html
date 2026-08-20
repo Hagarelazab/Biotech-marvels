@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Biotech Marvels Primer Design Service — structured primer design support for PCR-based research workflows."
+  />
+  <title>Primer Design Service | Biotech Marvels</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bm-pink: #e95f9d;
+      --bm-pink-dark: #c94780;
+      --bm-pink-soft: #fff1f7;
+      --bm-rose: #f9edf3;
+      --bm-ink: #18111a;
+      --bm-muted: #6b6470;
+      --bm-border: #f2c6d8;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--bm-ink);
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    .container-shell {
+      width: min(1180px, calc(100% - 2rem));
+      margin-inline: auto;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      min-height: 46px;
+      border-radius: 14px;
+      padding: .82rem 1.2rem;
+      font-weight: 800;
+      transition: .22s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--bm-pink);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(233,95,157,.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--bm-pink-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--bm-ink);
+      border: 1px solid #e9e2e6;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--bm-pink);
+      color: var(--bm-pink-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: var(--bm-ink);
+      color: #fff;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border-radius: 999px;
+      background: var(--bm-pink-soft);
+      color: var(--bm-pink-dark);
+      padding: .45rem .8rem;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg, var(--bm-pink), #f681b5 52%, #c84b84);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .scientific-grid {
+      background-image:
+        linear-gradient(rgba(233,95,157,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(233,95,157,.045) 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+
+    .hero-glow {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      top: -280px;
+      right: -180px;
+      background: radial-gradient(circle, rgba(233,95,157,.17), transparent 68%);
+      pointer-events: none;
+    }
+
+    .service-card,
+    .info-card,
+    .step-card {
+      border: 1px solid rgba(233,95,157,.16);
+      background: rgba(255,255,255,.96);
+      border-radius: 24px;
+      box-shadow: 0 14px 36px rgba(60,43,54,.06);
+    }
+
+    .service-card {
+      padding: 1.6rem;
+    }
+
+    .info-card {
+      padding: 1.35rem;
+    }
+
+    .step-card {
+      padding: 1.35rem;
+      transition: .22s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 42px rgba(60,43,54,.1);
+    }
+
+    .step-number {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--bm-pink-soft);
+      color: var(--bm-pink-dark);
+      font-weight: 900;
+    }
+
+    .sequence-box {
+      border-radius: 26px;
+      background: #18111a;
+      color: #fff;
+      padding: 1.6rem;
+      box-shadow: 0 24px 60px rgba(24,17,26,.18);
+    }
+
+    .sequence-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      word-break: break-all;
+      letter-spacing: .05em;
+      line-height: 1.8;
+      color: #e9d7e0;
+    }
+
+    .primer {
+      color: #ff77b6;
+      font-weight: 800;
+    }
+
+    .mobile-nav { display: none; }
+    .mobile-nav.open { display: block; }
+
+    @media (max-width: 767px) {
+      .desktop-nav { display: none; }
+    }
+
+    @media (min-width: 768px) {
+      .mobile-menu-button { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b border-pink-100/70 bg-white/90 backdrop-blur-xl">
+    <div class="container-shell flex items-center justify-between py-4">
+      <a href="index.html" class="flex items-center gap-3" aria-label="Biotech Marvels home">
+        <div class="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-sm">
+          <img
+            src="logo"
+            alt="Biotech Marvels logo"
+            class="h-full w-full object-contain p-1.5"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+          />
+          <span class="hidden h-full w-full place-items-center bg-[var(--bm-pink)] font-black text-white">BM</span>
+        </div>
+
+        <div>
+          <div class="font-black leading-none">Biotech Marvels</div>
+          <div class="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-gray-400">
+            Learn. Think. Discover.
+          </div>
+        </div>
+      </a>
+
+      <nav class="desktop-nav flex items-center gap-7 text-sm font-bold">
+        <a href="index.html#courses" class="text-gray-700 hover:text-[var(--bm-pink)]">Courses</a>
+        <a href="services.html" class="text-[var(--bm-pink)]">Services</a>
+        <a href="index.html#free-learning" class="text-gray-700 hover:text-[var(--bm-pink)]">Free Learning</a>
+        <a href="index.html#story" class="text-gray-700 hover:text-[var(--bm-pink)]">Our Story</a>
+        <a href="#primer-design" class="btn-primary !min-h-[40px] !px-4 !py-2">Primer Design</a>
+      </nav>
+
+      <button
+        id="mobileMenuButton"
+        class="mobile-menu-button rounded-xl border border-pink-100 px-3 py-2 text-xl"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav border-t border-pink-100 bg-white">
+      <div class="container-shell flex flex-col gap-4 py-5 text-sm font-bold">
+        <a href="index.html#courses">Courses</a>
+        <a href="services.html" class="text-[var(--bm-pink)]">Services</a>
+        <a href="index.html#free-learning">Free Learning</a>
+        <a href="index.html#story">Our Story</a>
+        <a href="#primer-design" class="btn-primary w-full">Primer Design</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SERVICES HERO -->
+    <section class="hero-glow scientific-grid">
+      <div class="container-shell grid min-h-[620px] items-center gap-12 py-16 lg:grid-cols-[1fr_.9fr]">
+        <div class="relative z-10">
+          <div class="section-kicker">🧬 Biotech Marvels Services</div>
+
+          <h1 class="mt-5 max-w-3xl text-[clamp(3rem,6vw,5.6rem)] font-black leading-[.98] tracking-[-.055em]">
+            Scientific support,
+            <span class="text-gradient">built for your research.</span>
+          </h1>
+
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+            Our services extend Biotech Marvels beyond education by supporting students and researchers
+            with focused, structured scientific workflows.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#primer-design" class="btn-primary">Explore Primer Design ↓</a>
+            <a href="index.html" class="btn-secondary">Back to Home</a>
+          </div>
+        </div>
+
+        <div class="sequence-box relative z-10">
+          <div class="mb-5 flex items-center justify-between">
+            <div>
+              <div class="text-xs font-black uppercase tracking-[.2em] text-pink-300">Service Preview</div>
+              <div class="mt-1 text-2xl font-black">Primer Design</div>
+            </div>
+            <div class="grid h-14 w-14 place-items-center rounded-2xl bg-white/10 text-3xl">🧬</div>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div class="text-xs font-bold uppercase tracking-[.14em] text-gray-400">Example sequence visualization</div>
+            <div class="sequence-text mt-4">
+              5′ — ATGCGTACGATCGATC<span class="primer">GGTACCTGACTG</span>ATCGTAGCTAGCTGACCGTA — 3′
+            </div>
+            <div class="mt-5 flex flex-wrap gap-2 text-xs font-bold">
+              <span class="rounded-full bg-pink-400/15 px-3 py-2 text-pink-200">Specificity</span>
+              <span class="rounded-full bg-pink-400/15 px-3 py-2 text-pink-200">GC%</span>
+              <span class="rounded-full bg-pink-400/15 px-3 py-2 text-pink-200">Tm</span>
+              <span class="rounded-full bg-pink-400/15 px-3 py-2 text-pink-200">Amplicon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIMER DESIGN SERVICE -->
+    <section id="primer-design" class="bg-[var(--bm-rose)] py-20">
+      <div class="container-shell">
+        <div class="mx-auto max-w-3xl text-center">
+          <div class="section-kicker">Service 01</div>
+          <h2 class="mt-4 text-[clamp(2.4rem,4.5vw,4.2rem)] font-black leading-[1.02] tracking-[-.045em]">
+            Primer Design
+          </h2>
+          <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-gray-600">
+            Structured primer design support for PCR-based molecular biology workflows,
+            with attention to sequence selection and key primer-quality parameters.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-[1.1fr_.9fr]">
+          <div class="service-card">
+            <div class="text-3xl">🔬</div>
+            <h3 class="mt-5 text-2xl font-black">What the service covers</h3>
+
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <div class="info-card">
+                <div class="font-black">Target sequence review</div>
+                <p class="mt-2 text-sm leading-6 text-gray-600">
+                  Review the supplied gene or target sequence and identify the relevant region for primer planning.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <div class="font-black">Primer candidate selection</div>
+                <p class="mt-2 text-sm leading-6 text-gray-600">
+                  Generate candidate primer pairs based on the requested experimental objective.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <div class="font-black">Basic quality parameters</div>
+                <p class="mt-2 text-sm leading-6 text-gray-600">
+                  Evaluate primer length, melting temperature, GC content, and expected amplicon characteristics.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <div class="font-black">Specificity-focused review</div>
+                <p class="mt-2 text-sm leading-6 text-gray-600">
+                  Check candidate suitability against the intended target and flag obvious design concerns.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="text-xs font-black uppercase tracking-[.18em] text-[var(--bm-pink)]">Deliverables</div>
+            <h3 class="mt-3 text-2xl font-black">What you receive</h3>
+
+            <div class="mt-6 space-y-4">
+              <div class="flex gap-3">
+                <div class="step-number !h-9 !w-9 !rounded-xl">✓</div>
+                <div>
+                  <div class="font-black">Forward primer sequence</div>
+                  <div class="mt-1 text-sm text-gray-600">Clearly labeled 5′→3′ sequence.</div>
+                </div>
+              </div>
+
+              <div class="flex gap-3">
+                <div class="step-number !h-9 !w-9 !rounded-xl">✓</div>
+                <div>
+                  <div class="font-black">Reverse primer sequence</div>
+                  <div class="mt-1 text-sm text-gray-600">Clearly labeled 5′→3′ sequence.</div>
+                </div>
+              </div>
+
+              <div class="flex gap-3">
+                <div class="step-number !h-9 !w-9 !rounded-xl">✓</div>
+                <div>
+                  <div class="font-black">Primer properties</div>
+                  <div class="mt-1 text-sm text-gray-600">Key design parameters summarized in a clean format.</div>
+                </div>
+              </div>
+
+              <div class="flex gap-3">
+                <div class="step-number !h-9 !w-9 !rounded-xl">✓</div>
+                <div>
+                  <div class="font-black">Design notes</div>
+                  <div class="mt-1 text-sm text-gray-600">Important considerations or limitations identified during review.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-7 rounded-2xl bg-pink-50 p-4 text-sm leading-6 text-gray-600">
+              <strong class="text-gray-900">Important:</strong>
+              Final experimental performance depends on sample quality, PCR conditions, reagents,
+              target complexity, and laboratory validation.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section class="py-20">
+      <div class="container-shell">
+        <div class="max-w-2xl">
+          <div class="section-kicker">Simple workflow</div>
+          <h2 class="mt-4 text-4xl font-black tracking-[-.04em] sm:text-5xl">
+            From your target to a clear primer-design report.
+          </h2>
+        </div>
+
+        <div class="mt-10 grid gap-5 md:grid-cols-4">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3 class="mt-5 font-black">Send your target</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">
+              Provide the gene, accession, sequence, or target information relevant to the request.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3 class="mt-5 font-black">Define the objective</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">
+              Clarify the intended PCR application and any important design constraints.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3 class="mt-5 font-black">Design & review</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">
+              Candidate primers are generated and reviewed against relevant design parameters.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3 class="mt-5 font-black">Receive results</h3>
+            <p class="mt-2 text-sm leading-6 text-gray-600">
+              Receive the primer pair and a concise summary of the main design characteristics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUIRED INFORMATION -->
+    <section class="bg-[var(--bm-rose)] py-20">
+      <div class="container-shell grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-start">
+        <div>
+          <div class="section-kicker">Before requesting</div>
+          <h2 class="mt-4 text-4xl font-black tracking-[-.04em] sm:text-5xl">
+            Information that helps us understand your design request.
+          </h2>
+          <p class="mt-5 text-lg leading-8 text-gray-600">
+            The more clearly the experimental target is defined, the more efficiently the request can be reviewed.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="info-card">
+              <div class="font-black">Gene / target</div>
+              <p class="mt-2 text-sm text-gray-600">Gene name, accession number, or target sequence.</p>
+            </div>
+            <div class="info-card">
+              <div class="font-black">Organism</div>
+              <p class="mt-2 text-sm text-gray-600">Species or biological source of the target.</p>
+            </div>
+            <div class="info-card">
+              <div class="font-black">PCR objective</div>
+              <p class="mt-2 text-sm text-gray-600">The intended application or experimental purpose.</p>
+            </div>
+            <div class="info-card">
+              <div class="font-black">Constraints</div>
+              <p class="mt-2 text-sm text-gray-600">Any known target region, amplicon preference, or other requirements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="px-4 py-20">
+      <div class="container-shell overflow-hidden rounded-[34px] bg-[var(--bm-ink)] px-6 py-14 text-center text-white sm:px-10">
+        <div class="mx-auto max-w-3xl">
+          <div class="section-kicker !bg-white/10 !text-pink-100">Primer Design Service</div>
+          <h2 class="mt-5 text-3xl font-black tracking-[-.04em] sm:text-5xl">
+            Have a target you want to work on?
+          </h2>
+          <p class="mx-auto mt-4 max-w-2xl text-lg leading-8 text-gray-300">
+            Prepare your gene or sequence information and contact Biotech Marvels to discuss your primer-design request.
+          </p>
+
+          <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <a href="index.html" class="btn-secondary">Return to Home</a>
+            <!-- Replace # with your request form / WhatsApp / contact URL when ready. -->
+            <a href="#" class="btn-primary">Request Primer Design</a>
+          </div>
+
+          <p class="mt-4 text-xs text-gray-500">
+            Add your preferred contact or request-form link to the “Request Primer Design” button.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-pink-100 bg-[var(--bm-rose)]">
+    <div class="container-shell grid gap-10 py-12 md:grid-cols-[1.4fr_.6fr_.6fr]">
+      <div>
+        <div class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl border border-pink-100 bg-white">
+            <img
+              src="logo"
+              alt="Biotech Marvels logo"
+              class="h-full w-full object-contain p-1"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+            />
+            <span class="hidden h-full w-full place-items-center bg-[var(--bm-pink)] font-black text-white">BM</span>
+          </div>
+          <div class="font-black">Biotech Marvels</div>
+        </div>
+
+        <p class="mt-4 max-w-md text-sm leading-6 text-gray-600">
+          Empowering the next generation of biotechnology innovators through practical learning,
+          scientific thinking, and scientific support.
+        </p>
+      </div>
+
+      <div>
+        <div class="font-black">Explore</div>
+        <div class="mt-4 flex flex-col gap-3 text-sm text-gray-600">
+          <a href="index.html#courses">Courses</a>
+          <a href="services.html" class="text-[var(--bm-pink)]">Services</a>
+          <a href="index.html#free-learning">Free Learning</a>
+          <a href="index.html#story">Our Story</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="font-black">Connect</div>
+        <div class="mt-4 flex flex-col gap-3 text-sm text-gray-600">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-pink-100 py-5 text-center text-xs text-gray-500">
+      © 2026 Biotech Marvels. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuButton = document.getElementById("mobileMenuButton");
+    const mobileNav = document.getElementById("mobileNav");
+
+    if (mobileMenuButton && mobileNav) {
+      mobileMenuButton.addEventListener("click", () => {
+        mobileNav.classList.toggle("open");
+        const isOpen = mobileNav.classList.contains("open");
+        mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
+        mobileMenuButton.textContent = isOpen ? "✕" : "☰";
+      });
+
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNav.classList.remove("open");
+          mobileMenuButton.setAttribute("aria-expanded", "false");
+          mobileMenuButton.textContent = "☰";
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
